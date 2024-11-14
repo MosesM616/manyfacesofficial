@@ -1,0 +1,1091 @@
+body, .logo, .navbar a, .footer p, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Metal', serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white; /* צבע לבן כמו שאר הטקסט באתר */
+}
+
+/* עיצוב הכותרות (h1, h2, h3) */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; /* נוודא שאין ריווח מיותר */
+  padding: 0; /* נוודא שאין padding מיותר */
+  color: white; /* צבע לבן כמו שאר הטקסט */
+}
+
+/* רקע שחור לכל העמוד */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+}
+
+/* עיצוב ה-Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between; /* יוצר מרווח בין הלוגו לניווט */
+  align-items: center; /* מיישר את האלמנטים במרכז מבחינה אנכית */
+  padding: 20px 40px; /* הגדלת ריווח פנימי */
+  background-color: black; /* רקע שחור */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  border-bottom: 2px solid #f0f0f0; /* קו תחתון אפור בהיר */
+}
+
+/* עיצוב הלוגו */
+.logo img {
+  height: 100px; /* הגדלנו את גובה הלוגו */
+  width: auto; /* נשמור על פרופורציות */
+}
+
+/* Media query עבור מובייל */
+@media (max-width: 768px) {
+  .top-bar {
+    justify-content: center; /* ממרכז את התוכן בתוך ה-Top Bar במובייל */
+  }
+  
+  .logo img {
+    height: 60px;  /* שינוי גובה הלוגו במובייל */
+  }
+}
+
+
+
+
+
+/* תפריט רגיל במחשב */
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* תפריט אופקי */
+  justify-content: center; /* מיישר את התפריט במרכז */
+  gap: 50px; /* רווחים בין פריטי התפריט */
+  position: relative; /* לוודא שהתפריט לא יפגע ביישור */
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  font-weight: normal;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #624607;
+}
+
+/* כפתור המבורגר */
+.hamburger-menu {
+  display: none; /* נסתר בברירת מחדל */
+  flex-direction: column;
+  gap: 12px; /* מרווח גדול יותר בין הקווים */
+   font-size: 40px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px; /* במרחק מעט מלמעלה */
+  right: 10px; /* הצבה בצד ימין */
+  z-index: 1000; /* לוודא שזה תמיד יהיה מעל שאר האלמנטים */
+}
+
+/* קווים בתוך כפתור המבורגר */
+.hamburger-menu div {
+  width: 80px; /* הגבה את רוחב הקווים */
+  height: 12px; /* הגבה את גובה הקווים */
+  background-color: white;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* עיצוב כפתור המבורגר לאחר לחיצה */
+.hamburger-menu.open div:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.open div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.open div:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* תפריט המבורגר במובייל */
+.navbar .mobile-menu {
+  display: none; /* נסתר במובייל */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1000;
+  align-items: center;
+  justify-content: flex-start; /* מיישר את התפריט מלמעלה */
+  padding-top: 60px; /* רווח מהחלק העליון */
+}
+
+.navbar .mobile-menu li {
+  text-align: center;
+  margin: 0; /* רווחים קטנים יותר בין פריטי התפריט */
+}
+
+.navbar .mobile-menu a {
+  font-size: 20px; /* גודל פונט קטן יותר במובייל */
+  color: white;
+  display: block;
+  padding: 0px 0;
+  transition: color 0.3s ease;
+}
+
+.navbar .mobile-menu a:hover {
+  color: #f0f0f0;
+}
+
+/* מצב כאשר התפריט נפתח */
+.navbar.active .mobile-menu {
+  display: flex;
+}
+
+/* Media query עבור מובייל */
+@media (max-width: 768px) {
+  /* הצגת המבורגר במובייל */
+  .navbar ul {
+    display: none; /* נסתר במובייל */
+  }
+
+  /* המבורגר במובייל */
+  .hamburger-menu {
+    display: flex;
+    z-index: 1001;
+  }
+}
+
+/* אחרי שלחצת על כפתור המבורגר */
+.navbar.active .hamburger-menu div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar.active .hamburger-menu div:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar.active .hamburger-menu div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* Container for the video */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 160px); /* Adjust this depending on your top bar height */
+  top: 60px; /* Make sure the video is placed below the top bar */
+  overflow: hidden; /* Prevents the video from going out of the container bounds */
+  z-index: -1;
+  border: 1px solid white;
+	border-radius: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+/* Video styles */
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Ensure the video fits within the container without stretching */
+  object-position: center center; /* Center the video */
+  max-width: 100%; /* Make sure the video doesn't exceed container size */
+  max-height: 100%; /* Make sure the video doesn't exceed container height */
+}
+
+.infbanner {
+  display: flex;
+  justify-content: center;  /* מיישר אופקית */
+  align-items: center;      /* מיישר אנכית */
+  width: 100%;              /* המיכל יתפוס את כל הרוחב */
+  height: 250px;            /* הגובה שאתה רוצה */
+}
+
+.infbanner img {
+  width: 100%;             /* התמונה תתפשט לרוחב המיכל */
+  height: 60%;            /* התמונה תתפשט לגובה המיכל */
+  object-fit: cover;       /* התמונה תמלא את המיכל עם פרופורציות */
+  object-position: center; /* מיקום התמונה בתוך המיכל, במידה ויתבצע חיתוך */
+}
+
+.latestrelease p{
+	font-size: 1.4em; /* Increase font size for readability */
+  color: white;
+  line-height: 1.8; /* Increase line-height for better readability */
+  margin-bottom: 40px; /* Add margin at the bottom */
+  text-align: center; /* Center the text */
+  max-width: 1400px; /* Set a max width to prevent it from becoming too wide on large screens */
+  margin-left: auto; /* Center the text block */
+  margin-right: auto; /* Center the text block */
+  margin-top: 30px; /* Add space from the previous section */
+}
+	
+}
+
+.insta-image {
+  display: flex;             /* מגדיר את המיכל להיות עם תצוגת flex */
+  justify-content: center;   /* מיישר את התמונה אופקית */
+  align-items: center;       /* מיישר את התמונה אנכית */
+  width: 100%;               /* רוחב המיכל מלא */
+  height: auto;              /* מאפשר למיכל להתאים לגובה התמונה */
+  padding-top: 50px;         /* דאג למרווח מהכותרת */
+}
+
+.insta-image img {
+  max-width: 100%;           /* שומר שהתמונה לא תצא מגבולות המיכל */
+  height: auto;              /* שומרת על פרופורציות התמונה */
+  display: block;            /* מונע רווחים נוספים מתחת לתמונה */
+  margin-left: auto;         /* ממרכזת את התמונה */
+  margin-right: auto;        /* ממרכזת את התמונה */
+}
+
+/* אפקט ה-hover על התמונה */
+.insta-image img:hover {
+  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8);  /* אפקט של הילה */
+  transform: scale(1.1);      /* הגדלה של התמונה במעט */
+}
+
+
+
+
+/* קונטיינר הסרטונים */
+.hp-media-video-container {
+  display: flex;                    /* Flexbox להצגת סרטונים בשורה אחת */
+  justify-content: center;           /* ממורכז אופקית בתוך הקונטיינר */
+  align-items: center;              /* ממורכז אנכית */
+  gap: 20px;                         /* רווח בין הסרטונים */
+  width: 100%;                       /* הקונטיינר תופס את כל הרוחב */
+  box-sizing: border-box;            /* תיאום הרוחב כך שהוא לא יפגע במידות */
+}
+
+/* סגנון לכל iframe */
+.hp-media-video-container iframe {
+  width: 760px;                     /* רוחב הסרטונים */
+  height: 515px;                    /* גובה הסרטונים */
+  border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
+  border-radius: 8px;               /* פינות מעוגלות */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* אפקט בזמן hover */
+  flex-shrink: 0;                   /* מונע מהסרטונים להתכווץ */
+}
+
+/* אפקט ה-hover */
+.hp-media-video-container iframe:hover {
+  transform: scale(1.05);           /* הגדלה בזמן hover */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* צל בזמן hover */
+}
+
+/* במקרה של מסך קטן (מובייל) */
+@media (max-width: 768px) {
+  .hp-media-video-container {
+    flex-direction: column;          /* מציג את הסרטונים אחד מעל השני במובייל */
+    align-items: center;             /* ממורכזים */
+    gap: 10px;                       /* רווח קטן יותר בין הסרטונים */
+  }
+
+  .hp-media-video-container iframe {
+    width: 100%;                     /* הסרטונים יתפשטו לרוחב מלא במובייל */
+    height: auto;                    /* גובה אוטומטי */
+  }
+}
+
+
+
+
+/* עיצוב הפוטר */
+.footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: auto; /* דואג לכך שהפוטר תמיד יהיה בתחתית */
+  width: 100%;
+}
+
+/* קו המפריד בין הפוטר לגוף העמוד */
+.footer-divider {
+  height: 2px;
+  background-color: #f0f0f0;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+/* עיצוב הלוגו של הלהקה בפוטר */
+.footer-band-logo {
+  width: 150px; /* עשיתי את הלוגו קטן מאוד */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* עיצוב הטקסט של זכויות יוצרים */
+.footer-rights p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* עיצוב האייקונים של שירותי סטרימינג */
+.footer-streaming {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+
+.footer-streaming .platform-logo {
+  font-size: 20px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.footer-streaming .platform-logo:hover {
+  transform: scale(1.1);
+  color: #f0f0f0;
+}
+
+/* עיצוב האייקונים של הרשתות החברתיות */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer-social .platform-logo {
+  font-size: 20px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.footer-social .platform-logo:hover {
+  transform: scale(1.1);
+  color: #f0f0f0;
+}
+
+.content {
+	justify-content: center;
+}
+
+.content h1 {
+  font-size: 3em;
+  color: white;
+  margin-bottom: 40px;
+  text-align: center; /* למרכז את הכותרת */
+}
+
+/* עיצוב התמונות */
+.member-profile {
+  display: flex;               /* Align images in a row */
+  justify-content: center;      /* Center the images horizontally */
+  align-items: center;         /* Center the images vertically */
+  gap: 40px;                   /* Gap between images */
+  flex-wrap: wrap;             /* Allow images to wrap to the next line on small screens */
+}
+
+.member-profile img {
+  width: 100px;                   /* Use percentage to make the image width flexible */
+  height: auto;                /* Maintain aspect ratio */
+  object-fit: cover;           /* Ensure the image covers the area without distortion */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .member-profile {
+    justify-content: space-around; /* Make sure images have space on smaller screens */
+  }
+
+  .member-profile img {
+    width: 100px;                  /* Resize images to be larger on mobile */
+    height: auto;                /* Keep images' aspect ratio */
+    margin-bottom: 15px;         /* Add margin to the bottom of images in the mobile view */
+  }
+}
+
+/* For very small mobile screens (phones in portrait mode) */
+@media (max-width: 480px) {
+  .member-profile img {
+    width: 80%;                  /* Use larger width for small screens */
+    margin-bottom: 20px;         /* Increase the margin between images */
+  }
+}
+
+
+/* עיצוב האייקונים של שירותי סטרימינג */
+.inficons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+
+.inficons .platform-logo {
+  font-size: 60px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.inficons .platform-logo:hover {
+  transform: scale(1.1);
+  color: #f0f0f0;
+}
+
+
+
+/* Styling specific to About Us page */
+#about-us-page {
+  background-color: black; /* Black background */
+  padding: 0 40px; /* Side padding */
+  min-height: 100vh; /* Ensure the content stretches over the entire screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ensures content starts at the top */
+  align-items: center; /* Centers content horizontally */
+  color: white; /* White text color */
+  padding-top: 200px; /* Space between HEADER and content */
+  margin-top: 0; /* No extra margin */
+  text-align: center; /* מרכז את הטקסט */
+}
+
+/* עיצוב התמונות */
+.backimg {
+  display: flex;               /* Align images in a row */
+  justify-content: center;      /* Center the images horizontally */
+  align-items: center;         /* Center the images vertically */
+  gap: 10px;                   /* Gap between images */
+  flex-wrap: wrap;             /* Allow images to wrap to the next line on small screens */
+}
+
+.backimg img {
+  width: 30%;                  /* Use percentage to make the image width flexible */
+  height: auto;                /* Maintain aspect ratio */
+  object-fit: cover;           /* Ensure the image covers the area without distortion */
+  border-radius: 50%;          /* Make the image round */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .backimg {
+    justify-content: space-around; /* Make sure images have space on smaller screens */
+  }
+
+  .backimg img {
+    width: 45%;                  /* Resize images to be larger on mobile */
+    height: auto;                /* Keep images' aspect ratio */
+    margin-bottom: 15px;         /* Add margin to the bottom of images in the mobile view */
+  }
+}
+
+/* For very small mobile screens (phones in portrait mode) */
+@media (max-width: 480px) {
+  .backimg img {
+    width: 80%;                  /* Use larger width for small screens */
+    margin-bottom: 20px;         /* Increase the margin between images */
+  }
+}
+
+
+
+/* The Band Section */
+.the-band {
+  text-align: center;
+  max-width: 1000px;
+  margin-bottom: 50px;
+}
+
+.the-band h1 {
+  font-size: 3em;
+  color: white;
+  margin-bottom: 40px;
+  text-align: center; /* למרכז את הכותרת */
+}
+
+.band-members {
+  display: flex;
+  justify-content: space-evenly; /* Distribute members evenly */
+  gap: 50px; /* Smaller gap between members */
+  flex-wrap: wrap; /* Allow wrap on smaller screens */
+}
+
+.member {
+  position: relative; /* Allows text to be positioned on top of the image */
+  text-align: center;
+  width: 270px; /* Width of the image */
+  height: 270px; /* Height of the image, square shape */
+}
+
+.member-photo {
+  width: 100%; /* Make image take full width of the container */
+  height: 100%; /* Make image take full height of the container */
+  border-radius: 50%; /* Circle shape */
+  object-fit: cover; /* Ensures the image fits without distortion */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */
+}
+
+/* Always show text on top of the image */
+.member-text {
+  position: absolute; /* Position the text over the image */
+  top: 50%; /* Vertically center the text */
+  left: 50%; /* Horizontally center the text */
+  transform: translate(-50%, -50%); /* Perfect centering of the text */
+  text-align: center;
+  color: white; /* White text */
+  padding: 5px 10px;
+  font-size: 0.9em; /* Adjust font size */
+}
+
+/* Text with black outline */
+.member-text h3 {
+  font-size: 1.4em; /* Increased font size for names */
+  margin-bottom: 5px;
+  text-shadow: 
+    1px 1px 0px black,  /* Top-left outline */
+    -1px -1px 0px black, /* Bottom-right outline */
+    1px -1px 0px black,  /* Top-right outline */
+    -1px 1px 0px black;  /* Bottom-left outline */
+}
+
+.member-text p {
+  font-size: 1.1em; /* Slightly larger text for roles */
+  text-shadow: 
+    1px 1px 0px black,  /* Top-left outline */
+    -1px -1px 0px black, /* Bottom-right outline */
+    1px -1px 0px black,  /* Top-right outline */
+    -1px 1px 0px black;  /* Bottom-left outline */
+}
+
+/* Hover effect for the photos */
+.member-photo:hover {
+  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8); /* Dark golden glow */
+  transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+
+/* OUR STORY Section */
+.our-story {
+  text-align: center; /* Align the text in the center */
+  max-width: 1600px; /* Increase the max-width even further to allow the text to be very wide */
+  margin-top: 40px; /* Add space from the previous section */
+  padding: 0 40px; /* Add padding on the sides for better spacing */
+}
+
+.our-story h1 {
+  font-size: 2.5em;
+  color: white;
+  margin-bottom: 40px;
+  text-align: center; /* ממרכז את הטקסט */
+}
+
+/* נוסיף את המסגרת והעיצוב לדימוי הטקסט */
+.our-story p {
+  font-size: 1.4em; /* Increase font size for readability */
+  color: white;
+  line-height: 1.8; /* Increase line-height for better readability */
+  margin-bottom: 40px; /* Add margin at the bottom */
+  text-align: center; /* Center the text */
+  max-width: 1400px; /* Set a max width to prevent it from becoming too wide on large screens */
+  margin-left: auto; /* Center the text block */
+  margin-right: auto; /* Center the text block */
+  margin-top: 30px; /* Add space from the previous section */
+}
+
+/* KRIFIGNOS Section */
+.krifignos {
+  text-align: center;
+  margin-top: 0px;
+}
+
+.krifignos h1 {
+  font-size: 2.5em;
+  color: white;
+  margin-bottom: 60px;
+  text-align: center;  /* מרכז את הכותרת */
+}
+
+/* Flexbox ל-Krifignos Content */
+.krifignos-content {
+  display: flex;
+  justify-content: center; /* ממרכז את התמונה והטקסט */
+  align-items: center;
+  gap: 0px; /* אין רווח בין התמונה והטקסט */
+  flex-wrap: nowrap; /* לא מרשה לעבור לשורה חדשה */
+  max-width: 1200px; /* מגביל את רוחב התוכן הכולל */
+  margin: 0 auto; /* ממקם את התוכן במרכז */
+}
+
+.krifignos-image .album-cover {
+  width: 60%; /* התמונה תהיה בגודל 60% מהמרחב */
+  height: auto;
+  border-radius: 10px;
+  margin: 0; /* ללא מרווחים */
+  transition: all 0.3s ease-in-out; /* מעבר חלק על hover */
+}
+
+/* Gold glow effect on hover */
+.krifignos-image .album-cover:hover {
+  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8); /* גוון זהב בהבהרה */
+  transform: scale(1.05); /* Slight zoom-in effect */
+}
+
+/* טקסט עם גבול, הצללה וריווח פנימי */
+.krifignos-text {
+  width: 60%; /* הטקסט תופס 60% מהמרחב */
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 20px; /* ריווח פנימי */
+  margin: 0; /* ללא מרווחים חיצוניים */
+  line-height: 1.6; /* מרווח בין שורות */
+  border: 10px dark gold; /* גבול בגוון זהב */
+  border-radius: 10px; /* פינות מעוגלות */
+  box-shadow: 0 0 10px rgba(106, 88, 28, 0.5); /* הצללה עדינה מסביב לגבול */
+  
+  /* הרקע מאחורי הטקסט - צבע כהה עם שקיפות */
+  background-color: rgba(0, 0, 0, 0.6); /* צבע כהה עם שקיפות (בהיר יותר משחור) */
+}
+
+/* תוספת קטנה לתמונה והטקסט בגרסאות מסך קטנות */
+@media (max-width: 768px) {
+  .krifignos-content {
+    flex-direction: column; /* בגרסאות מסך קטנות התמונה והטקסט יהיו אחד מעל השני */
+  }
+
+  .krifignos-image .album-cover,
+  .krifignos-text {
+    width: 100%; /* כל אחד יתפוס 100% מהמרחב */
+    margin: 0; /* ללא מרווחים נוספים */
+  }
+}
+.main-title h1{
+	text-align: center; /* מרכז את הכותרת */
+  font-size: 3em; /* גודל גופן גדול יותר */
+  margin-top: 120px; /* רווחים עליונים כדי למנוע חפיפות עם ה-HEADER */
+  margin-bottom: 40px; /* רווח תחתון בין הכותרת לתוכן */
+}
+
+.music-player {
+  text-align: center; /* מרכז את התוכן בתוך ה-div */
+}
+
+.music-player iframe {
+  display: inline-block; /* הופך את ה-iframe לאובייקט פנימי בתוך ה-div */
+}
+
+/* קונטיינר הסרטונים */
+.media-video-container {
+  display: flex;                    /* Flexbox להצגת סרטונים בשורה אחת */
+  justify-content: center;           /* ממורכז אופקית בתוך הקונטיינר */
+  align-items: center;              /* ממורכז אנכית */
+  gap: 20px;                         /* רווח בין הסרטונים */
+  width: 100%;                       /* הקונטיינר תופס את כל הרוחב */
+  box-sizing: border-box;            /* תיאום הרוחב כך שהוא לא יפגע במידות */
+}
+
+/* סגנון לכל iframe */
+.media-video-container iframe {
+  width: 560px;                     /* רוחב הסרטונים */
+  height: 315px;                    /* גובה הסרטונים */
+  border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
+  border-radius: 8px;               /* פינות מעוגלות */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* אפקט בזמן hover */
+  flex-shrink: 0;                   /* מונע מהסרטונים להתכווץ */
+}
+
+/* אפקט ה-hover */
+.media-video-container iframe:hover {
+  transform: scale(1.05);           /* הגדלה בזמן hover */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* צל בזמן hover */
+}
+
+/* במקרה של מסך קטן (מובייל) */
+@media (max-width: 768px) {
+  .media-video-container {
+    flex-direction: column;          /* מציג את הסרטונים אחד מעל השני במובייל */
+    align-items: center;             /* ממורכזים */
+    gap: 10px;                       /* רווח קטן יותר בין הסרטונים */
+  }
+
+  .media-video-container iframe {
+    width: 100%;                     /* הסרטונים יתפשטו לרוחב מלא במובייל */
+    height: auto;                    /* גובה אוטומטי */
+  }
+}
+
+
+/* גלריה - מבנה */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 80px; /* רווח עליון כדי למנוע חפיפות עם ה-HEADER */
+    position: relative; /* מוודא שהגלריה לא תעלה מעל ה-header */
+    z-index: 1; /* מבטיח שהתמונות יהיו מתחת לכל שאר האלמנטים */
+}
+
+/* הגדרות לכל אלבום */
+.album { 
+    width: 300px;
+    height: 300px;
+    border-radius: 50%; /* הופך את התמונה לעיגול */
+    overflow: hidden;
+    position: relative; /* מאפשר למקם אלמנטים מעל התמונה */
+    transition: box-shadow 0.3s ease-in-out; /* אפקט חלוף לזוהר */
+}
+
+/* קישור בתוך כל אלבום */
+.album a {
+    position: relative; /* כדי למקם את הקישור מעל התמונה */
+    z-index: 10; /* שים את הקישור מעל התמונה */
+    display: block; /* גורם לקישור לכסות את כל גודל האלמנט */
+}
+
+/* הגדרות לתמונה בתוך כל אלבום */
+.album img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    pointer-events: none; /* מבטיח שהתמונה לא חוסמת את הקישור */
+}
+
+/* אפקט כשעוברים עם העכבר על התמונה */
+.album img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(98, 70, 7, 0.8); /* הצללה עם הצבע החדש (#624607) */
+}
+
+/* אפקט כשעוברים עם העכבר על האלמנט של האלבום */
+.album::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(98, 70, 7, 0.2); /* צבע זהוב כהה (עם שקיפות) */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* כשמעבירים את העכבר מעל אלבום */
+.album:hover::after {
+    opacity: 1;
+}
+
+/* אפקט של זוהר זהוב כהה ודק מאחורי התמונה */
+.album:hover {
+    box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8); /* Dark golden glow */
+    transform: scale(1.1);
+}
+
+/* במובייל - שינויים להתאמה */
+@media (max-width: 768px) {
+    /* הוספת רווח עליון לגלריה במובייל */
+    .gallery {
+        margin-top: 120px; /* הוספת מרווח נוסף כדי למנוע חפיפות */
+    }
+    
+    .album {
+        width: 45%; /* מצמצם את רוחב התמונות במובייל */
+        height: 200px; /* גובה קטן יותר במובייל */
+        margin-top: 20px; /* מרווח קטן יותר במובייל */
+    }
+
+    /* כפתור המבורגר */
+    .hamburger-menu {
+        z-index: 1001; /* מבטיח שההמבורגר לא יתכסה */
+    }
+}
+
+/* במובייל - אם המסך מאוד קטן */
+@media (max-width: 480px) {
+    .gallery {
+        margin-top: 130px; /* רווח עוד יותר גדול */
+    }
+    
+    .album {
+        width: 80%; /* מרחיב את התמונות על מסכים קטנים מאוד */
+        height: 180px; /* גובה קטן יותר */
+    }
+}
+
+
+/* Styling for the album gallery section */
+.album-gallery {
+  display: flex;
+  flex-wrap: wrap; /* מאפשר לתמונות לשבור שורות */
+  justify-content: center; /* ממרכז את התמונות */
+  gap: 20px; /* רווח בין התמונות */
+  padding: 40px 20px; /* ריווח פנימי */
+}
+
+.album {
+  width: 250px; /* רוחב קטן יותר לכל תמונה */
+  height: 250px; /* גובה קטן יותר לכל תמונה */
+  border-radius: 10px; /* פינות מעוגלות */
+  overflow: hidden; /* חותך את התמונה אם היא יוצאת מגבולות האלמנט */
+  position: relative; /* מאפשר למקם אלמנטים יחסית אליו */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* אפקטים עם מעבר חלק */
+}
+
+.album a {
+  display: block; /* קישור שיתפוס את כל התמונה */
+  width: 100%;
+  height: 100%;
+}
+
+.album img {
+  width: 100%; /* התמונות יתפשטו על כל רוחב האלמנט */
+  height: 100%; /* התמונות יתפשטו על כל גובה האלמנט */
+  object-fit: cover; /* התמונות יתאימו לאזור עם שמירה על יחס הצורות */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* אפקטים בזמן hover */
+}
+
+/* אפקט זוהר זהוב עם hover על תמונה */
+.album img:hover {
+  transform: scale(1.1); /* תמונה תגדל במעט */
+  box-shadow: 0 0 15px rgba(98, 70, 7, 0.8); /* זוהר עם הצבע הזהוב (#624607) */
+}
+
+/* אפקט של זוהר בצבע זהב על התמונה */
+.album:hover {
+  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8); /* זוהר חזק יותר בזמן hover */
+  transform: scale(1.05); /* מעט הגדלת התמונה */
+}
+
+/* אפקט של זוהר רך מאחורי התמונה */
+.album::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(98, 70, 7, 0.2); /* צבע זהוב כהה (עם שקיפות) */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* אפקט רך למעבר */
+  border-radius: 10px;
+}
+
+.album:hover::after {
+  opacity: 1; /* מאפיל את האפקט של הזוהר כאשר יש hover */
+}
+
+
+/* Styling for the album gallery section */
+.album-gallery {
+  display: flex;
+  flex-wrap: wrap; /* מאפשר לתמונות לשבור שורות */
+  justify-content: center; /* ממרכז את התמונות */
+  gap: 20px; /* רווח בין התמונות */
+  padding: 40px 20px; /* ריווח פנימי */
+}
+
+/* Styling for each album (each image container) */
+.album {
+  width: 250px; /* רוחב קטן יותר לכל תמונה */
+  height: 250px; /* גובה קטן יותר לכל תמונה */
+  border-radius: 10px; /* פינות מעוגלות */
+  overflow: hidden; /* חותך את התמונה אם היא יוצאת מגבולות האלמנט */
+  position: relative; /* מאפשר למקם אלמנטים יחסית אליו */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* אפקטים עם מעבר חלק */
+}
+
+/* תצוגת התמונה כקישור, כך שתהיה גם clickable */
+.album a {
+  display: block; /* קישור שיתפוס את כל התמונה */
+  width: 100%;
+  height: 100%;
+}
+
+/* עיצוב התמונה בתוך האלבום */
+.album img {
+  width: 100%; /* התמונות יתפשטו על כל רוחב האלמנט */
+  height: 100%; /* התמונות יתפשטו על כל גובה האלמנט */
+  object-fit: cover; /* התמונות יתאימו לאזור עם שמירה על יחס הצורות */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* אפקטים בזמן hover */
+}
+
+/* אפקט זוהר זהוב עם hover על תמונה */
+.album img:hover {
+  transform: scale(1.1); /* תמונה תגדל במעט */
+  box-shadow: 0 0 15px rgba(98, 70, 7, 0.8); /* זוהר עם הצבע הזהוב (#624607) */
+}
+
+/* אפקט של זוהר בצבע זהב על התמונה */
+.album:hover {
+  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8); /* זוהר חזק יותר בזמן hover */
+  transform: scale(1.05); /* מעט הגדלת התמונה */
+}
+
+/* אפקט של זוהר רך מאחורי התמונה */
+.album::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(98, 70, 7, 0.2); /* צבע זהוב כהה (עם שקיפות) */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* אפקט רך למעבר */
+  border-radius: 10px;
+}
+
+.album:hover::after {
+  opacity: 1; /* מאפיל את האפקט של הזוהר כאשר יש hover */
+}
+
+/* עיצוב כפתור 'Back to Gallery' */
+.back-to-gallery {
+  display: flex;
+  justify-content: center; /* ממרכז את הכפתור */
+  margin-top: 40px; /* רווח למעלה מהתמונות */
+}
+
+/* עיצוב כפתור 'Back to Gallery' */
+.back-button {
+  background-color: black; /* צבע רקע שחור */
+  color: white; /* צבע טקסט לבן */
+  padding: 10px 30px; /* ריווח פנימי */
+  text-decoration: none; /* מסיר קו תחתון */
+  font-size: 18px; /* גודל פונט */
+  font-weight: bold; /* משמֵר על כובד */
+  border-radius: 5px; /* פינות מעוגלות */
+  border: 1px solid white; /* בורדר לבן */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* צללה עדינה */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* אפקטי מעבר */
+  display: inline-flex; /* הצגת הטקסט והאייקון בשורה אחת */
+  align-items: center; /* מיישר את האייקון והטקסט במרכז */
+}
+
+/* עיצוב האייקון בתוך כפתור החזור */
+.back-button i {
+  margin-right: 8px; /* רווח קטן בין האייקון לטקסט */
+  font-size: 20px; /* גודל האייקון */
+}
+
+/* אפקטים בעת hover על כפתור החזור */
+.back-button:hover {
+  background-color: #7a5d25; /* שינוי צבע ברקע בעת hover */
+  transform: scale(1.05); /* קצת הגדלה בעת hover */
+}
+
+.back-button:active {
+  transform: scale(0.98); /* הקטנה בעת לחיצה */
+}
+
+/* במובייל - שינויים עבור כפתור החזור */
+@media (max-width: 768px) {
+  .back-button {
+    padding: 8px 20px; /* התאמת ריווח במובייל */
+    font-size: 16px; /* גודל טקסט קטן יותר */
+  }
+}
+
+
+
+
+
+
+.tour{
+  text-align: center;
+  max-width: 1000px;
+  margin-bottom: 50px;
+}
+
+.tour h1 {
+  font-size: 3em;
+  color: white;
+  margin-bottom: 40px;
+  text-align: center; /* למרכז את הכותרת */
+}
+
+.tour p {
+  font-size: 1.4em; /* Increase font size for readability */
+  color: white;
+  line-height: 1.8; /* Increase line-height for better readability */
+  margin-bottom: 40px; /* Add margin at the bottom */
+  text-align: center; /* Center the text */
+  max-width: 1400px; /* Set a max width to prevent it from becoming too wide on large screens */
+  margin-left: auto; /* Center the text block */
+  margin-right: auto; /* Center the text block */
+  margin-top: 30px; /* Add space from the previous section */
+}
+
+
+
+
+/* CSS ספציפי לעמוד Mailing List */
+#mailing-list-page {
+  text-align: center;
+  padding: 50px 0;
+}
+
+#mailing-list-page h1,
+#mailing-list-page h3 {
+  font-family: 'Metal', sans-serif;
+  margin-bottom: 20px;
+}
+
+#mailing-list-form {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: black;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #624607; /* מסגרת דקה בצבע דארק גולד */
+}
+
+#mailing-list-form .form-group {
+  margin-bottom: 20px;
+}
+
+#mailing-list-form input {
+  width: 100%;
+  padding: 12px;
+  border: 0.5px solid #624607; /* גבול דק בצבע דארק גולד */
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #333; /* רקע כהה לשדות הקלט */
+  color: white; /* צבע טקסט לבן */
+}
+
+#mailing-list-form input:focus {
+  outline: none;
+  border-color: #d1b29a; /* שינוי צבע הגבול כשהשדה מקבל פוקוס */
+}
+
+#mailing-list-form .subscribe-btn {
+  background-color: #bfa24d; /* צבע רקע של דארק גולד לכפתור */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#mailing-list-form .subscribe-btn:hover {
+  background-color: #d1b29a; /* גוון כהה יותר של דארק גולד */
+}
+
+

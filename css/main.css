@@ -137,7 +137,7 @@ body {
   z-index: 1000;
   align-items: center;
   justify-content: flex-start; /* מיישר את התפריט מלמעלה */
-  padding-top: 60px; /* רווח מהחלק העליון */
+  padding-top: 40px; /* רווח מהחלק העליון */
 }
 
 /* אחידות על כל אלמנט בתפריט */
@@ -163,7 +163,6 @@ body.index-page .navbar .mobile-menu a {
   line-height: 1.5; /* מרווח גובה אחיד */
   color: white; /* צבע לבן לכל הקישורים */
   display: block; /* כל קישור יתפוס שורה נפרדת */
-  padding: 15px 20px; /* פדינג אחיד לכל הקישורים */
   transition: color 0.3s ease; /* אנימציה בזמן שינוי צבע */
 }
 .navbar .mobile-menu a:hover {

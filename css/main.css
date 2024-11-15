@@ -149,17 +149,17 @@ body {
 
 /* אם יש סגנון ספציפי עבור index.html */
 body.index-page .navbar .mobile-menu a {
-  font-size: 20px !important;  /* מבטל כל שינוי גודל פונט בעמוד הבית */
+  font-size: 30px !important;  /* מבטל כל שינוי גודל פונט בעמוד הבית */
   line-height: 1.5 !important; /* מבטל כל שינוי גובה שורה בעמוד הבית */
 }
 
 .home {
-	font-size: 20px !important;  /* מבטל כל שינוי גודל פונט בעמוד הבית */
+	font-size: 30px !important;  /* מבטל כל שינוי גודל פונט בעמוד הבית */
 }
 
 /* אחידות על כל אלמנט בתפריט, גם בעמוד הבית */
 .navbar .mobile-menu a {
-  font-size: 20px; /* גודל אחיד לכל הקישורים */
+  font-size: 30px; /* גודל אחיד לכל הקישורים */
   line-height: 1.5; /* מרווח גובה אחיד */
   color: white; /* צבע לבן לכל הקישורים */
   display: block; /* כל קישור יתפוס שורה נפרדת */

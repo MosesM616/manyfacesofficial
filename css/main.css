@@ -42,7 +42,7 @@ body {
 }
 
 .logo img {
-  height: 120px; /* הגדלנו את גובה הלוגו */
+  height: 130px; /* הגדלנו את גובה הלוגו */
   width: auto; /* נשמור על פרופורציות */
 }
 
@@ -53,10 +53,9 @@ body {
   }
   
   .logo img {
-    height: 70px;  /* שינוי גובה הלוגו במובייל */
+    height: 100px; 
   }
 }
-
 
 
 
@@ -70,6 +69,7 @@ body {
   justify-content: center; /* מיישר את התפריט במרכז */
   gap: 50px; /* רווחים בין פריטי התפריט */
   position: relative; /* לוודא שהתפריט לא יפגע ביישור */
+  top: 10px;
 }
 
 .navbar a {
@@ -94,7 +94,7 @@ body {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 20px; /* במרחק מעט מלמעלה */
+  top: 40px; /* במרחק מעט מלמעלה */
   right: 10px; /* הצבה בצד ימין */
   z-index: 1000; /* לוודא שזה תמיד יהיה מעל שאר האלמנטים */
 }
@@ -154,7 +154,7 @@ body.index-page .navbar .mobile-menu a {
 }
 
 .home {
-	font-size: 25px !important;  /* מבטל כל שינוי גודל פונט בעמוד הבית */
+  font-size: 25px !important;  /* מבטל כל שינוי גודל פונט בעמוד הבית */
 }
 
 /* אחידות על כל אלמנט בתפריט, גם בעמוד הבית */
@@ -165,6 +165,7 @@ body.index-page .navbar .mobile-menu a {
   display: block; /* כל קישור יתפוס שורה נפרדת */
   transition: color 0.3s ease; /* אנימציה בזמן שינוי צבע */
 }
+
 .navbar .mobile-menu a:hover {
   color: #f0f0f0;
 }
@@ -173,6 +174,35 @@ body.index-page .navbar .mobile-menu a {
 .navbar.active .mobile-menu {
   display: flex; /* מציג את התפריט כאשר יש קלאס active */
 }
+
+/* כפתור ה-X לסגירת התפריט */
+.navbar .close-menu {
+  display: none; /* נסתר בברירת מחדל */
+  position: fixed;
+  top: 40px;
+  left: 20px; /* כפתור בצד שמאל */
+  font-size: 10px;
+  color: white;
+  cursor: pointer;
+  z-index: 1001; /* לוודא שכפתור ה-X יהיה מעל שאר האלמנטים */
+  background-color: #333; /* רקע כהה לכפתור */
+  width: 30px; /* קביעת רוחב הכפתור */
+  height: 30px; /* קביעת גובה הכפתור */
+  display: flex; /* ישמש כדי למרכז את ה-X במדויק */
+  justify-content: center; /* מיישר את ה-X אופקית */
+  align-items: flex-start; /* מיישר את ה-X להתחלה (למעלה) */
+  border: 2px solid white; /* מסגרת לבנה סביב הכפתור */
+  padding-top: 7px; /* מוסיף רווח למעלה */
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* אנימציה */
+}
+
+/* כאשר הכפתור מעובר עם העכבר */
+.navbar .close-menu:hover {
+  color: #f0f0f0; /* צבע הטקסט משתנה בהhover */
+  background-color: #444; /* צבע רקע כהה יותר בהhover */
+  transform: scale(1.1); /* מעט הגדלת הכפתור בעת hover */
+}
+
 
 /* Media query עבור מובייל */
 @media (max-width: 768px) {
@@ -189,6 +219,11 @@ body.index-page .navbar .mobile-menu a {
   /* הצגת כפתור המבורגר במובייל */
   .hamburger-menu {
     display: flex; /* כפתור המבורגר יוצג במובייל */
+  }
+
+  /* הצגת כפתור ה-X במובייל */
+  .navbar.active .close-menu {
+    display: block; /* כפתור ה-X יוצג כאשר התפריט פתוח */
   }
 }
 
@@ -260,28 +295,50 @@ body.index-page .navbar .mobile-menu a {
 	
 }
 
+
+
+/* קונטיינר התמונה */
 .insta-image {
-  display: flex;             /* מגדיר את המיכל להיות עם תצוגת flex */
-  justify-content: center;   /* מיישר את התמונה אופקית */
-  align-items: center;       /* מיישר את התמונה אנכית */
-  width: 100%;               /* רוחב המיכל מלא */
-  height: auto;              /* מאפשר למיכל להתאים לגובה התמונה */
-  padding-top: 50px;         /* דאג למרווח מהכותרת */
+  display: flex;              /* Flexbox למרכז את התמונה */
+  justify-content: center;    /* מיישר את התמונה במרכז */
+  align-items: center;        /* מיישר את התמונה גם במרכז אנכית */
+  width: 100%;                /* רוחב מלא */
+  height: auto;               /* גובה אוטומטי לשמירה על פרופורציות */
+  padding-top: 50px;          /* רווח מעל התמונה */
+  margin: 0 auto;             /* ממרכז את המיכל */
+  pointer-events: none;       /* מבטל לחיצה על הקונטיינר */
 }
 
+/* התמונה עצמה – עיצוב */
 .insta-image img {
-  max-width: 100%;           /* שומר שהתמונה לא תצא מגבולות המיכל */
-  height: auto;              /* שומרת על פרופורציות התמונה */
-  display: block;            /* מונע רווחים נוספים מתחת לתמונה */
-  margin-left: auto;         /* ממרכזת את התמונה */
-  margin-right: auto;        /* ממרכזת את התמונה */
+  max-width: 100%;            /* התמונה תתפוס מקסימום רוחב המיכל */
+  height: auto;               /* שמירה על פרופורציות התמונה */
+  display: block;             /* מונע רווחים מתחת לתמונה */
+  margin-left: auto;          /* ממרכז את התמונה */
+  margin-right: auto;         /* ממרכז את התמונה */
+  pointer-events: auto;       /* מאפשר לחיצה על התמונה */
 }
 
-/* אפקט ה-hover על התמונה */
+/* אפקט Hover עבור התמונה */
 .insta-image img:hover {
-  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8);  /* אפקט של הילה */
-  transform: scale(1.1);      /* הגדלה של התמונה במעט */
+  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8);  /* הילה עם צל */
+  transform: scale(1.1);      /* הגדלה קלה של התמונה */
 }
+
+/* Media Query עבור מסכים קטנים (מובייל) */
+@media (max-width: 768px) {
+  /* וודא שהתמונה תישאר בתוך גבולות המסך */
+  .insta-image img {
+    max-width: 90%;             /* צמצום רוחב התמונה במובייל */
+    margin-left: auto;          /* ממרכז את התמונה */
+    margin-right: auto;         /* ממרכז את התמונה */
+  }
+}
+
+
+
+
+
 
 
 
@@ -380,6 +437,18 @@ body.index-page .navbar .mobile-menu a {
   color: #f0f0f0;
 }
 
+.footer-streaming .platform-logo:hover {
+  transform: scale(1.1);  /* Scale the icon on hover */
+  color: #624607 !important;  /* Change color on hover, use !important if necessary */
+}
+
+/* Optional: Glow effect */
+.footer-streaming .platform-logo:active {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+
+
 /* עיצוב האייקונים של הרשתות החברתיות */
 .footer-social {
   display: flex;
@@ -447,7 +516,7 @@ body.index-page .navbar .mobile-menu a {
 }
 
 
-/* עיצוב האייקונים של שירותי סטרימינג */
+/* Icon styling for streaming services */
 .inficons {
   display: flex;
   justify-content: center;
@@ -456,15 +525,22 @@ body.index-page .navbar .mobile-menu a {
 }
 
 .inficons .platform-logo {
-  font-size: 60px;
-  color: white;
-  transition: transform 0.3s ease;
+  font-size: 40px;
+  color: white;  /* default color */
+  transition: transform 0.3s ease, color 0.3s ease;  /* Add color transition */
 }
 
 .inficons .platform-logo:hover {
-  transform: scale(1.1);
-  color: #f0f0f0;
+  transform: scale(1.1);  /* Scale the icon on hover */
+  color: #624607 !important;  /* Change color on hover, use !important if necessary */
 }
+
+/* Optional: Glow effect */
+.inficons .platform-logo:active {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+
 
 
 
@@ -797,8 +873,8 @@ body.index-page .navbar .mobile-menu a {
 /* במובייל - שינויים להתאמה */
 @media (max-width: 768px) {
     .gallery {
-        margin-top: 60px;  /* הקטנתי את המרווח העליון */
-        padding: 20px;     /* הקטנתי את הרווח הפנימי */
+        margin-top: 70px;  /* הקטנתי את המרווח העליון */
+        padding: 40px;     /* הקטנתי את הרווח הפנימי */
     }
     
     .albumga {
@@ -810,8 +886,8 @@ body.index-page .navbar .mobile-menu a {
 
 @media (max-width: 480px) {
     .gallery {
-        margin-top: 40px;  /* הקטנתי את המרווח העליון */
-        padding: 15px;     /* הקטנתי את הרווח הפנימי */
+        margin-top: 60px;  /* הקטנתי את המרווח העליון */
+        padding: 35px;     /* הקטנתי את הרווח הפנימי */
     }
     
     .albumga {

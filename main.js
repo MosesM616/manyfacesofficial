@@ -1,7 +1,27 @@
+// פונקציה לפתיחת וסגירת התפריט
 function toggleMenu() {
   var navbar = document.querySelector('.navbar');
   navbar.classList.toggle('active');
 }
+
+// פונקציה לסגור את התפריט בלחיצה מחוץ לו
+document.addEventListener('click', function(event) {
+  var navbar = document.querySelector('.navbar');
+  var menu = document.querySelector('.mobile-menu');
+  var hamburgerMenu = document.querySelector('.hamburger-menu');
+  var closeMenuButton = document.querySelector('.close-menu');
+
+  // אם הלחיצה היא לא על התפריט, כפתור ההמבורגר או כפתור ה-X, סגור את התפריט
+  if (!menu.contains(event.target) && !hamburgerMenu.contains(event.target) && !closeMenuButton.contains(event.target) && navbar.classList.contains('active')) {
+    navbar.classList.remove('active');
+  }
+});
+
+
+
+
+
+
 // קוד JavaScript להחלפת התמונה ב-Modal על פי הקישור
 document.querySelectorAll('a[data-bs-toggle="modal"]').forEach(function(anchor) {
   anchor.addEventListener('click', function() {

@@ -385,47 +385,6 @@ body.index-page .navbar .mobile-menu a {
   }
 }
 
-.Video-Paragraph {
-	font-size: 1.4em; /* Increase font size for readability */
-  color: white;
-  line-height: 1.8; /* Increase line-height for better readability */
-  margin-bottom: 40px; /* Add margin at the bottom */
-  text-align: center; /* Center the text */
-  max-width: 1400px; /* Set a max width to prevent it from becoming too wide on large screens */
-  margin-left: auto; /* Center the text block */
-  margin-right: auto; /* Center the text block */
-  margin-top: 30px; /* Add space from the previous section */
-}
-
-.youtubevideo Video{
-margin-top: -20px; /* Add space from the previous section */
-border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
-  border-radius: 8px;	
-}
-
-  /* מדיה קווירי: התאמת עיצוב למסכים קטנים */
-  @media (max-width: 768px) {
-    .Video-Paragraph h1 {
-      font-size: 1.5rem; /* גודל כותרת קטן יותר במובייל */
-    }
-    .Video-Paragraph p {
-      font-size: 0.9rem; /* טקסט קטן יותר במובייל */
-    }
-    .youtubevideo video {
-      width: 100%; /* וידאו יתפוס את כל רוחב המסך במובייל */
-      max-width: 100%; /* ללא מגבלה על הרוחב במובייל */
-    }
-  }
-
-  /* מדיה קווירי: התאמה למסכים קטנים מאוד (טאבלטים) */
-  @media (max-width: 480px) {
-    .Video-Paragraph h1 {
-      font-size: 1.2rem;
-    }
-    .Video-Paragraph p {
-      font-size: 0.8rem;
-    }
-  }
 
 
 
@@ -581,6 +540,53 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 /* Optional: Glow effect */
 .inficons .platform-logo:active {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.Video-Paragraph {
+	font-size: 1.4em; /* Increase font size for readability */
+  color: white;
+  line-height: 1.8; /* Increase line-height for better readability */
+  margin-bottom: 40px; /* Add margin at the bottom */
+  text-align: center; /* Center the text */
+  max-width: 1400px; /* Set a max width to prevent it from becoming too wide on large screens */
+  margin-left: auto; /* Center the text block */
+  margin-right: auto; /* Center the text block */
+  margin-top: 30px; /* Add space from the previous section */
+}
+
+.youtubevideo Video{
+margin-top: -20px; /* Add space from the previous section */
+border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
+  border-radius: 8px;	
+}
+
+  /* מדיה קווירי: התאמת עיצוב למסכים קטנים */
+  @media (max-width: 768px) {
+    .Video-Paragraph h1 {
+      font-size: 1.5rem; /* גודל כותרת קטן יותר במובייל */
+    }
+    .Video-Paragraph p {
+      font-size: 0.9rem; /* טקסט קטן יותר במובייל */
+    }
+    .youtubevideo video {
+      width: 100%; /* וידאו יתפוס את כל רוחב המסך במובייל */
+      max-width: 100%; /* ללא מגבלה על הרוחב במובייל */
+    }
+  }
+
+  /* מדיה קווירי: התאמה למסכים קטנים מאוד (טאבלטים) */
+  @media (max-width: 480px) {
+    .Video-Paragraph h1 {
+      font-size: 1.2rem;
+    }
+    .Video-Paragraph p {
+      font-size: 0.8rem;
+    }
+  }
+  
+  .youtubevideo video:hover {
+  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8);  /* הילה עם צל */
+  transform: scale(1.1);      /* הגדלה קלה של התמונה */
 }
 
 

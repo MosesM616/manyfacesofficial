@@ -403,6 +403,31 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   border-radius: 8px;	
 }
 
+  /* מדיה קווירי: התאמת עיצוב למסכים קטנים */
+  @media (max-width: 768px) {
+    .Video-Paragraph h1 {
+      font-size: 1.5rem; /* גודל כותרת קטן יותר במובייל */
+    }
+    .Video-Paragraph p {
+      font-size: 0.9rem; /* טקסט קטן יותר במובייל */
+    }
+    .youtubevideo video {
+      width: 100%; /* וידאו יתפוס את כל רוחב המסך במובייל */
+      max-width: 100%; /* ללא מגבלה על הרוחב במובייל */
+    }
+  }
+
+  /* מדיה קווירי: התאמה למסכים קטנים מאוד (טאבלטים) */
+  @media (max-width: 480px) {
+    .Video-Paragraph h1 {
+      font-size: 1.2rem;
+    }
+    .Video-Paragraph p {
+      font-size: 0.8rem;
+    }
+  }
+
+
 
 /* עיצוב הפוטר */
 .footer {

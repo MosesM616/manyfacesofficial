@@ -343,6 +343,8 @@ body.index-page .navbar .mobile-menu a {
 
 
 
+
+
 /* קונטיינר הסרטונים */
 .hp-media-video-container {
   display: flex;                    /* Flexbox להצגת סרטונים בשורה אחת */
@@ -383,7 +385,23 @@ body.index-page .navbar .mobile-menu a {
   }
 }
 
+.Video-Paragraph {
+	font-size: 1.4em; /* Increase font size for readability */
+  color: white;
+  line-height: 1.8; /* Increase line-height for better readability */
+  margin-bottom: 40px; /* Add margin at the bottom */
+  text-align: center; /* Center the text */
+  max-width: 1400px; /* Set a max width to prevent it from becoming too wide on large screens */
+  margin-left: auto; /* Center the text block */
+  margin-right: auto; /* Center the text block */
+  margin-top: 30px; /* Add space from the previous section */
+}
 
+.youtubevideo Video{
+margin-top: -20px; /* Add space from the previous section */
+border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
+  border-radius: 8px;	
+}
 
 
 /* עיצוב הפוטר */

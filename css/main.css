@@ -33,6 +33,7 @@ body {
   width: 100%;
   z-index: 1000;  /* מוודא שהכותרת תמיד מעל התוכן */
   border-bottom: 2px solid #f0f0f0;
+  flex-direction: row-reverse; /* משנה את סדר האלמנטים כך שהתפריט יהיה בצד שמאל והלוגו בצד ימין */
 }
 
 /* עיצוב הלוגו */
@@ -50,15 +51,33 @@ body {
 @media (max-width: 768px) {
   .top-bar {
     justify-content: center; /* ממרכז את התוכן בתוך ה-Top Bar במובייל */
+    flex-direction: row; /* במובייל נשאיר את הסדר הרגיל */
   }
-  
+
   .logo img {
-    height: 100px; 
+    height: 100px;
+  }
+
+  /* נסתר במובייל את התפריט הראשי */
+  .navbar ul {
+    display: none; /* נסתר במובייל */
+  }
+
+  /* ודא שהתפריט המבורגר יוצג במובייל */
+  .navbar.active .mobile-menu {
+    display: flex; /* התפריט יוצג במובייל כאשר יש קלאס active */
+  }
+
+  /* הצגת כפתור המבורגר במובייל */
+  .hamburger-menu {
+    display: flex; /* כפתור המבורגר יוצג במובייל */
+  }
+
+  /* הצגת כפתור ה-X במובייל */
+  .navbar.active .close-menu {
+    display: block; /* כפתור ה-X יוצג כאשר התפריט פתוח */
   }
 }
-
-
-
 
 /* תפריט רגיל במחשב */
 .navbar ul {
@@ -239,6 +258,7 @@ body.index-page .navbar .mobile-menu a {
 .navbar.active .hamburger-menu div:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
+
 
 
 

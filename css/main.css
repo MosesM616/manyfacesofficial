@@ -301,8 +301,9 @@ body.index-page .navbar .mobile-menu a {
   object-position: center; /* מיקום התמונה בתוך המיכל, במידה ויתבצע חיתוך */
 }
 
-.latestrelease p{
-	font-size: 1.4em; /* Increase font size for readability */
+/* Latest release paragraph */
+.latestrelease p {
+  font-size: 1.4em; /* Increase font size for readability */
   color: white;
   line-height: 1.8; /* Increase line-height for better readability */
   margin-bottom: 40px; /* Add margin at the bottom */
@@ -312,8 +313,26 @@ body.index-page .navbar .mobile-menu a {
   margin-right: auto; /* Center the text block */
   margin-top: 30px; /* Add space from the previous section */
 }
-	
+
+/* Mobile View for Latest Release Text */
+@media (max-width: 768px) {
+  .latestrelease p {
+    font-size: 1.2em; /* Reduce font size for mobile */
+    margin-left: 20px; /* Add some margin to prevent the text from touching the sides */
+    margin-right: 20px; /* Same here to ensure good spacing */
+    max-width: 100%; /* Allow the text to take full width */
+  }
 }
+
+@media (max-width: 480px) {
+  .latestrelease p {
+    font-size: 1.1em; /* Further reduce font size for very small screens */
+    margin-left: 10px; /* Reduce left margin */
+    margin-right: 10px; /* Reduce right margin */
+  }
+}
+
+
 
 
 
@@ -339,11 +358,37 @@ body.index-page .navbar .mobile-menu a {
   pointer-events: auto;       /* מאפשר לחיצה על התמונה */
 }
 
-/* אפקט Hover עבור התמונה */
-.insta-image img:hover {
-  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8);  /* הילה עם צל */
-  transform: scale(1.1);      /* הגדלה קלה של התמונה */
+/* הסגנון עבור הקונטיינר של התמונה */
+.insta-image {
+  text-align: center; /* ממקם את התמונה במרכז */
+  display: inline-block; /* תומך בהצגת התמונה בצורה בולטת */
+  width: 100%;
 }
+
+.insta-image a {
+  display: inline-block; /* גורם לקישור להיות בגודל של התמונה בלבד */
+  width: auto;
+  height: auto;
+}
+
+.insta-image a img {
+  width: 100%; /* מתאם את התמונה לגודל שלה */
+  max-width: 400px; /* מכניס את התמונה במגבלה של רוחב מקסימלי (אם צריך) */
+  height: auto; /* שומר על פרופורציות התמונה */
+  display: block; /* הוספת display:block כדי להבטיח שהתמונה לא תכיל מרווחים מיותרים */
+  margin: 0 auto; /* מרכז את התמונה במרכז */
+  pointer-events: all;  /* מאפשר לחיצה על התמונה */
+}
+
+/* אם רוצים, אפשר להוסיף אפקט של hover */
+.insta-image a:hover img {
+  opacity: 0.8; /* דוגמה לאפקט ריחוף, שינוי שקיפות התמונה */
+}
+
+.insta-image img {
+  border-radius: 8px; /* הוספת קווים מעוגלים אם רוצים */
+}
+
 
 /* Media Query עבור מסכים קטנים (מובייל) */
 @media (max-width: 768px) {
@@ -354,15 +399,6 @@ body.index-page .navbar .mobile-menu a {
     margin-right: auto;         /* ממרכז את התמונה */
   }
 }
-
-
-
-
-
-
-
-
-
 
 
 /* קונטיינר הסרטונים */
@@ -407,7 +443,6 @@ body.index-page .navbar .mobile-menu a {
 
 
 
-
 /* עיצוב הפוטר */
 .footer {
   background-color: black;
@@ -416,36 +451,31 @@ body.index-page .navbar .mobile-menu a {
   padding: 40px 20px;
   margin-top: auto; /* דואג לכך שהפוטר תמיד יהיה בתחתית */
   width: 100%;
+  box-sizing: border-box; /* לדאוג שה-paddings לא יפגעו ברוחב */
 }
 
 /* קו המפריד בין הפוטר לגוף העמוד */
 .footer-divider {
   height: 2px;
   background-color: #f0f0f0;
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-/* עיצוב הלוגו של הלהקה בפוטר */
-.footer-band-logo {
-  width: 150px; /* עשיתי את הלוגו קטן מאוד */
-  height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* מרווח קטן יותר */
+  width: 100%; /* ודא שהקו יתפשט עד הקצוות */
+  box-sizing: border-box; /* הכנס את ה-padding בתוך חישוב הרוחב */
 }
 
 /* עיצוב הטקסט של זכויות יוצרים */
 .footer-rights p {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-size: 14px; /* פונט קטן יותר, אחיד בכל העמודים */
+  font-weight: normal; /* הפונט יהיה רגיל ולא בולד */
+  margin-bottom: 10px; /* מרווח קטן יותר */
 }
 
 /* עיצוב האייקונים של שירותי סטרימינג */
 .footer-streaming {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-bottom: 10px;
+  gap: 20px; /* המרווח בין האייקונים */
+  margin-bottom: 10px; /* מרווח קטן יותר */
 }
 
 .footer-streaming .platform-logo {
@@ -459,35 +489,78 @@ body.index-page .navbar .mobile-menu a {
   color: #f0f0f0;
 }
 
-.footer-streaming .platform-logo:hover {
-  transform: scale(1.1);  /* Scale the icon on hover */
-  color: #624607 !important;  /* Change color on hover, use !important if necessary */
-}
-
 /* Optional: Glow effect */
 .footer-streaming .platform-logo:active {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
-
-
-/* עיצוב האייקונים של הרשתות החברתיות */
-.footer-social {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+/* עיצוב פרטי ההתקשרות */
+.footer-contact p {
+  font-size: 16px; /* פונט אחיד עם השאר */
+  margin-top: 10px; /* מרווח קטן יותר */
 }
 
-.footer-social .platform-logo {
-  font-size: 20px;
-  color: white;
-  transition: transform 0.3s ease;
+/* עיצוב הקישור לאולפן */
+.footer-link {
+  color: #f0f0f0; /* צבע קישור בהיר */
+  text-decoration: none;
 }
 
-.footer-social .platform-logo:hover {
-  transform: scale(1.1);
-  color: #f0f0f0;
+.footer-link:hover {
+  text-decoration: underline;
+  color: #624607; /* צבע קישור בהhover */
 }
+
+
+/* וודא שהפונט יהיה אחיד בכל העמודים */
+.footer-contact p {
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* לוודא שאין מרווחים נוספים בפוטר */
+.footer-rights p {
+  margin-bottom: 10px !important;
+}
+
+
+/* סידור רוחב בעמוד ה-Tour */
+body.tour-page .footer {
+  width: 100%;
+  margin: 0;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* קו המפריד בעמוד ה-Tour */
+body.tour-page .footer-divider {
+  width: 100%; /* וודא שהקו יתפשט עד הסוף */
+  box-sizing: border-box;
+}
+
+
+
+/* רק בעמוד ABOUT US, מיישר את פרטי ההתקשרות וזכויות היוצרים */
+body.about-us-page .footer-contact, 
+body.about-us-page .footer-rights {
+  display: flex; /* הופך את האלמנטים לפלקס */
+  justify-content: center; /* מיישר את התוכן לאמצע */
+  align-items: center; /* מוודא שהטקסט מיושר אנכית למרכז */
+  width: 100%; /* מבטיח שהחלקים תופסים 100% מרוחב הפוטר */
+  margin: 0 auto; /* מבטל מרווחים מיותרים */
+  text-align: center; /* מיישר את הטקסט למרכז */
+  font-size: 14px !important;
+}
+
+/* גם המרוויחים בתוך הפוטר */
+body.about-us-page .footer-contact p, 
+body.about-us-page .footer-rights p {
+  margin: 0; /* מבטל את המרווחים המקוריים */
+  width: auto; /* מוודא שהפסקאות לא תופסות יותר מדי מקום */
+  font-size: 14px !important;
+}
+
 
 .content {
 	justify-content: center;
@@ -498,43 +571,6 @@ body.index-page .navbar .mobile-menu a {
   color: white;
   margin-bottom: 40px;
   text-align: center; /* למרכז את הכותרת */
-}
-
-/* עיצוב התמונות */
-.member-profile {
-  display: flex;               /* Align images in a row */
-  justify-content: center;      /* Center the images horizontally */
-  align-items: center;         /* Center the images vertically */
-  gap: 40px;                   /* Gap between images */
-  flex-wrap: wrap;             /* Allow images to wrap to the next line on small screens */
-}
-
-.member-profile img {
-  width: 100px;                   /* Use percentage to make the image width flexible */
-  height: auto;                /* Maintain aspect ratio */
-  object-fit: cover;           /* Ensure the image covers the area without distortion */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
-}
-
-/* Media query for mobile screens */
-@media (max-width: 768px) {
-  .member-profile {
-    justify-content: space-around; /* Make sure images have space on smaller screens */
-  }
-
-  .member-profile img {
-    width: 100px;                  /* Resize images to be larger on mobile */
-    height: auto;                /* Keep images' aspect ratio */
-    margin-bottom: 15px;         /* Add margin to the bottom of images in the mobile view */
-  }
-}
-
-/* For very small mobile screens (phones in portrait mode) */
-@media (max-width: 480px) {
-  .member-profile img {
-    width: 80%;                  /* Use larger width for small screens */
-    margin-bottom: 20px;         /* Increase the margin between images */
-  }
 }
 
 
@@ -625,49 +661,9 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   color: white; /* White text color */
   padding-top: 200px; /* Space between HEADER and content */
   margin-top: 0; /* No extra margin */
-  text-align: center; /* מרכז את הטקסט */
-}
-
-/* עיצוב התמונות */
-.backimg {
-  display: flex;               /* Align images in a row */
-  justify-content: center;      /* Center the images horizontally */
-  align-items: center;         /* Center the images vertically */
-  gap: 10px;                   /* Gap between images */
-  flex-wrap: wrap;             /* Allow images to wrap to the next line on small screens */
-}
-
-.backimg img {
-  width: 30%;                  /* Use percentage to make the image width flexible */
-  height: auto;                /* Maintain aspect ratio */
-  object-fit: cover;           /* Ensure the image covers the area without distortion */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
-}
-
-/* Media query for mobile screens */
-@media (max-width: 768px) {
-  .backimg {
-    justify-content: space-around; /* Make sure images have space on smaller screens */
-  }
-
-  .backimg img {
-    width: 45%;                  /* Resize images to be larger on mobile */
-    height: auto;                /* Keep images' aspect ratio */
-    margin-bottom: 15px;         /* Add margin to the bottom of images in the mobile view */
-  }
-}
-
-/* For very small mobile screens (phones in portrait mode) */
-@media (max-width: 480px) {
-  .backimg img {
-    width: 80%;                  /* Use larger width for small screens */
-    margin-bottom: 20px;         /* Increase the margin between images */
-  }
-}
-
-
-
-
+  text-align: center; /* Center the text */
+}	
+		
 /* The Band Section */
 .the-band {
   text-align: center;
@@ -679,9 +675,10 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   font-size: 3em;
   color: white;
   margin-bottom: 40px;
-  text-align: center; /* למרכז את הכותרת */
+  text-align: center; /* Center the header */
 }
 
+/* Band Members Section */
 .band-members {
   display: flex;
   justify-content: space-evenly; /* Distribute members evenly */
@@ -704,108 +701,447 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */
 }
 
-
-
 /* Hover effect for the photos */
 .member-photo:hover {
   box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8); /* Dark golden glow */
 }
 
+/* Mobile View for Band Members */
+@media (max-width: 768px) {
+  .band-members {
+    justify-content: center; /* Center the items in smaller screens */
+    gap: 30px; /* Reduce gap between items */
+  }
+
+  .member {
+    width: 200px; /* Make the members smaller on mobile */
+    height: 200px; /* Make the images square */
+  }
+
+  .member-photo {
+    border-radius: 50%; /* Maintain circular shape */
+    object-fit: cover; /* Ensure the image fills the circle without distortion */
+  }
+}
+
+@media (max-width: 480px) {
+  .band-members {
+    gap: 20px; /* Further reduce the gap on very small screens */
+  }
+
+  .member {
+    width: 150px; /* Further reduce the size on very small screens */
+    height: 150px; /* Make the images smaller */
+  }
+}
+
+
+/* Adjustments for mobile */
+@media (max-width: 768px) {
+  .the-band h1 {
+    font-size: 1.8em;
+  }
+
+  .the-band p {
+    font-size: 1.0em;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .the-band h1 {
+    font-size: 1.5em;
+  }
+
+  .the-band p {
+    font-size: 0.9em;
+  }
+}
+
+
+
+
 /* OUR STORY Section */
 .our-story {
   text-align: center; /* Align the text in the center */
-  max-width: 1600px; /* Increase the max-width even further to allow the text to be very wide */
+  max-width: 1600px; /* Set a max-width for larger screens */
   margin-top: 40px; /* Add space from the previous section */
   padding: 0 40px; /* Add padding on the sides for better spacing */
+  margin-left: auto; /* Center the section */
+  margin-right: auto; /* Center the section */
 }
 
+/* Style for the header (h1) */
 .our-story h1 {
   font-size: 2.5em;
   color: white;
   margin-bottom: 40px;
-  text-align: center; /* ממרכז את הטקסט */
+  text-align: center; /* Center the header */
 }
 
-/* נוסיף את המסגרת והעיצוב לדימוי הטקסט */
+/* Style for paragraph text */
 .our-story p {
-  font-size: 1.4em; /* Increase font size for readability */
+  font-size: 1.4em; /* Set the base font size for readability */
   color: white;
   line-height: 1.8; /* Increase line-height for better readability */
   margin-bottom: 40px; /* Add margin at the bottom */
   text-align: center; /* Center the text */
-  max-width: 1400px; /* Set a max width to prevent it from becoming too wide on large screens */
+  max-width: 1400px; /* Set a max-width to prevent it from becoming too wide on large screens */
   margin-left: auto; /* Center the text block */
   margin-right: auto; /* Center the text block */
   margin-top: 30px; /* Add space from the previous section */
 }
 
-/* KRIFIGNOS Section */
-.krifignos {
+/* Media Queries for Mobile & Smaller Screens */
+
+/* For tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .our-story h1 {
+    font-size: 2.0em; /* Smaller header size */
+  }
+
+  .our-story p {
+    font-size: 1.2em; /* Smaller font size for the paragraph */
+    line-height: 1.6; /* Adjust line height for better readability */
+    margin-bottom: 30px; /* Reduce bottom margin */
+  }
+
+  .our-story {
+    padding: 0 20px; /* Reduce padding on smaller screens */
+  }
+}
+
+/* For small mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .our-story h1 {
+    font-size: 1.6em; /* Even smaller header size for very small screens */
+    margin-bottom: 20px; /* Reduce margin below the header */
+  }
+
+  .our-story p {
+    font-size: 1.0em; /* Even smaller font size for the paragraph */
+    line-height: 1.4; /* Adjust line-height for readability */
+    margin-bottom: 20px; /* Reduce bottom margin further */
+  }
+
+  .our-story {
+    padding: 0 10px; /* Reduce padding further for very small screens */
+  }
+}
+
+
+
+
+/* Genre Section */
+.genre {
+  position: relative;
+  width: 100%;
+  height: 450px;
   text-align: center;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+}
+
+.genre-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.genre-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Overlay כהה */
+  z-index: 1;
+}
+
+.genre-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.genre-content h1, .genre-content h2, .genre-content p {
+  text-shadow: none;
+}
+
+.genre-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.genre-content h2 {
+  font-size: 2.0em;
+  margin-bottom: 10px;
+}
+
+.genre-content p {
+  font-size: 1.4em;
+  line-height: 1.8;
+  margin-bottom: 70px;
+  margin-top: 30px;
+}
+
+/* Adjustments for mobile */
+@media (max-width: 768px) {
+  .genre-content h1 {
+    font-size: 1.8em;
+  }
+
+  .genre-content h2 {
+    font-size: 1.4em;
+  }
+
+  .genre-content p {
+    font-size: 1.0em;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .genre-content h1 {
+    font-size: 1.5em;
+  }
+
+  .genre-content h2 {
+    font-size: 1.2em;
+  }
+
+  .genre-content p {
+    font-size: 0.9em;
+  }
+}
+
+
+/* Krifignos Section */
+.krifignos {
   margin-top: 0px;
 }
 
-.krifignos h1 {
-  font-size: 2.5em;
-  color: white;
-  margin-bottom: 60px;
-  text-align: center;  /* מרכז את הכותרת */
+/* Top banner (KRIFIGNOS) */
+.krifbanner {
+  position: relative;
+  width: 100%;
+  height: 250px; /* גובה אחיד עם הבאנר התחתון */
+  background-image: url('assets/images/krifbanner.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* מוסיף כדי למנוע חריגות */
 }
 
-/* Flexbox ל-Krifignos Content */
+.krifbanner h1 {
+  position: absolute;
+  font-size: 4em;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  margin: 0;
+}
+
+/* Flexbox for Krifignos Content */
 .krifignos-content {
   display: flex;
-  justify-content: center; /* ממרכז את התמונה והטקסט */
+  justify-content: flex-start;
   align-items: center;
-  gap: 0px; /* אין רווח בין התמונה והטקסט */
-  flex-wrap: nowrap; /* לא מרשה לעבור לשורה חדשה */
-  max-width: 1200px; /* מגביל את רוחב התוכן הכולל */
-  margin: 0 auto; /* ממקם את התוכן במרכז */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.krifignos-text {
+  width: 50%;
+  color: white;
+  font-size: 1.2em;
+  text-align: left;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.krifignos-image {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .krifignos-image .album-cover {
-  width: 60%; /* התמונה תהיה בגודל 60% מהמרחב */
-  height: auto;
+  width: 100%;
   border-radius: 10px;
-  margin: 0; /* ללא מרווחים */
-  transition: all 0.3s ease-in-out; /* מעבר חלק על hover */
+  object-fit: cover;
 }
 
-/* Gold glow effect on hover */
-.krifignos-image .album-cover:hover {
-  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8); /* גוון זהב בהבהרה */
-  transform: scale(1.05); /* Slight zoom-in effect */
+/* Banner for section ending */
+.section-banner {
+  width: 100%;
+  height: 250px; /* הגובה של הבאנר התחתון */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* טקסט עם גבול, הצללה וריווח פנימי */
-.krifignos-text {
-  width: 60%; /* הטקסט תופס 60% מהמרחב */
+.section-banner img {
+  width: 100%;
+  height: 100%; /* מתיחה לרוחב וגובה 100% */
+  object-fit: cover; /* שמירה על פרופורציות */
+  object-position: center;
+}
+
+/* Mobile View for Krifignos */
+@media (max-width: 768px) {
+  .krifbanner {
+    height: 250px; /* גובה זהה לבאנר התחתון במובייל */
+    background-position: center center; /* תמונה ממורכזת */
+  }
+
+  .krifbanner h1 {
+    font-size: 2.5em; /* קטן את הגודל במובייל */
+  }
+
+  .krifignos-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .krifignos-text, .krifignos-image {
+    width: 100%; /* וודא שכל אלמנט יתפוס 100% רוחב */
+  }
+
+  .krifignos-text {
+    font-size: 1.1em;
+  }
+
+  .section-banner {
+    height: 250px; /* מצמצם את הגובה של הבאנר התחתון במובייל */
+  }
+
+  /* תיקון לתמונה בבאנר העליון */
+  .krifbanner img {
+    width: 100%;
+    height: 100%; /* וודא שהתמונה מתאימה לגובה של הבאנר */
+    object-fit: cover; /* מונע חיתוך רע של התמונה */
+    object-position: center center;
+  }
+}
+
+@media (max-width: 480px) {
+  .krifbanner h1 {
+    font-size: 2em;  /* התאמת גודל הכותרת */
+  }
+
+  .krifignos-text {
+    font-size: 1.0em;
+  }
+}
+
+
+
+
+/* Hover effect */
+.krifignos-image:hover {
+  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8);
+  transform: scale(1.05);
+}
+
+.loud-devils-studio {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loud-devils-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.loud-devils-text {
+  width: 50%;
   color: white;
   font-size: 1.2em;
-  text-align: center;
-  padding: 20px; /* ריווח פנימי */
-  margin: 0; /* ללא מרווחים חיצוניים */
-  line-height: 1.6; /* מרווח בין שורות */
-  border: 10px dark gold; /* גבול בגוון זהב */
-  border-radius: 10px; /* פינות מעוגלות */
-  box-shadow: 0 0 10px rgba(106, 88, 28, 0.5); /* הצללה עדינה מסביב לגבול */
-  
-  /* הרקע מאחורי הטקסט - צבע כהה עם שקיפות */
-  background-color: rgba(0, 0, 0, 0.6); /* צבע כהה עם שקיפות (בהיר יותר משחור) */
+  text-align: left;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
 }
 
-/* תוספת קטנה לתמונה והטקסט בגרסאות מסך קטנות */
+.loud-devils-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.studio-logo {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.studio-logo:hover {
+  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8);
+  transform: scale(1.05);
+}
+
+/* Mobile View for Loud Devils */
 @media (max-width: 768px) {
-  .krifignos-content {
-    flex-direction: column; /* בגרסאות מסך קטנות התמונה והטקסט יהיו אחד מעל השני */
+  .loud-devils-content {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .krifignos-image .album-cover,
-  .krifignos-text {
-    width: 100%; /* כל אחד יתפוס 100% מהמרחב */
-    margin: 0; /* ללא מרווחים נוספים */
+  .loud-devils-text, .loud-devils-image {
+    width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .loud-devils-text {
+    font-size: 1.0em;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .main-title h1{
 	text-align: center; /* מרכז את הכותרת */
   font-size: 3em; /* גודל גופן גדול יותר */
@@ -831,6 +1167,28 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   box-sizing: border-box;            /* תיאום הרוחב כך שהוא לא יפגע במידות */
 }
 
+/* Mobile View for Main Title */
+@media (max-width: 768px) {
+  .main-title h1 {
+    font-size: 2.5em; /* Adjust the title size for mobile */
+    margin-top: 100px; /* Add more margin-top to prevent overlap with HEADER */
+    margin-bottom: 20px; /* Adjust bottom margin */
+  }
+}
+
+/* Very Small Screen Sizes (480px or smaller) */
+@media (max-width: 480px) {
+  .main-title h1 {
+    font-size: 2em; /* Further reduce the font size on very small screens */
+    margin-top: 80px; /* Adjust margin-top for smaller screens */
+    margin-bottom: 15px; /* Adjust bottom margin */
+  }
+}
+
+
+
+
+
 /* סגנון לכל iframe */
 .media-video-container iframe {
   width: 560px;                     /* רוחב הסרטונים */
@@ -855,11 +1213,61 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
     gap: 10px;                       /* רווח קטן יותר בין הסרטונים */
   }
 
+  /* הגדרת הרוחב של הסרטונים למובייל */
   .media-video-container iframe {
-    width: 100%;                     /* הסרטונים יתפשטו לרוחב מלא במובייל */
+    width: 90%;                      /* הסרטונים יתפשטו לרוחב 90% במובייל */
+    max-width: 480px;                /* לא יחרגו מהרוחב של 480px */
     height: auto;                    /* גובה אוטומטי */
   }
 }
+
+/* אם המסך עוד יותר קטן (למשל טלפונים קטנים) */
+@media (max-width: 480px) {
+  .media-video-container iframe {
+    width: 85%;                      /* הסרטונים יתפשטו לרוחב 85% במסכים קטנים מאוד */
+    max-width: 400px;                /* לא יחרגו מהרוחב של 400px */
+  }
+}
+
+
+/* Style for the music player container */
+.music-player {
+  text-align: center; /* Centers the iframe */
+}
+
+/* Styling for the streaming platform icons container */
+.infinity-streaming {
+  display: flex; /* Aligns the icons horizontally */
+  justify-content: center; /* Centers the icons */
+  gap: 30px; /* Adds space between the icons */
+  margin-top: 20px; /* Adds space above the icons */
+}
+
+/* Style for each platform icon */
+.platform-logo {
+  font-size: 35px; /* Increase the size of the icons */
+  color: white; /* Default icon color */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect for icons */
+.platform-logo:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon on hover */
+  color: #624607 !important; /* Change color on hover */
+}
+
+/* Optional: Glow effect for active state */
+.platform-logo:active {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Adds a glow effect when clicked */
+}
+
+/* You can adjust the icon size using the class names if needed */
+.bi-youtube,
+.bi-spotify,
+.bi-apple {
+  font-size: 35px; /* Specific size for each icon if you want to tweak individually */
+}
+
 
 
 /* גלריה - מבנה */
@@ -871,7 +1279,6 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
     margin-top: 100px; /* רווח עליון כדי למנוע חפיפות עם ה-HEADER */
     position: relative; /* מוודא שהגלריה לא תעלה מעל ה-header */
     z-index: 1;
-
 }
 
 /* הגדרות לכל אלבום */
@@ -883,7 +1290,7 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
     position: relative; /* מאפשר למקם אלמנטים מעל התמונה */
     transition: box-shadow 0.3s ease-in-out;
     padding-top: 0px;
-	margin-top: -50px;
+    margin-top: -50px;
     display: flex;
     align-items: center;
     justify-content: center; /* מרכז את התמונה בתוך המעגל */
@@ -942,20 +1349,20 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 /* במובייל - שינויים להתאמה */
 @media (max-width: 768px) {
     .gallery {
-        margin-top: 70px;  /* הקטנתי את המרווח העליון */
+        margin-top: 20px;  /* הקטנתי את המרווח העליון למובייל */
         padding: 40px;     /* הקטנתי את הרווח הפנימי */
     }
     
     .albumga {
         width: 30%;        /* הצרתי את התמונות במובייל רחב */
         height: 200px;     /* גובה התמונה נשאר כמו שהיה */
-        margin-top: -10px;
+        margin-top: 0px;   /* הוצאתי את המרווח העליון */
     }
 }
 
 @media (max-width: 480px) {
     .gallery {
-        margin-top: 60px;  /* הקטנתי את המרווח העליון */
+        margin-top: 10px;  /* הקטנתי את המרווח העליון למובייל קטן מאוד */
         padding: 35px;     /* הקטנתי את הרווח הפנימי */
     }
     
@@ -964,6 +1371,7 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
         height: 180px;     /* גובה התמונה נשאר כמו שהיה */
     }
 }
+
 
 
 
@@ -1101,11 +1509,40 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   transform: scale(0.98); /* הקטנה בעת לחיצה */
 }
 
+/* במובייל - התאמת הגלריה */
+@media (max-width: 768px) {
+  .album-gallery {
+    gap: 15px; /* הקטנת המרווח בין התמונות */
+    padding: 10px; /* צמצום הריווח הפנימי */
+  }
+
+  .album {
+    width: 15%; /* כל תמונה תתפוס חצי רוחב */
+    height: 100%; /* גובה קטן יותר */
+    margin-bottom: 15px; /* רווח תחתון בין התמונות */
+  }
+}
+
+/* במובייל קטן - התאמת הגלריה */
+@media (max-width: 480px) {
+  .album-gallery {
+    gap: 10px; /* רווח עוד יותר קטן בין התמונות */
+    padding: 5px; /* צמצום הריווח הפנימי */
+  }
+
+  .album {
+    width: 50%; /* כל תמונה תתפוס כמעט את כל רוחב המסך */
+    height: 100%; /* גובה קטן עוד יותר */
+    margin-bottom: 10px; /* רווח קטן בין התמונות */
+  }
+}
 
 
 
 
-.tour{
+
+/* עיצוב הכללי של עמוד ה-Tour */
+.tour {
   text-align: center;
   max-width: 1000px;
   margin-bottom: 50px;
@@ -1118,17 +1555,158 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   text-align: center; /* למרכז את הכותרת */
 }
 
+/* עיצוב הטקסט */
 .tour p {
-  font-size: 1.4em; /* Increase font size for readability */
+  font-size: 1.4em; /* גודל פונט מוגדל לקריאות */
   color: white;
-  line-height: 1.8; /* Increase line-height for better readability */
-  margin-bottom: 40px; /* Add margin at the bottom */
-  text-align: center; /* Center the text */
-  max-width: 1400px; /* Set a max width to prevent it from becoming too wide on large screens */
-  margin-left: auto; /* Center the text block */
-  margin-right: auto; /* Center the text block */
-  margin-top: 30px; /* Add space from the previous section */
+  line-height: 1.8; /* גובה קו מוגדל לקריאות */
+  margin-bottom: 40px;
+  text-align: center; /* מרכז את הטקסט */
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
 }
+
+/* עיצוב הקונטיינר של הטבלה */
+.tour-container {
+  text-align: center;
+  padding: 20px;
+  background-color: black;
+  border-radius: 10px;
+  margin-top: -100px;
+}
+
+/* כותרת הטבלה כאשר אין הופעות */
+.tour-container h2 {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* עיצוב הקונטיינר של הטבלה */
+.tour-table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* מאפשר גלילה אופקית במקרה שהטבלה רחבה מדי */
+  display: flex;
+  justify-content: center; /* ממקם את הטבלה במרכז */
+  margin-top: 20px;
+}
+
+/* עיצוב הטבלה */
+.tour-table {
+  width: 300%; /* הרחבה פי 3 במסכים גדולים */
+  max-width: 1200px; /* גודל מרבי שימנע מהטבלה להיות גדולה מדי */
+  border-collapse: collapse;
+  border: 2px solid white;
+  transform: translateX(-50%); /* דוחף את הטבלה למרכז */
+  position: relative;
+  left: 50%;
+}
+
+/* עיצוב כותרות הטבלה */
+.tour-table th {
+  background-color: #624607; /* צבע זהב לכותרות */
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* עיצוב שורות הטבלה */
+.tour-table td {
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+/* שורות שחורות */
+.tour-table .black-row {
+  background-color: #000;
+  color: white;
+}
+
+/* שורות מוזהבות */
+.tour-table .gold-row {
+  background-color: #624607;
+  color: black;
+}
+
+/* כאשר אין הופעות - נוסיף עיצוב טקסט נוסף */
+.tour-table td, .tour-table th {
+  text-align: center;
+}
+
+/* מדיה קווריז עבור מכשירים עם רוחב קטן */
+
+/* מסכים עד 768px */
+@media (max-width: 768px) {
+  .tour-table-wrapper {
+    padding-left: 10px;
+    padding-right: 10px; /* הרווחים מהקצוות כדי שלא תהיה גלילה מיותרת */
+  }
+
+  .tour-table {
+    width: 100%; /* בטוח שהטבלה תתפוס את הרוחב */
+    transform: none; /* ביטול השינוי במיקום */
+    left: 0; /* ביטול המיקום הימני של הטבלה */
+    max-width: 100%; /* מוודא שהיא לא תצא מגבולות המסך */
+  }
+
+  .tour-table th,
+  .tour-table td {
+    padding: 8px; /* צמצום ריווח בתאים */
+    font-size: 14px; /* גודל פונט קטן יותר */
+  }
+
+  .tour h1 {
+    font-size: 2.5em; /* הקטנה של גודל הכותרת */
+    margin-bottom: 30px;
+	margin-top: -40px;
+  }
+
+  .tour p {
+    font-size: 1.2em; /* הקטנה של גודל הטקסט */
+    max-width: 100%; /* התאמה לרוחב המסך */
+  }
+}
+
+/* מסכים עד 480px */
+@media (max-width: 480px) {
+  .tour-table-wrapper {
+    padding-left: 5px;
+    padding-right: 5px; /* עוד צמצום ריווח במקרה של מסכים קטנים מאוד */
+  }
+
+  .tour-table {
+    font-size: 12px; /* צמצום גודל הפונט במסכים קטנים */
+    width: 100%; /* נשארת רחבה לגמרי במסך קטן */
+    max-width: 100%; /* מאפשר לה להתפשט למלוא רוחב המסך */
+  }
+
+  .tour-table th,
+  .tour-table td {
+    padding: 6px; /* עוד צמצום ריווח בתאים */
+  }
+
+  .tour h1 {
+    font-size: 2em; /* הקטנה של גודל הכותרת */
+    margin-bottom: 20px;
+	margin-top: -40px;
+  }
+
+  .tour p {
+    font-size: 1em; /* הקטנה של גודל הטקסט */
+    margin-top: 10px; /* רווח עליון קטן יותר */
+  }
+}
+
+
+
+
+
 
 
 
@@ -1153,6 +1731,7 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid #624607; /* מסגרת דקה בצבע דארק גולד */
+  margin-top: -40px;
 }
 
 #mailing-list-form .form-group {
@@ -1187,6 +1766,25 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 
 #mailing-list-form .subscribe-btn:hover {
   background-color: #403511; /* גוון כהה יותר של דארק גולד */
+}
+
+
+/* Store Description - Aligning the paragraph and ensuring the font size matches the rest of the site */
+
+.store-description h2 {
+	text-align: center;
+}
+
+.store-description p {
+  text-align: center;  /* ממקם את הפסקה במרכז */
+  font-size: 1.4em;     /* גודל גופן תואם לפסקאות אחרות */
+  color: white;         /* צבע לבן לטקסט */
+  line-height: 1.8;     /* ריווח בין שורות */
+  max-width: 1200px;    /* מקסימום רוחב לטקסט */
+  margin-left: auto;    /* ממקם את הפסקה במרכז */
+  margin-right: auto;   /* ממקם את הפסקה במרכז */
+  margin-top: 20px;     /* ריווח מעל הפסקה */
+  margin-bottom: 30px;  /* ריווח מתחת לפסקה */
 }
 
 

@@ -525,22 +525,6 @@ body.index-page .navbar .mobile-menu a {
 }
 
 
-/* סידור רוחב בעמוד ה-Tour */
-body.tour-page .footer {
-  width: 100%;
-  margin: 0;
-  padding: 40px 20px;
-  box-sizing: border-box;
-}
-
-/* קו המפריד בעמוד ה-Tour */
-body.tour-page .footer-divider {
-  width: 100%; /* וודא שהקו יתפשט עד הסוף */
-  box-sizing: border-box;
-}
-
-
-
 /* רק בעמוד ABOUT US, מיישר את פרטי ההתקשרות וזכויות היוצרים */
 body.about-us-page .footer-contact, 
 body.about-us-page .footer-rights {
@@ -929,21 +913,24 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 /* Krifignos Section */
 .krifignos {
   margin-top: 0px;
+  position: relative;
+  width: 100%;
 }
 
 /* Top banner (KRIFIGNOS) */
 .krifbanner {
   position: relative;
   width: 100%;
-  height: 250px; /* גובה אחיד עם הבאנר התחתון */
+  height: 150px; /* גובה אחיד עם הבאנר התחתון */
   background-image: url('assets/images/krifbanner.png');
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* מוסיף כדי למנוע חריגות */
+  overflow: hidden;
 }
+
 
 .krifbanner h1 {
   position: absolute;
@@ -955,43 +942,61 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   margin: 0;
 }
 
-/* Flexbox for Krifignos Content */
+/* Krifignos Content Section */
 .krifignos-content {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  position: relative; /* תוודא שהתמונה והטקסט יושבים אחד על השני */
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+  min-height: 400px; /* נותן מינימום גובה לסקשן */
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* תמנע מהטקסט לצאת מגבולות התמונה */
+  position: relative; /* חשוב למיקום התמונה והטקסט */
 }
 
+/* Krifignos Image */
+.krifignos-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* תמונה מאחורי הטקסט */
+  opacity: 0.7; /* opacity קל לתמונה */
+  object-fit: contain; /* שומר על התמונה בגודלה המקורי וממקד אותה */
+}
+
+/* Krifignos Text */
 .krifignos-text {
-  width: 50%;
+  position: relative;
+  z-index: 1; /* טקסט מעל התמונה */
+  width: 100%;
+  max-width: 800px; /* גודל מקסימלי לטקסט */
   color: white;
   font-size: 1.2em;
-  text-align: left;
+  text-align: center;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: transparent; /* הסרנו את הרקע השחור מאחורי הטקסט */
   border-radius: 10px;
+  box-sizing: border-box; /* לוודא שה-padding לא יוצא מגבולות התמונה */
+  overflow: hidden;
 }
 
-.krifignos-image {
-  width: 50%;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.krifignos-image .album-cover {
-  width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
+/* Hover effect */
+.krifignos-image:hover .album-cover {
+  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8);
+  transform: scale(1.05);
 }
 
 /* Banner for section ending */
 .section-banner {
   width: 100%;
-  height: 250px; /* הגובה של הבאנר התחתון */
+  height: 150px; /* הגובה של הבאנר התחתון */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1004,15 +1009,16 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   object-position: center;
 }
 
+
+
 /* Mobile View for Krifignos */
 @media (max-width: 768px) {
   .krifbanner {
-    height: 250px; /* גובה זהה לבאנר התחתון במובייל */
-    background-position: center center; /* תמונה ממורכזת */
+    height: 100px;
   }
 
   .krifbanner h1 {
-    font-size: 2.5em; /* קטן את הגודל במובייל */
+    font-size: 2.5em;
   }
 
   .krifignos-content {
@@ -1030,21 +1036,21 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   }
 
   .section-banner {
-    height: 250px; /* מצמצם את הגובה של הבאנר התחתון במובייל */
+    height: 100px; /* מצמצם את הגובה של הבאנר התחתון במובייל */
   }
 
   /* תיקון לתמונה בבאנר העליון */
   .krifbanner img {
     width: 100%;
-    height: 100%; /* וודא שהתמונה מתאימה לגובה של הבאנר */
-    object-fit: cover; /* מונע חיתוך רע של התמונה */
+    height: 100%;
+    object-fit: cover;
     object-position: center center;
   }
 }
 
 @media (max-width: 480px) {
   .krifbanner h1 {
-    font-size: 2em;  /* התאמת גודל הכותרת */
+    font-size: 2em;
   }
 
   .krifignos-text {
@@ -1055,11 +1061,8 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 
 
 
-/* Hover effect */
-.krifignos-image:hover {
-  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8);
-  transform: scale(1.05);
-}
+
+
 
 .loud-devils-studio {
   text-align: center;
@@ -1080,7 +1083,7 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   width: 50%;
   color: white;
   font-size: 1.2em;
-  text-align: left;
+  text-align: center;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
@@ -1094,9 +1097,9 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 }
 
 .studio-logo {
-  width: 100%;
+  width: 70%;
   max-width: 600px;
-  height: auto;
+  height: 300px;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
 }
@@ -1124,7 +1127,6 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
     font-size: 1.0em;
   }
 }
-
 
 
 
@@ -1705,8 +1707,86 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 
 
 
+/* עיצוב הפוטר */
+.tour-footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: auto; /* דואג לכך שהפוטר תמיד יהיה בתחתית */
+  width: 100%;
+  box-sizing: border-box; /* לדאוג שה-paddings לא יפגעו ברוחב */
+}
+
+/* קו המפריד בין הפוטר לגוף העמוד */
+.tour-footer-divider {
+  height: 2px;
+  background-color: #f0f0f0;
+  margin-bottom: 20px; /* מרווח קטן יותר */
+  width: 100%; /* ודא שהקו יתפשט עד הקצוות */
+  box-sizing: border-box; /* הכנס את ה-padding בתוך חישוב הרוחב */
+}
+
+/* עיצוב הטקסט של זכויות יוצרים */
+.tour-footer-rights p {
+  font-size: 14px; /* פונט קטן יותר, אחיד בכל העמודים */
+  font-weight: normal; /* הפונט יהיה רגיל ולא בולד */
+  margin-bottom: 10px; /* מרווח קטן יותר */
+}
+
+/* עיצוב האייקונים של שירותי סטרימינג */
+.tour-footer-streaming {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* המרווח בין האייקונים */
+  margin-bottom: 10px; /* מרווח קטן יותר */
+}
+
+.tour-footer-streaming .platform-logo {
+  font-size: 20px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.tour-footer-streaming .platform-logo:hover {
+  transform: scale(1.1);
+  color: #f0f0f0;
+}
+
+/* Optional: Glow effect */
+.tour-footer-streaming .platform-logo:active {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* עיצוב פרטי ההתקשרות */
+.tour-footer-contact p {
+  font-size: 16px; /* פונט אחיד עם השאר */
+  margin-top: 10px; /* מרווח קטן יותר */
+}
+
+/* עיצוב הקישור לאולפן */
+.tour-footer-link {
+  color: #f0f0f0; /* צבע קישור בהיר */
+  text-decoration: none;
+}
+
+.tour-footer-link:hover {
+  text-decoration: underline;
+  color: #624607; /* צבע קישור בהhover */
+}
 
 
+/* וודא שהפונט יהיה אחיד בכל העמודים */
+.tour-footer-contact p {
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* לוודא שאין מרווחים נוספים בפוטר */
+.tour-footer-rights p {
+  margin-bottom: 10px !important;
+}
 
 
 

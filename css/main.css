@@ -43,19 +43,21 @@ body {
 }
 
 .logo img {
-  height: 130px; /* הגדלנו את גובה הלוגו */
+  height: 130px; /* גובה הלוגו */
   width: auto; /* נשמור על פרופורציות */
+  transition: height 0.3s ease; /* אנימציה לשינוי גובה הלוגו */
 }
 
-/* Media query עבור מובייל */
+/* Media query עבור מסך קטן ומובייל (עד 768px) */
 @media (max-width: 768px) {
   .top-bar {
     justify-content: center; /* ממרכז את התוכן בתוך ה-Top Bar במובייל */
     flex-direction: row; /* במובייל נשאיר את הסדר הרגיל */
+    padding: 15px 20px; /* פחות padding במובייל */
   }
 
   .logo img {
-    height: 100px;
+    height: 100px; /* מקטינים את גובה הלוגו במובייל */
   }
 
   /* נסתר במובייל את התפריט הראשי */
@@ -172,10 +174,6 @@ body.index-page .navbar .mobile-menu a {
   line-height: 1.5 !important; /* מבטל כל שינוי גובה שורה בעמוד הבית */
 }
 
-.home {
-  font-size: 25px !important;  /* מבטל כל שינוי גודל פונט בעמוד הבית */
-}
-
 /* אחידות על כל אלמנט בתפריט, גם בעמוד הבית */
 .navbar .mobile-menu a {
   font-size: 25px; /* גודל אחיד לכל הקישורים */
@@ -222,42 +220,25 @@ body.index-page .navbar .mobile-menu a {
   transform: scale(1.1); /* מעט הגדלת הכפתור בעת hover */
 }
 
-
-/* Media query עבור מובייל */
+/* מדיה קווירי עבור מסכים קטנים יותר */
 @media (max-width: 768px) {
-  /* נסתר במובייל את התפריט הראשי */
   .navbar ul {
     display: none; /* נסתר במובייל */
   }
 
-  /* ודא שהתפריט המבורגר יוצג במובייל */
   .navbar.active .mobile-menu {
     display: flex; /* התפריט יוצג במובייל כאשר יש קלאס active */
   }
 
-  /* הצגת כפתור המבורגר במובייל */
   .hamburger-menu {
     display: flex; /* כפתור המבורגר יוצג במובייל */
   }
 
-  /* הצגת כפתור ה-X במובייל */
   .navbar.active .close-menu {
     display: block; /* כפתור ה-X יוצג כאשר התפריט פתוח */
   }
 }
 
-/* אחרי שלחצת על כפתור המבורגר */
-.navbar.active .hamburger-menu div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.navbar.active .hamburger-menu div:nth-child(2) {
-  opacity: 0;
-}
-
-.navbar.active .hamburger-menu div:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
 
 
 
@@ -1231,6 +1212,15 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   }
 }
 
+/* אם המסך עוד יותר קטן (למשל טלפונים קטנים) */
+@media (max-width: 1024px) {
+  .media-video-container iframe {
+    width: 85%;                      /* הסרטונים יתפשטו לרוחב 85% במסכים קטנים מאוד */
+    max-width: 400px;                /* לא יחרגו מהרוחב של 400px */
+  }
+}
+
+
 
 /* Style for the music player container */
 .music-player {
@@ -1542,7 +1532,6 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 
 
 
-
 /* עיצוב הכללי של עמוד ה-Tour */
 .tour {
   text-align: center;
@@ -1550,20 +1539,21 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   margin-bottom: 50px;
 }
 
+/* עיצוב הכותרת הראשית */
 .tour h1 {
   font-size: 3em;
   color: white;
   margin-bottom: 40px;
-  text-align: center; /* למרכז את הכותרת */
+  text-align: center;
 }
 
-/* עיצוב הטקסט */
+/* עיצוב הפסקה */
 .tour p {
-  font-size: 1.4em; /* גודל פונט מוגדל לקריאות */
+  font-size: 1.4em;
   color: white;
-  line-height: 1.8; /* גובה קו מוגדל לקריאות */
+  line-height: 1.8;
   margin-bottom: 40px;
-  text-align: center; /* מרכז את הטקסט */
+  text-align: center;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -1579,7 +1569,7 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   margin-top: -100px;
 }
 
-/* כותרת הטבלה כאשר אין הופעות */
+/* כותרת הטבלה */
 .tour-container h2 {
   font-size: 24px;
   color: white;
@@ -1591,26 +1581,29 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 /* עיצוב הקונטיינר של הטבלה */
 .tour-table-wrapper {
   width: 100%;
-  overflow-x: auto; /* מאפשר גלילה אופקית במקרה שהטבלה רחבה מדי */
+  overflow-x: auto; /* גלילה אופקית אם הטבלה גדולה */
   display: flex;
   justify-content: center; /* ממקם את הטבלה במרכז */
   margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* עיצוב הטבלה */
 .tour-table {
-  width: 300%; /* הרחבה פי 3 במסכים גדולים */
-  max-width: 1200px; /* גודל מרבי שימנע מהטבלה להיות גדולה מדי */
+  width: 100%; /* בטוח שהטבלה תתפוס 100% מהמרחב */
+  max-width: 1200px; /* גודל מרבי */
   border-collapse: collapse;
   border: 2px solid white;
-  transform: translateX(-50%); /* דוחף את הטבלה למרכז */
+  margin-left: auto;
+  margin-right: auto;
+  transform: none; /* ביטול מיקום */
   position: relative;
-  left: 50%;
 }
 
 /* עיצוב כותרות הטבלה */
 .tour-table th {
-  background-color: #624607; /* צבע זהב לכותרות */
+  background-color: #624607;
   color: white;
   padding: 12px 15px;
   text-align: left;
@@ -1618,43 +1611,43 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   font-weight: bold;
 }
 
-/* עיצוב שורות הטבלה */
+/* עיצוב תאי הטבלה */
 .tour-table td {
   padding: 10px 15px;
   font-size: 14px;
 }
 
-/* שורות שחורות */
+/* עיצוב שורות שחורות */
 .tour-table .black-row {
   background-color: #000;
   color: white;
 }
 
-/* שורות מוזהבות */
+/* עיצוב שורות מוזהבות */
 .tour-table .gold-row {
   background-color: #624607;
   color: black;
 }
 
-/* כאשר אין הופעות - נוסיף עיצוב טקסט נוסף */
+/* אחידות על כל אלמנט בתפריט */
 .tour-table td, .tour-table th {
   text-align: center;
 }
 
-/* מדיה קווריז עבור מכשירים עם רוחב קטן */
+/* מדיה קווריז עבור מסכים קטנים */
 
 /* מסכים עד 768px */
 @media (max-width: 768px) {
   .tour-table-wrapper {
     padding-left: 10px;
-    padding-right: 10px; /* הרווחים מהקצוות כדי שלא תהיה גלילה מיותרת */
+    padding-right: 10px;
   }
 
   .tour-table {
-    width: 100%; /* בטוח שהטבלה תתפוס את הרוחב */
-    transform: none; /* ביטול השינוי במיקום */
-    left: 0; /* ביטול המיקום הימני של הטבלה */
-    max-width: 100%; /* מוודא שהיא לא תצא מגבולות המסך */
+    width: 100%; /* הגדרת רוחב של 100% */
+    transform: none; /* הסרת העיוות */
+    left: 0;
+    max-width: 100%;
   }
 
   .tour-table th,
@@ -1664,14 +1657,14 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   }
 
   .tour h1 {
-    font-size: 2.5em; /* הקטנה של גודל הכותרת */
+    font-size: 2.5em; /* הקטנת גודל הכותרת */
     margin-bottom: 30px;
-	margin-top: -40px;
+    margin-top: -40px;
   }
 
   .tour p {
-    font-size: 1.2em; /* הקטנה של גודל הטקסט */
-    max-width: 100%; /* התאמה לרוחב המסך */
+    font-size: 1.2em;
+    max-width: 100%;
   }
 }
 
@@ -1679,67 +1672,83 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 @media (max-width: 480px) {
   .tour-table-wrapper {
     padding-left: 5px;
-    padding-right: 5px; /* עוד צמצום ריווח במקרה של מסכים קטנים מאוד */
+    padding-right: 5px; /* עוד צמצום ריווח במסכים קטנים מאוד */
   }
 
   .tour-table {
-    font-size: 12px; /* צמצום גודל הפונט במסכים קטנים */
-    width: 100%; /* נשארת רחבה לגמרי במסך קטן */
-    max-width: 100%; /* מאפשר לה להתפשט למלוא רוחב המסך */
+    font-size: 12px; /* צמצום גודל הפונט */
+    width: 100%;
+    max-width: 100%;
   }
 
   .tour-table th,
   .tour-table td {
-    padding: 6px; /* עוד צמצום ריווח בתאים */
+    padding: 6px; /* צמצום ריווח בתאים */
   }
 
   .tour h1 {
     font-size: 2em; /* הקטנה של גודל הכותרת */
     margin-bottom: 20px;
-	margin-top: -40px;
+    margin-top: -40px;
   }
 
   .tour p {
-    font-size: 1em; /* הקטנה של גודל הטקסט */
-    margin-top: 10px; /* רווח עליון קטן יותר */
+    font-size: 1em;
+    margin-top: 10px;
   }
 }
-
-
 
 /* עיצוב הפוטר */
 .tour-footer {
   background-color: black;
   color: white;
   text-align: center;
-  padding: 40px 20px;
-  margin-top: auto; /* דואג לכך שהפוטר תמיד יהיה בתחתית */
+  padding: 40px 0;  /* padding רק למעלה ולמטה */
+  margin-top: auto;
   width: 100%;
-  box-sizing: border-box; /* לדאוג שה-paddings לא יפגעו ברוחב */
+  box-sizing: border-box;
 }
 
 /* קו המפריד בין הפוטר לגוף העמוד */
 .tour-footer-divider {
   height: 2px;
   background-color: #f0f0f0;
-  margin-bottom: 20px; /* מרווח קטן יותר */
-  width: 100%; /* ודא שהקו יתפשט עד הקצוות */
-  box-sizing: border-box; /* הכנס את ה-padding בתוך חישוב הרוחב */
+  margin-bottom: 20px;
+  width: 100%; /* ודא שהקו מתפשט לרוחב ה-100% של העמוד */
+  box-sizing: border-box; /* ודא שהפדינגים לא משפיעים על החישוב */
+  margin-left: 0; /* מוודא שהקו מתחיל מהקצה השמאלי */
+  margin-right: 0; /* מוודא שהקו נגמר בקצה הימני */
 }
+
+/* אפשרות להבטיח שהקו לא יברח גם כשיש פדינגים/מרווחים */
+body, .tour-footer {
+  overflow-x: hidden; /* מונע גלילה אופקית מיותרת */
+  width: 100%;
+  margin: 0; /* מוודא שאין רווחים מיותרים */
+}
+
+/* אם הפוטר נמצא בתוך קונטיינר מסוים */
+.tour-footer-container {
+  width: 100%;
+  padding: 0; /* מוודא שהקו לא נתקע בתוך הפדינג */
+  overflow: hidden;
+}
+
+
 
 /* עיצוב הטקסט של זכויות יוצרים */
 .tour-footer-rights p {
-  font-size: 14px; /* פונט קטן יותר, אחיד בכל העמודים */
-  font-weight: normal; /* הפונט יהיה רגיל ולא בולד */
-  margin-bottom: 10px; /* מרווח קטן יותר */
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 10px;
 }
 
 /* עיצוב האייקונים של שירותי סטרימינג */
 .tour-footer-streaming {
   display: flex;
   justify-content: center;
-  gap: 20px; /* המרווח בין האייקונים */
-  margin-bottom: 10px; /* מרווח קטן יותר */
+  gap: 20px;
+  margin-bottom: 10px;
 }
 
 .tour-footer-streaming .platform-logo {
@@ -1760,21 +1769,20 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 
 /* עיצוב פרטי ההתקשרות */
 .tour-footer-contact p {
-  font-size: 16px; /* פונט אחיד עם השאר */
-  margin-top: 10px; /* מרווח קטן יותר */
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 /* עיצוב הקישור לאולפן */
 .tour-footer-link {
-  color: #f0f0f0; /* צבע קישור בהיר */
+  color: #f0f0f0;
   text-decoration: none;
 }
 
 .tour-footer-link:hover {
   text-decoration: underline;
-  color: #624607; /* צבע קישור בהhover */
+  color: #624607;
 }
-
 
 /* וודא שהפונט יהיה אחיד בכל העמודים */
 .tour-footer-contact p {
@@ -1787,6 +1795,7 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 .tour-footer-rights p {
   margin-bottom: 10px !important;
 }
+
 
 
 

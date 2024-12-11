@@ -268,6 +268,30 @@ body.index-page .navbar .mobile-menu a {
   max-height: 100%; /* Make sure the image doesn't exceed container height */
 }
 
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .video-container {
+    height: 50vh; /* Adjust height for mobile screens */
+    top: 100px; /* Adjust top margin for mobile */
+  }
+  
+  /* For smaller devices, adjust the image size further */
+  .video-container img {
+    object-position: top center; /* Optionally adjust the focal point of the image for mobile */
+  }
+}
+
+/* Media Query for Small Mobile Screens */
+@media (max-width: 480px) {
+  .video-container {
+    height: 40vh; /* Further reduce height on very small screens */
+  }
+  
+  .video-container img {
+    object-position: top center; /* Adjust image to focus more on the top area */
+  }
+}
+
 
 .infbanner {
   display: flex;
@@ -2056,4 +2080,55 @@ body, .tour-footer {
 .popup-form button:hover {
   background-color: #f0f0f0; /* צבע רקע בהעברת עכבר */
   color: black;
+}
+
+/* התאמות למסכים קטנים (רוחב פחות מ-768px) */
+@media (max-width: 768px) {
+  .popup-content {
+    flex-direction: column; /* לשים את התמונה והטופס תחת אחד את השני */
+    justify-content: center; /* מרכז את התוכן אנכית */
+  }
+
+  .popup-image {
+    flex: 0 0 100%; /* התמונה תתפוס 100% מהמרחב */
+    max-width: 100%; /* אין הגבלה לרוחב */
+    margin-bottom: 20px; /* רווח בין התמונה לטופס */
+  }
+
+  .popup-form {
+    max-width: 100%; /* הטופס יתפוס את כל הרוחב */
+    width: 100%; /* הרוחב של הטופס הוא 100% */
+  }
+
+  .popup-form h2 {
+    font-size: 20px; /* קטן את גודל הכותרת */
+  }
+
+  .popup-form input, .popup-form button {
+    font-size: 14px; /* קטן את גודל הפונט בשדות */
+  }
+}
+
+/* התאמות למסכים קטנים מאוד (טלפונים בגרסה אנכית) */
+@media (max-width: 480px) {
+  .popup-content {
+    padding: 10px; /* הפחתת הרווחים בצדדים */
+  }
+
+  .popup-image img {
+    width: 80%; /* התמונה לא תתפוס את כל הרוחב */
+  }
+
+  .popup-form {
+    padding: 10px; /* רווח פנימי עבור הטופס */
+  }
+
+  .popup-form h2 {
+    font-size: 18px; /* קטן את גודל הכותרת */
+  }
+
+  .popup-form input, .popup-form button {
+    font-size: 12px; /* קטן את גודל הפונט בשדות */
+    padding: 8px; /* הקטנת padding */
+  }
 }

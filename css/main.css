@@ -28,11 +28,11 @@ body {
   align-items: center;
   padding: 20px 40px;
   background-color: black;
-  position: fixed;  /* הכותרת נשארת קבועה בזמן גלילה */
+  position: fixed; /* הכותרת נשארת קבועה בזמן גלילה */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;  /* מוודא שהכותרת תמיד מעל התוכן */
+  z-index: 1000; /* מוודא שהכותרת תמיד מעל התוכן */
   border-bottom: 2px solid #f0f0f0;
   flex-direction: row-reverse; /* משנה את סדר האלמנטים כך שהתפריט יהיה בצד שמאל והלוגו בצד ימין */
 }

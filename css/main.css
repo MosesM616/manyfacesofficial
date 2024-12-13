@@ -341,6 +341,123 @@ body.index-page .navbar .mobile-menu a {
 
 
 
+/* עיצוב עבור הקלאס renard-download */
+.renard-download {
+  text-align: center; /* מיישר את הטקסט במרכז */
+  margin: 40px 0; /* מרווח עליון ותחתון */
+  margin-top: -30px;
+}
+
+.renard-download h2 {
+  font-size: 28px; /* גודל כותרת */
+  margin-bottom: 20px; /* ריווח מתחת לכותרת */
+  color: white;
+}
+
+.renard-download p {
+  font-size: 18px; /* גודל טקסט לפארגרף */
+  line-height: 1.6; /* ריווח שורות */
+  margin-bottom: 30px; /* ריווח תחתון */
+  color: white;
+  max-width: 800px; /* גודל מקסימלי לפארגרף */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* כפתור הורדה */
+.renard-download .button {
+  padding: 10px 30px; /* ריווח פנימי לכפתור */
+  background-color: black; /* צבע רקע חום כהה לכפתור */
+  color: white; /* צבע טקסט לבן */
+  text-decoration: none; /* מסיר את הקו תחתון */
+  font-size: 18px; /* גודל פונט */
+  font-weight: bold; /* כובד לפונט */
+  border-radius: 5px; /* פינות מעוגלות */
+  border: 1px solid white; /* בורדר לבן */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* צללה עדינה */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* אפקטי מעבר */
+  display: inline-flex; /* הצגת הטקסט והאייקון בשורה אחת */
+  align-items: center; /* מיישר את האייקון והטקסט במרכז */
+}
+
+/* אפקטים בעת hover על כפתור ההורדה */
+.renard-download .button:hover {
+  background-color: #7f572d; /* שינוי צבע בעת hover */
+  transform: scale(1.05); /* הגדלה קלה בעת hover */
+}
+
+/* אפקט בעת לחיצה על כפתור ההורדה */
+.renard-download .button:active {
+  transform: scale(0.98); /* הקטנה בעת לחיצה */
+}
+
+/* עיצוב האייקון בתוך כפתור ההורדה */
+.renard-download .button i {
+  margin-right: 8px; /* רווח קטן בין האייקון לטקסט */
+  font-size: 20px; /* גודל האייקון */
+}
+
+/* Mobile View for Latest Release Text */
+@media (max-width: 768px) {
+  .renard-download p {
+    font-size: 1.2em; /* Reduce font size for mobile */
+    margin-left: 20px; /* Add some margin to prevent the text from touching the sides */
+    margin-right: 20px; /* Same here to ensure good spacing */
+    max-width: 100%; /* Allow the text to take full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .renard-download p {
+    font-size: 1.1em; /* Further reduce font size for very small screens */
+    margin-left: 10px; /* Reduce left margin */
+    margin-right: 10px; /* Reduce right margin */
+  }
+}
+
+/* Mobile View for Latest Release Text */
+@media (max-width: 768px) {
+  .renard-download .button {
+    font-size: 1.2em; /* Reduce font size for mobile */
+    margin-left: 20px; /* Add some margin to prevent the text from touching the sides */
+    margin-right: 20px; /* Same here to ensure good spacing */
+    max-width: 100%; /* Allow the text to take full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .renard-download .button {
+    font-size: 1.1em; /* Further reduce font size for very small screens */
+    margin-left: 10px; /* Reduce left margin */
+    margin-right: 10px; /* Reduce right margin */
+  }
+}
+
+/* עיצוב של קו מפריד */
+.separator {
+  border: 0; /* מסיר את הקו המחדל */
+  height: 2px; /* גובה הקו */
+  background-color: white; /* צבע הקו */
+  margin: 20px 0; /* רווחים סביב הקו */
+}
+
+/* Mobile View for Latest Release Text */
+@media (max-width: 768px) {
+  .separator {
+    font-size: 1.2em; /* Reduce font size for mobile */
+    margin-left: 20px; /* Add some margin to prevent the text from touching the sides */
+    margin-right: 20px; /* Same here to ensure good spacing */
+    max-width: 100%; /* Allow the text to take full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .separator {
+    font-size: 1.1em; /* Further reduce font size for very small screens */
+    margin-left: 10px; /* Reduce left margin */
+    margin-right: 10px; /* Reduce right margin */
+  }
+}
 
 
 /* קונטיינר התמונה */

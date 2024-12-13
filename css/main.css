@@ -37,22 +37,100 @@ body {
   flex-direction: row-reverse; /* משנה את סדר האלמנטים כך שהתפריט יהיה בצד שמאל והלוגו בצד ימין */
 }
 
-/* עבור התפריט המבורגר */
+/* עיצוב הלוגו */
+.logo a {
+  display: inline-block; /* מוודא שהקישור יתנהג כמו אלמנט בלוק */
+  text-decoration: none; /* מבטל קו תחתון */
+}
+
+.logo img {
+  height: 130px; /* גובה הלוגו */
+  width: auto; /* נשמור על פרופורציות */
+  transition: height 0.3s ease; /* אנימציה לשינוי גובה הלוגו */
+}
+
+/* Media query עבור מסך קטן ומובייל (עד 768px) */
+@media (max-width: 768px) {
+  .top-bar {
+    justify-content: center; /* ממרכז את התוכן בתוך ה-Top Bar במובייל */
+    flex-direction: row; /* במובייל נשאיר את הסדר הרגיל */
+    padding: 15px 20px; /* פחות padding במובייל */
+  }
+
+  .logo img {
+    height: 100px; /* מקטינים את גובה הלוגו במובייל */
+  }
+
+  /* נסתר במובייל את התפריט הראשי */
+  .navbar ul {
+    display: none; /* נסתר במובייל */
+  }
+
+  /* ודא שהתפריט המבורגר יוצג במובייל */
+  .navbar.active .mobile-menu {
+    display: flex; /* התפריט יוצג במובייל כאשר יש קלאס active */
+  }
+
+  /* הצגת כפתור המבורגר במובייל */
+  .hamburger-menu {
+    display: flex; /* כפתור המבורגר יוצג במובייל */
+  }
+
+  /* הצגת כפתור ה-X במובייל */
+  .navbar.active .close-menu {
+    display: block; /* כפתור ה-X יוצג כאשר התפריט פתוח */
+  }
+}
+
+/* תפריט רגיל במחשב */
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* תפריט אופקי */
+  justify-content: center; /* מיישר את התפריט במרכז */
+  gap: 50px; /* רווחים בין פריטי התפריט */
+  position: relative; /* לוודא שהתפריט לא יפגע ביישור */
+  top: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  font-weight: normal;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #624607;
+}
+
+/* כפתור המבורגר */
 .hamburger-menu {
-  display: none; /* כפתור המבורגר נסתר בברירת מחדל */
+  display: none; /* נסתר בברירת מחדל */
   flex-direction: column;
-  gap: 12px; /* מרווח בין קווים */
+  gap: 12px; /* מרווח גדול יותר בין הקווים */
   font-size: 40px;
   cursor: pointer;
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 40px;
-  right: 10px;
-  z-index: 1000;
+  top: 40px; /* במרחק מעט מלמעלה */
+  right: 10px; /* הצבה בצד ימין */
+  z-index: 1000; /* לוודא שזה תמיד יהיה מעל שאר האלמנטים */
 }
 
-/* כפתור המבורגר נפתח לאחר לחיצה */
+/* קווים בתוך כפתור המבורגר */
+.hamburger-menu div {
+  width: 80px; /* הגבה את רוחב הקווים */
+  height: 12px; /* הגבה את גובה הקווים */
+  background-color: white;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* עיצוב כפתור המבורגר לאחר לחיצה */
 .hamburger-menu.open div:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
@@ -65,9 +143,9 @@ body {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* התפריט המבורגר */
+/* תפריט המבורגר במובייל */
 .navbar .mobile-menu {
-  display: none;
+  display: none; /* נסתר במובייל */
   list-style: none;
   margin: 0;
   padding: 0;
@@ -77,63 +155,91 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8); /* רקע שחור עם שקיפות */
   z-index: 1000;
   align-items: center;
-  justify-content: flex-start;
-  padding-top: 40px;
+  justify-content: flex-start; /* מיישר את התפריט מלמעלה */
+  padding-top: 40px; /* רווח מהחלק העליון */
 }
 
-/* תפריט המבורגר מופיע כשיש לו קלאס active */
+/* אחידות על כל אלמנט בתפריט */
+.navbar .mobile-menu li {
+  text-align: center;
+  margin: 0; /* רווחים קטנים יותר בין פריטי התפריט */
+  display: block; /* כל אלמנט יתפוס שורה חדשה */
+}
+
+/* אם יש סגנון ספציפי עבור index.html */
+body.index-page .navbar .mobile-menu a {
+  font-size: 25px !important;  /* מבטל כל שינוי גודל פונט בעמוד הבית */
+  line-height: 1.5 !important; /* מבטל כל שינוי גובה שורה בעמוד הבית */
+}
+
+/* אחידות על כל אלמנט בתפריט, גם בעמוד הבית */
+.navbar .mobile-menu a {
+  font-size: 25px; /* גודל אחיד לכל הקישורים */
+  line-height: 1.5; /* מרווח גובה אחיד */
+  color: white; /* צבע לבן לכל הקישורים */
+  display: block; /* כל קישור יתפוס שורה נפרדת */
+  transition: color 0.3s ease; /* אנימציה בזמן שינוי צבע */
+}
+
+.navbar .mobile-menu a:hover {
+  color: #f0f0f0;
+}
+
+/* מצב כאשר התפריט נפתח */
 .navbar.active .mobile-menu {
-  display: flex;
+  display: flex; /* מציג את התפריט כאשר יש קלאס active */
 }
 
-/* כפתור סגירה במובייל */
+/* כפתור ה-X לסגירת התפריט */
 .navbar .close-menu {
-  display: none;
+  display: none; /* נסתר בברירת מחדל */
   position: fixed;
   top: 40px;
-  left: 20px;
-  font-size: 30px;
+  left: 20px; /* כפתור בצד שמאל */
+  font-size: 10px;
   color: white;
   cursor: pointer;
-  z-index: 1001;
-  background-color: #333;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  border: 2px solid white;
-  padding-top: 7px;
-  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1001; /* לוודא שכפתור ה-X יהיה מעל שאר האלמנטים */
+  background-color: #333; /* רקע כהה לכפתור */
+  width: 30px; /* קביעת רוחב הכפתור */
+  height: 30px; /* קביעת גובה הכפתור */
+  display: flex; /* ישמש כדי למרכז את ה-X במדויק */
+  justify-content: center; /* מיישר את ה-X אופקית */
+  align-items: flex-start; /* מיישר את ה-X להתחלה (למעלה) */
+  border: 2px solid white; /* מסגרת לבנה סביב הכפתור */
+  padding-top: 7px; /* מוסיף רווח למעלה */
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* אנימציה */
 }
 
+/* כאשר הכפתור מעובר עם העכבר */
 .navbar .close-menu:hover {
-  color: #f0f0f0;
-  background-color: #444;
-  transform: scale(1.1);
+  color: #f0f0f0; /* צבע הטקסט משתנה בהhover */
+  background-color: #444; /* צבע רקע כהה יותר בהhover */
+  transform: scale(1.1); /* מעט הגדלת הכפתור בעת hover */
 }
 
-/* עבור מסכים קטנים, מגדירים את כפתור ההמבורגר */
+/* מדיה קווירי עבור מסכים קטנים יותר */
 @media (max-width: 768px) {
   .navbar ul {
-    display: none; /* מסתיר את התפריט הרגיל במובייל */
+    display: none; /* נסתר במובייל */
   }
 
   .navbar.active .mobile-menu {
-    display: flex; /* מציג את התפריט המובייל כשיש קלאס active */
+    display: flex; /* התפריט יוצג במובייל כאשר יש קלאס active */
   }
 
   .hamburger-menu {
-    display: flex; /* מציג את כפתור המבורגר במובייל */
+    display: flex; /* כפתור המבורגר יוצג במובייל */
   }
 
   .navbar.active .close-menu {
-    display: block; /* כפתור ה-X יוצג כשיש קלאס active */
+    display: block; /* כפתור ה-X יוצג כאשר התפריט פתוח */
   }
 }
+
 
 
 

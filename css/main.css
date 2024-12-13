@@ -21,7 +21,7 @@ body {
 }
 
 
-/* עיצוב ה-Top Bar */
+ /* עיצוב ה-Top Bar */
 .top-bar {
   display: flex;
   justify-content: space-between;

@@ -160,6 +160,7 @@ body {
   align-items: center;
   justify-content: flex-start; /* מיישר את התפריט מלמעלה */
   padding-top: 40px; /* רווח מהחלק העליון */
+  overflow-y: auto; /* מאפשר גלילה אם התפריט ארוך */
 }
 
 /* אחידות על כל אלמנט בתפריט */
@@ -240,16 +241,21 @@ body.index-page .navbar .mobile-menu a {
   }
 }
 
-/* תוספת: תמיכה במצבים אופקיים גם במובייל */
+/* תמיכה במצב אופקי במובייל */
 @media (max-width: 768px) and (orientation: landscape) {
   .hamburger-menu {
-    top: 20px; /* כפתור המבורגר ישתנה בהתאם למצב אופקי */
+    top: 10px; /* כפתור המבורגר במרחק יותר קטן במצב אופקי */
   }
 
   .navbar .mobile-menu {
     padding-top: 20px; /* התאמה לרווח העליון במצב אופקי */
   }
+
+  .navbar .mobile-menu li {
+    font-size: 22px; /* קטין את גודל הפונט במצב אופקי */
+  }
 }
+
 
 
 

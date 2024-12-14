@@ -663,7 +663,7 @@ body.about-us-page .footer-rights p {
   text-align: center; /* יישור הכותרת למרכז */
   font-size: 2em;
   margin-top: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   color: white; /* שינוי הצבע ללבן */
   font-weight: bold;
 }

@@ -731,38 +731,39 @@ body.about-us-page .footer-rights p {
 
 
 /* קונטיינר הסרטונים */
-.hp-media-video-container {
-  display: flex;                    /* Flexbox להצגת סרטונים בשורה אחת */
-  justify-content: center;           /* ממורכז אופקית בתוך הקונטיינר */
-  align-items: center;              /* ממורכז אנכית */
-  gap: 20px;                         /* רווח בין הסרטונים */
-  width: 100%;                       /* הקונטיינר תופס את כל הרוחב */
-  box-sizing: border-box;            /* תיאום הרוחב כך שהוא לא יפגע במידות */
+.media-video-container {
+  display: flex;                  /* Flexbox להצגת הסרטונים בשורה אחת */
+  justify-content: center;         /* ממורכז אופקית בתוך הקונטיינר */
+  gap: 20px;                       /* רווח בין הסרטונים */
+  width: 100%;                     /* הקונטיינר תופס את כל הרוחב */
+  box-sizing: border-box;          /* תיאום הרוחב כך שהוא לא יפגע במידות */
+  margin: 0 auto;                  /* מרכז את הקונטיינר */
 }
 
 /* סגנון לכל iframe */
-.hp-media-video-container iframe {
-  width: 760px;                     /* רוחב הסרטונים */
-  height: 515px;                    /* גובה הסרטונים */
-  border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
-  border-radius: 8px;               /* פינות מעוגלות */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* אפקט בזמן hover */
-  flex-shrink: 0;                   /* מונע מהסרטונים להתכווץ */
+.media-video-container iframe {
+  width: 560px !important;               /* רוחב הסרטונים */
+  height: 315px !important;              /* גובה הסרטונים */
+  border-radius: 8px !important;         /* פינות מעוגרות */
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important; /* אפקט בזמן hover */
+  flex-shrink: 0 !important;             /* מונע מהסרטונים להתכווץ */
+  display: block !important;             /* חשוב כדי שה-iframe לא יתפוס את כל הרוחב */
+}
+
+/* אפקט hover */
+.media-video-container iframe:hover {
+  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
 }
 
 /* במקרה של מסך קטן (מובייל) */
 @media (max-width: 768px) {
-  .hp-media-video-container {
-    flex-direction: column;          /* מציג את הסרטונים אחד מעל השני במובייל */
-    align-items: center;             /* ממורכזים */
-    gap: 10px;                       /* רווח קטן יותר בין הסרטונים */
-  }
-
   .hp-media-video-container iframe {
-    width: 100%;                     /* הסרטונים יתפשטו לרוחב מלא במובייל */
-    height: auto;                    /* גובה אוטומטי */
+    width: 100%;                     /* רוחב מלא במסכים קטנים */
+    height: auto;                    /* גובה אוטומטי לשמירה על פרופורציות */
   }
 }
+
 
 
 

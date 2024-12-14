@@ -732,35 +732,46 @@ body.about-us-page .footer-rights p {
 
 /* קונטיינר הסרטונים */
 .media-video-container {
-  display: flex;                  /* Flexbox להצגת הסרטונים בשורה אחת */
-  justify-content: center;         /* ממורכז אופקית בתוך הקונטיינר */
-  gap: 20px;                       /* רווח בין הסרטונים */
-  width: 100%;                     /* הקונטיינר תופס את כל הרוחב */
-  box-sizing: border-box;          /* תיאום הרוחב כך שהוא לא יפגע במידות */
-  margin: 0 auto;                  /* מרכז את הקונטיינר */
+  display: flex;                     /* Flexbox להצגת הסרטונים בשורה אחת */
+  justify-content: center;            /* ממורכז אופקית בתוך הקונטיינר */
+  gap: 20px;                          /* רווח בין הסרטונים */
+  width: 100%;                        /* הקונטיינר תופס את כל הרוחב */
+  box-sizing: border-box;             /* תיאום הרוחב כך שהוא לא יפגע במידות */
+  margin: 0 auto;                     /* מרכז את הקונטיינר */
+  flex-wrap: wrap;                    /* מאפשר לצפות בסרטונים בשורות אם יש צורך */
 }
 
 /* סגנון לכל iframe */
 .media-video-container iframe {
-  width: 560px !important;               /* רוחב הסרטונים */
-  height: 315px !important;              /* גובה הסרטונים */
-  border-radius: 8px !important;         /* פינות מעוגרות */
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important; /* אפקט בזמן hover */
-  flex-shrink: 0 !important;             /* מונע מהסרטונים להתכווץ */
-  display: block !important;             /* חשוב כדי שה-iframe לא יתפוס את כל הרוחב */
+  width: 100%;                        /* רוחב מלא כדי להסתגל לכל גודל מסך */
+  height: 315px;                      /* גובה קבוע (במקרה של מסכים גדולים יותר) */
+  border-radius: 8px !important;      /* פינות מעוגרות */
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;  /* אפקט בזמן hover */
+  flex-shrink: 0 !important;          /* מונע מהסרטונים להתכווץ */
+  display: block !important;          /* חשוב כדי שה-iframe לא יתפוס את כל הרוחב */
+  max-width: 560px;                   /* מקסימום רוחב של 560px (ברירת מחדל) */
+  margin-bottom: 20px;                /* רווח בין הסרטונים */
 }
 
 /* אפקט hover */
 .media-video-container iframe:hover {
-  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
+  transform: scale(1.05) !important;  /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important; /* הוספת צל זהוב */
 }
 
 /* במקרה של מסך קטן (מובייל) */
 @media (max-width: 768px) {
-  .hp-media-video-container iframe {
-    width: 100%;                     /* רוחב מלא במסכים קטנים */
-    height: auto;                    /* גובה אוטומטי לשמירה על פרופורציות */
+  .media-video-container iframe {
+    height: auto;                     /* גובה אוטומטי לשמירה על פרופורציות הסרטון */
+    max-width: 100%;                   /* רוחב המקסימום של הסרטון על מסכים קטנים */
+  }
+}
+
+/* במקרה של מסכים קטנים מאוד (טלפונים מאוד קטנים או מסכים בגרסה אנכית) */
+@media (max-width: 480px) {
+  .media-video-container iframe {
+    width: 100%;                      /* רוחב מלא עבור כל המסכים הקטנים */
+    height: 200px;                    /* גובה מותאם יותר למסכים קטנים מאוד */
   }
 }
 

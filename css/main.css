@@ -731,49 +731,44 @@ body.about-us-page .footer-rights p {
 
 
 /* קונטיינר הסרטונים */
-.media-video-container {
-  display: flex;                     /* Flexbox להצגת הסרטונים בשורה אחת */
-  justify-content: center;            /* ממורכז אופקית בתוך הקונטיינר */
-  gap: 20px;                          /* רווח בין הסרטונים */
-  width: 100%;                        /* הקונטיינר תופס את כל הרוחב */
-  box-sizing: border-box;             /* תיאום הרוחב כך שהוא לא יפגע במידות */
-  margin: 0 auto;                     /* מרכז את הקונטיינר */
-  flex-wrap: wrap;                    /* מאפשר לצפות בסרטונים בשורות אם יש צורך */
+.hp-media-video-container {
+  display: flex;                    /* Flexbox להצגת סרטונים בשורה אחת */
+  justify-content: center;           /* ממורכז אופקית בתוך הקונטיינר */
+  align-items: center;              /* ממורכז אנכית */
+  gap: 20px;                         /* רווח בין הסרטונים */
+  width: 100%;                       /* הקונטיינר תופס את כל הרוחב */
+  box-sizing: border-box;            /* תיאום הרוחב כך שהוא לא יפגע במידות */
 }
 
 /* סגנון לכל iframe */
-.media-video-container iframe {
-  width: 100%;                        /* רוחב מלא כדי להסתגל לכל גודל מסך */
-  height: 315px;                      /* גובה קבוע (במקרה של מסכים גדולים יותר) */
-  border-radius: 8px !important;      /* פינות מעוגרות */
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;  /* אפקט בזמן hover */
-  flex-shrink: 0 !important;          /* מונע מהסרטונים להתכווץ */
-  display: block !important;          /* חשוב כדי שה-iframe לא יתפוס את כל הרוחב */
-  max-width: 560px;                   /* מקסימום רוחב של 560px (ברירת מחדל) */
-  margin-bottom: 20px;                /* רווח בין הסרטונים */
+.hp-media-video-container iframe {
+  width: 760px;                     /* רוחב הסרטונים */
+  height: 515px;                    /* גובה הסרטונים */
+  border-radius: 8px;               /* פינות מעוגלות */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* אפקט בזמן hover */
+  flex-shrink: 0;                   /* מונע מהסרטונים להתכווץ */
 }
 
 /* אפקט hover */
-.media-video-container iframe:hover {
-  transform: scale(1.05) !important;  /* הגדלה של הסרטון קלות */
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important; /* הוספת צל זהוב */
+.hp-media-video-container iframe:hover {
+  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
 }
 
 /* במקרה של מסך קטן (מובייל) */
 @media (max-width: 768px) {
-  .media-video-container iframe {
-    height: auto;                     /* גובה אוטומטי לשמירה על פרופורציות הסרטון */
-    max-width: 100%;                   /* רוחב המקסימום של הסרטון על מסכים קטנים */
+  .hp-media-video-container {
+    flex-direction: column;          /* מציג את הסרטונים אחד מעל השני במובייל */
+    align-items: center;             /* ממורכזים */
+    gap: 10px;                       /* רווח קטן יותר בין הסרטונים */
+  }
+
+  .hp-media-video-container iframe {
+    width: 100%;                     /* הסרטונים יתפשטו לרוחב מלא במובייל */
+    height: auto;                    /* גובה אוטומטי */
   }
 }
 
-/* במקרה של מסכים קטנים מאוד (טלפונים מאוד קטנים או מסכים בגרסה אנכית) */
-@media (max-width: 480px) {
-  .media-video-container iframe {
-    width: 100%;                      /* רוחב מלא עבור כל המסכים הקטנים */
-    height: 200px;                    /* גובה מותאם יותר למסכים קטנים מאוד */
-  }
-}
 
 
 
@@ -1413,43 +1408,54 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 
 /* סגנון לכל iframe */
 .media-video-container iframe {
-  width: 560px;                     /* רוחב הסרטונים */
-  height: 315px;                    /* גובה הסרטונים */
-  border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
-  border-radius: 8px;               /* פינות מעוגלות */
+  width: 100%;                        /* רוחב מלא כדי להסתגל לכל גודל מסך */
+  height: 315px;                      /* גובה קבוע (במקרה של מסכים גדולים יותר) */
+  border: 0.5px solid #624607;        /* גבול דק בצבע חום כהה */
+  border-radius: 8px;                 /* פינות מעוגרות */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* אפקט בזמן hover */
-  flex-shrink: 0;                   /* מונע מהסרטונים להתכווץ */
+  flex-shrink: 0;                     /* מונע מהסרטונים להתכווץ */
+  display: block;                     /* חשוב כדי שה-iframe לא יתפוס את כל הרוחב */
+  max-width: 560px;                   /* מקסימום רוחב של 560px (ברירת מחדל) */
+  margin-bottom: 20px;                /* רווח בין הסרטונים */
+}
+
+/* אפקט hover */
+.media-video-container iframe:hover {
+  transform: scale(1.05);             /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);  /* הוספת צל זהוב */
 }
 
 /* במקרה של מסך קטן (מובייל) */
 @media (max-width: 768px) {
   .media-video-container {
-    flex-direction: column;          /* מציג את הסרטונים אחד מעל השני במובייל */
-    align-items: center;             /* ממורכזים */
-    gap: 10px;                       /* רווח קטן יותר בין הסרטונים */
+    flex-direction: column;           /* מציג את הסרטונים אחד מעל השני במובייל */
+    align-items: center;              /* ממורכזים */
+    gap: 10px;                        /* רווח קטן יותר בין הסרטונים */
   }
 
   /* הגדרת הרוחב של הסרטונים למובייל */
   .media-video-container iframe {
-    width: 90%;                      /* הסרטונים יתפשטו לרוחב 90% במובייל */
-    max-width: 480px;                /* לא יחרגו מהרוחב של 480px */
-    height: auto;                    /* גובה אוטומטי */
+    width: 90%;                       /* הסרטונים יתפשטו לרוחב 90% במובייל */
+    max-width: 480px;                 /* לא יחרגו מהרוחב של 480px */
+    height: auto;                     /* גובה אוטומטי לשמירה על פרופורציות */
   }
 }
 
-/* אם המסך עוד יותר קטן (למשל טלפונים קטנים) */
+/* במקרה של מסך קטן מאוד (טלפונים קטנים מאוד) */
 @media (max-width: 480px) {
   .media-video-container iframe {
-    width: 85%;                      /* הסרטונים יתפשטו לרוחב 85% במסכים קטנים מאוד */
-    max-width: 400px;                /* לא יחרגו מהרוחב של 400px */
+    width: 85%;                       /* הסרטונים יתפשטו לרוחב 85% במסכים קטנים מאוד */
+    max-width: 400px;                 /* לא יחרגו מהרוחב של 400px */
+    height: auto;                     /* גובה אוטומטי */
   }
 }
 
-/* אם המסך עוד יותר קטן (למשל טלפונים קטנים) */
+/* במקרה של מסך בגודל בינוני (למשל טאבלטים בגודל בינוני) */
 @media (max-width: 1024px) {
   .media-video-container iframe {
-    width: 85%;                      /* הסרטונים יתפשטו לרוחב 85% במסכים קטנים מאוד */
-    max-width: 400px;                /* לא יחרגו מהרוחב של 400px */
+    width: 85%;                       /* הסרטונים יתפשטו לרוחב 85% במסכים בגודל בינוני */
+    max-width: 480px;                 /* לא יחרגו מהרוחב של 480px */
+    height: auto;                     /* גובה אוטומטי */
   }
 }
 

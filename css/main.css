@@ -668,63 +668,69 @@ body.about-us-page .footer-rights p {
   font-weight: bold;
 }
 
-/* עיצוב לפוסטים מאינסטגרם */
-.insta-posts {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr); /* 8 פוסטים בשורה */
-  gap: 5px; 
-  justify-items: center; /* למרכז את הפוסטים */
-  box-sizing: border-box; /* לוודא שהpadding לא מפריע לגודל */
+/* קונטיינר התמונה */
+.insta-image {
+  display: flex;              /* Flexbox למרכז את התמונה */
+  justify-content: center;    /* מיישר את התמונה במרכז */
+  align-items: center;        /* מיישר את התמונה גם במרכז אנכית */
+  width: 100%;                /* רוחב מלא */
+  height: auto;               /* גובה אוטומטי לשמירה על פרופורציות */
+  padding-top: 50px;          /* רווח מעל התמונה */
+  margin: 0 auto;             /* ממרכז את המיכל */
+  pointer-events: none;       /* מבטל לחיצה על הקונטיינר */
 }
 
-/* עיצוב לכל פוסט */
-.insta-post{
-  display: block;
-  max-width: 100%;
-  width: 100%; /* השתמש ב-100% על מנת למנוע חריגה */
-  height: 270px; /* גובה אחיד לכל הפוסטים */
-  overflow: hidden;
-  border-radius: 8px;
-  background-color: #f4f4f4; /* צבע רקע לאלמנטים חסרים */
+/* התמונה עצמה – עיצוב */
+.insta-image img {
+  max-width: 100%;            /* התמונה תתפוס מקסימום רוחב המיכל */
+  height: auto;               /* שמירה על פרופורציות התמונה */
+  display: block;             /* מונע רווחים מתחת לתמונה */
+  margin-left: auto;          /* ממרכז את התמונה */
+  margin-right: auto;         /* ממרכז את התמונה */
+  pointer-events: auto;       /* מאפשר לחיצה על התמונה */
 }
 
-.instagram-media {
+/* הסגנון עבור הקונטיינר של התמונה */
+.insta-image {
+  text-align: center; /* ממקם את התמונה במרכז */
+  display: inline-block; /* תומך בהצגת התמונה בצורה בולטת */
   width: 100%;
-  height: 100%;
-  display: block;
-  position: relative;
 }
 
-.instagram-media iframe {
-  width: 100%; /* לוודא שהתמונה תופסת את כל הרוחב */
-  height: 100%; /* לוודא שהתמונה תופסת את כל הגובה */
-  object-fit: cover; /* התמונה תתממשק עם גודל ה-container */
-  object-position: center center; /* מוודא שהמרכז של התמונה מוצג */
+.insta-image a {
+  display: inline-block; /* גורם לקישור להיות בגודל של התמונה בלבד */
+  width: auto;
+  height: auto;
 }
 
-.insta-post :hover {
-  transform: scale(1.1); /* אפקט הגדלה */
+.insta-image a img {
+  width: 100%; /* מתאם את התמונה לגודל שלה */
+  max-width: 400px; /* מכניס את התמונה במגבלה של רוחב מקסימלי (אם צריך) */
+  height: auto; /* שומר על פרופורציות התמונה */
+  display: block; /* הוספת display:block כדי להבטיח שהתמונה לא תכיל מרווחים מיותרים */
+  margin: 0 auto; /* מרכז את התמונה במרכז */
+  pointer-events: all;  /* מאפשר לחיצה על התמונה */
 }
+
+/* אם רוצים, אפשר להוסיף אפקט של hover */
+.insta-image a:hover img {
+  opacity: 0.8; /* דוגמה לאפקט ריחוף, שינוי שקיפות התמונה */
+  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
+}
+
+.insta-image img {
+  border-radius: 8px; /* הוספת קווים מעוגלים אם רוצים */
+}
+
 
 /* Media Query עבור מסכים קטנים (מובייל) */
 @media (max-width: 768px) {
-  .insta-posts {
-    grid-template-columns: repeat(4, 1fr); /* 4 פוסטים בשורה */
-  }
-
-  .insta-post {
-    height: 250px; /* גובה קטן יותר במובייל */
-  }
-}
-
-/* Media Query עבור מסכים עוד יותר קטנים (עד 480px) */
-@media (max-width: 480px) {
-  .insta-posts {
-    grid-template-columns: repeat(2, 1fr); /* 2 פוסטים בשורה */
-  }
-
-  .insta-post {
-    height: 220px; /* גובה קטן יותר למסכים קטנים מאוד */
+  /* וודא שהתמונה תישאר בתוך גבולות המסך */
+  .insta-image img {
+    max-width: 90%;             /* צמצום רוחב התמונה במובייל */
+    margin-left: auto;          /* ממרכז את התמונה */
+    margin-right: auto;         /* ממרכז את התמונה */
   }
 }
 
@@ -1844,6 +1850,8 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* מוודא שהפופ-אפ לא יגרום לגלילה */
+  transition: all 0.3s ease; /* תנועת טרנזישן חלקה */
 }
 
 /* תוכן הפופ-אפ */
@@ -1852,12 +1860,14 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   background-color: black; /* רקע שחור לפופ-אפ */
   padding: 20px;
   border-radius: 10px;
-  max-width: 900px; /* מקסימום רוחב */
   width: 90%; /* גודל של 90% מהמסך */
+  max-width: 900px; /* מקסימום רוחב */
   display: flex; /* הצגת התוכן בשורה */
   justify-content: space-between;
   align-items: center;
   border: 2px solid #624607; /* מסגרת מוזהבת דקה */
+  box-sizing: border-box; /* כולל את הריפוד בגבולות הפופ-אפ */
+  transition: all 0.3s ease; /* שינוי מהיר בגודל הפופ-אפ */
 }
 
 /* כפתור ה-X לסגירת הפופ-אפ */
@@ -1940,7 +1950,8 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   .popup-content {
     flex-direction: column; /* לשים את התמונה והטופס תחת אחד את השני */
     justify-content: center; /* מרכז את התוכן אנכית */
-    border: 2px solid #624607; /* מסגרת מוזהבת דקה גם במסכים קטנים */
+    padding: 15px; /* הפחתת רווחים */
+    max-width: 90%; /* הפופ-אפ יתפוס עד 90% מהמסך */
   }
 
   .popup-image {
@@ -1986,3 +1997,23 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
     padding: 8px; /* הקטנת padding */
   }
 }
+
+/* התאמות למסכים אופקיים (מובייל במצב אופקי) */
+@media (orientation: landscape) {
+  .popup-content {
+    width: 90%; /* הפופ-אפ יתפוס 90% מהמסך */
+    max-width: 800px; /* הגבלת רוחב מקסימלי */
+    padding: 20px;
+  }
+
+  .popup-image {
+    flex: 0 0 50%; /* התמונה תתפוס 50% מהרוחב */
+    max-width: 50%;
+  }
+
+  .popup-form {
+    max-width: 50%;
+    width: 100%; /* הטופס יתפוס עד 50% מהמסך */
+  }
+}
+

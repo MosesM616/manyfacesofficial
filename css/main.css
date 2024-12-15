@@ -1893,12 +1893,12 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 }
 
 /* עיצוב התמונה השנייה בתוך התיבה (שמתחת לתמונה הראשונה) */
-.profile-image-bottom {
+.profile-image-bottom2 {
   width: 100%; /* התמונה תתפוס 98% מהרוחב של התיבה */
   height: 30%; /* התמונה תתפוס את שאר 30% מהגובה של התיבה */
   object-fit: contain; /* שמירה על פרופורציות התמונה */
   border-radius: 10px; /* פינות מעוגלות לתמונה */
-  margin-top: 0px;
+  margin-top: 450px;
 }
 
 /* פרטי FAVORITES */
@@ -2071,7 +2071,7 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   }
 
   /* התאמות גובה התמונה */
-  .profile-image, .profile-image-bottom {
+  .profile-image, .profile-image-bottom2 {
     width: 100%; /* תמונות תופסות 100% רוחב */
     height: auto; /* גובה מותאם */
   }
@@ -2079,9 +2079,9 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 
 /* עיצוב עבור מסכים קטנים (כמו מוביילים) */
 @media (max-width: 768px) {
-  .profile-image-bottom {
+  .profile-image-bottom2 {
     position: relative; /* הגדרת מיקום יחסי */
-    top: -20px; /* הזזת התמונה 30px למעלה */
+    top: -10px; /* הזזת התמונה 30px למעלה */
   }
 }
 

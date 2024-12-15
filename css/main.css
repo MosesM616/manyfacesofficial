@@ -635,7 +635,7 @@ body.about-us-page .footer-rights p {
 .separator {
   border: 0; /* מסיר את הקו המחדל */
   height: 2px; /* גובה הקו */
-  background-color: white; /* צבע הקו */
+  background-color: #6a4e23; /* צבע הקו */
   margin: 20px 0; /* רווחים סביב הקו */
 }
 
@@ -1764,7 +1764,6 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
 /* רק בעמוד של MOSES */
 .moses-page header {
   position: sticky;
-  margin-bottom: 50px; /* מרווח מתחת ל-header */
   z-index: 1;
 }
 
@@ -1773,46 +1772,1117 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   margin-top: 50px; /* שיפוי למרווח נוסף */
 }
 
-/* עיצוב התמונה בפרופיל - תמונה וטקסט */
+/* קונטיינר הכולל את התיבה והכותרת */
 .profile-container {
-  display: flex; /* מיקום התמונה והטקסט בשורה אחת */
-  align-items: center; /* מיקום התמונה והטקסט במרכז אנכי */
-  justify-content: center; /* מיקום מרכזי של התמונה והטקסט על הציר האופקי */
-  padding: 40px; /* רווח פנימי מהדפדפן */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 60px;
+  gap: 30px;
+  margin-left: 250px; /* מרווח קטן שמאלה */
 }
 
+/* הקופסה האנכית */
+.profile-box {
+  width: 750px;
+  height: 600px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  position: relative;
+}
+
+/* אם רוצים, אפשר להוסיף אפקט של hover */
+.profile-box:hover { 
+  opacity: 0.8; /* דוגמה לאפקט ריחוף, שינוי שקיפות התמונה */
+  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
+}
+
+/* קו מתחת לכותרת */
+.profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב אפל */
+  width: 100%; /* גודל הקו */
+  margin: 5px auto; /* ממורכז עם רווח מעל ומתחת */
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+/* כותרת */
+.profile-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  align-self: flex-start;
+  white-space: nowrap;
+  padding-bottom: 5px;
+  margin-top: -5px; /* הרם את הכותרת מעט למעלה */
+}
+
+/* אפקט hover לכותרת MOSES MICHAEL */
+.profile-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* פרטי מידע */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px; /* הרם את הטקסט שמתחת לכותרת */
+  text-align: left;
+  width: 80%;
+}
+
+/* כל פריט בתוך המידע */
+.profile-details .detail-item {
+  margin-bottom: 10px; /* מרווח בין פריט לפריט */
+}
+
+/* רק עבור ה-"Band Position" */
+.profile-details .detail-item .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* טקסט של כל פריט, מונע פיצול לשורות */
+.profile-details .detail-item .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* רק עבור "Band Position" */
+.profile-details .detail-item:nth-child(5) .detail-text {
+  white-space: nowrap; /* מונע פיצול לשורות */
+}
+
+/* כותרת של כל פריט */
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold; /* הדגשה של הכותרת */
+}
+
+/* טקסט של כל פריט */
+.profile-details .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* עיצוב התמונה הראשונה בתוך התיבה */
 .profile-image {
-  width: 300px; /* גודל התמונה */
-  height: auto; /* שימור פרופורציות התמונה */
+  position: absolute; /* מיקום מוחלט בתוך התיבה */
+  top: 0; /* הצמדת התמונה לחלק העליון של התיבה */
+  left: 0; /* הצמדת התמונה לקיר השמאלי של התיבה */
+  width: 100%; /* התמונה תתפוס 100% מהרוחב של התיבה */
+  height: 70%; /* התמונה תתפוס 100% מהגובה של התיבה */
+  object-fit: cover; /* שמירה על פרופורציות התמונה */
+
+}
+
+/* עיצוב התמונה השנייה בתוך התיבה (שמתחת לתמונה הראשונה) */
+.profile-image-bottom {
+  width: 100%; /* התמונה תתפוס 98% מהרוחב של התיבה */
+  height: 30%; /* התמונה תתפוס את שאר 30% מהגובה של התיבה */
+  object-fit: contain; /* שמירה על פרופורציות התמונה */
   border-radius: 10px; /* פינות מעוגלות לתמונה */
-  margin-right: 40px; /* מרחק בין התמונה לטקסט */
-  border: 2px solid #7a5d25; /* הוספת מסגרת בצבע חום כהה (#7a5d25) סביב התמונה */
-  transition: transform 0.3s ease, border 0.3s ease; /* אפקט טרנזיציה להגדלת התמונה ולשינוי המסגרת */
-  margin-left: calc(50% - 110px); /* מיקום התמונה 50% מהאמצע של העמוד (החצי של רוחב התמונה) */
+  margin-top: 0px;
 }
 
-/* אפקט כשמרחפים על התמונה */
-.profile-image:hover {
-  transform: scale(1.1); /* אפקט של הגדלה */
-  border: 2px solid #7a5d25; /* צבע המסגרת נשאר אותו דבר בעת hover */
+/* פרטי FAVORITES */
+.favorites-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%; /* גודל החלק שיתפוס כל התוכן */
+  margin-top: -5px;
+  margin-left: 70px; /* מרווח קטן בין הפרטים החדשים לפרטים הקודמים */
+}
+
+/* שמירה על הכותרת ואי שינוי המיקום */
+.favorites-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+/* אפקט hover לכותרת FAVORITES */
+.favorites-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* קו מתחת לכותרת FAVORITES */
+.favorites-title + .profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב */
+  width: calc(23% - 20px); /* הגבלת רוחב הקו כך שיתאם לרוחב הכותרת */
+  margin: -4px 0 -2px 0; /* הרווח למעלה ולמטה מתואם */
+  margin-left: 0px; /* הרווח משמאל כדי להתאים את הקו לכותרת */
+}
+
+.profile-details .detail-item {
+  margin-bottom: 10px;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+/* עיצוב עבור מסכים קטנים (כמו מוביילים) */
+@media (max-width: 768px) {
+  /* קונטיינר */
+  .profile-container {
+    flex-direction: column; /* לשים את האלמנטים בסדר אנכי */
+    align-items: center; /* למרכז את האלמנטים */
+    margin-left: 0;
+    gap: 20px;
+    width: 100%; /* זה חשוב אם יש מרווחים */
+  }
+
+  /* תיבת המידע עם התמונות */
+  .profile-box {
+    width: 90%; /* תיבה תופסת 90% מהרוחב */
+    height: auto; /* הגובה יתאם לתוכן */
+    position: relative;
+	margin-left: 25px;
+  }
+
+  /* כותרת ה-MOSES MICHAEL */
+  .profile-title {
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור אמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת */
+  .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 100%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי המידע - כותרות */
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* למרכז את כל המידע */
+    text-align: center;
+    width: 100%; /* המידע יתפוס את כל רוחב המסך */
+  }
+
+  /* כל פריט בפרטי המידע */
+  .profile-details .detail-item {
+    margin-bottom: 15px;
+    width: 100%; /* זה חשוב אם יש יותר מידי מרווחים */
+    text-align: center; /* מרכז את כל התוכן */
+  }
+
+  .profile-details .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px; /* קטנה יותר במובייל */
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .profile-details .detail-text {
+    font-size: 16px; /* קטנה יותר במובייל */
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  /* כותרת FAVORITES */
+  .favorites-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור לאמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת FAVORITES */
+  .favorites-title + .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 40%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי FAVORITES */
+  .favorites-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* יישור לאמצע */
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* פרטי FAVORITES - כל פריט */
+  .favorites-info .detail-item {
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center; /* יישור לאמצע */
+  }
+
+  .favorites-info .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px;
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .favorites-info .detail-text {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+}
+
+/* התאמה למובייל במצב אופקי */
+@media (max-width: 768px) and (orientation: landscape) {
+  .profile-container {
+    flex-direction: row; /* התצוגה נשארת אופקית */
+    gap: 20px;
+  }
+
+  /* התאמות גובה התמונה */
+  .profile-image, .profile-image-bottom {
+    width: 100%; /* תמונות תופסות 100% רוחב */
+    height: auto; /* גובה מותאם */
+  }
+}
+
+/* עיצוב עבור מסכים קטנים (כמו מוביילים) */
+@media (max-width: 768px) {
+  .profile-image-bottom {
+    position: relative; /* הגדרת מיקום יחסי */
+    top: -20px; /* הזזת התמונה 30px למעלה */
+  }
+}
+
+.gear-heading {
+  font-size: 2em;
+  text-align: center;
+  color: #fff; /* Change the color as needed */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.guitar-images {
+  display: flex;
+  justify-content: center; /* למרכז את התמונות */
+  gap: 10px; /* רווח בין התמונות */
+  margin-top: 20px;
+}
+
+.gear-image {
+  width: 45%; /* הגודל של כל תמונה, תוכל להתאים בהתאם */
+  height: auto;
+  border-radius: 8px; /* אם אתה רוצה פינות מעוגלות לתמונות */
+  border: 1px solid #fff; /* מסגרת לבנה דקה */
+  padding: 5px; /* רווח פנימי קטן סביב התמונה */
+}
+
+.gear-images {
+  display: flex;
+  justify-content: center; /* למרכז את התמונות */
+  gap: 10px; /* רווח בין התמונות */
+  margin-top: 20px;
+}
+
+.gear2-image {
+  width: 35%; /* הגודל של כל תמונה, תוכל להתאים בהתאם */
+  height: auto;
+  border-radius: 8px; /* אם אתה רוצה פינות מעוגלות לתמונות */
+    border: 1px solid #fff; /* מסגרת לבנה דקה */
+  padding: 5px; /* רווח פנימי קטן סביב התמונה */
+}
+
+/* עיצוב למובייל (מסכים קטנים) */
+@media (max-width: 768px) {
+
+  /* התצוגה עבור קונטיינר ה-GEAR */
+  .gear-images {
+    flex-direction: column; /* תמונות אחת על השנייה */
+    align-items: center; /* למרכז את התמונות */
+    gap: 10px; /* רווח קטן בין התמונות */
+  }
+
+  /* תמונות בתוך ה-GEAR */
+  .gear-image {
+    width: 90%; /* תמונות בגודל שמתאים למסך קטן */
+    height: auto; /* שמירה על פרופורציות */
+  }
+
+  /* כותרת ה-GEAR */
+  .gear-heading {
+    font-size: 1.5em;
+    text-align: center;
+    color: #fff; /* צבע לבן או מה שמתאים לך */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+/* עיצוב עבור מסכים רחבים יותר (למחשב שולחני) */
+@media (min-width: 769px) {
+
+  /* תצוגה בשורה אחת עבור התמונות */
+  .gear-images {
+    display: flex;
+    justify-content: center; /* למרכז את התמונות */
+    gap: 20px; /* רווח גדול יותר בין התמונות */
+  }
+
+  /* התמונות ב-GEAR יהיו ברוחב קטן יותר במסכים רחבים */
+  .gear-image {
+    width: 45%; /* התמונה תתפוס 45% מהרוחב */
+    height: auto; /* שמירה על פרופורציות */
+  }
+
+  /* כותרת ה-GEAR */
+  .gear-heading {
+    font-size: 2em;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
 
 
-/* טקסט בצד ימין */
-.profile-text {
-  max-width: 600px; /* מגדיר מקסימום רוחב לטקסט */
+
+/* רק בעמוד של MOSES */
+.ben-page header {
+  position: sticky;
+  z-index: 1;
 }
 
-.profile-text h1 {
-  font-size: 6em;; /* גודל כותרת */
-  margin-bottom: 20px; /* רווח בין הכותרת לפסקה */
+/* מרווח נוסף עבור גוף העמוד ב-MOSES */
+.ben-page body {
+  margin-top: 50px; /* שיפוי למרווח נוסף */
 }
 
-.profile-text p {
-  font-size: 18px; /* גודל הפסקה */
-  line-height: 1.6; /* ריווח בין השורות */
-  color: white; /* צבע הטקסט */
+/* קונטיינר הכולל את התיבה והכותרת */
+.profile-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 60px;
+  gap: 30px;
+  margin-left: 250px; /* מרווח קטן שמאלה */
 }
+
+/* הקופסה האנכית */
+.profile-box {
+  width: 750px;
+  height: 600px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  position: relative;
+}
+
+/* אם רוצים, אפשר להוסיף אפקט של hover */
+.profile-box:hover { 
+  opacity: 0.8; /* דוגמה לאפקט ריחוף, שינוי שקיפות התמונה */
+  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
+}
+
+/* קו מתחת לכותרת */
+.profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב אפל */
+  width: 100%; /* גודל הקו */
+  margin: 5px auto; /* ממורכז עם רווח מעל ומתחת */
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+/* כותרת */
+.profile-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  align-self: flex-start;
+  white-space: nowrap;
+  padding-bottom: 5px;
+  margin-top: -5px; /* הרם את הכותרת מעט למעלה */
+}
+
+/* אפקט hover לכותרת MOSES MICHAEL */
+.profile-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* פרטי מידע */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px; /* הרם את הטקסט שמתחת לכותרת */
+  text-align: left;
+  width: 80%;
+}
+
+/* כל פריט בתוך המידע */
+.profile-details .detail-item {
+  margin-bottom: 10px; /* מרווח בין פריט לפריט */
+}
+
+/* רק עבור ה-"Band Position" */
+.profile-details .detail-item .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* טקסט של כל פריט, מונע פיצול לשורות */
+.profile-details .detail-item .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* רק עבור "Band Position" */
+.profile-details .detail-item:nth-child(5) .detail-text {
+  white-space: nowrap; /* מונע פיצול לשורות */
+}
+
+/* כותרת של כל פריט */
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold; /* הדגשה של הכותרת */
+}
+
+/* טקסט של כל פריט */
+.profile-details .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* עיצוב התמונה הראשונה בתוך התיבה */
+.profile-image {
+  position: absolute; /* מיקום מוחלט בתוך התיבה */
+  top: 0; /* הצמדת התמונה לחלק העליון של התיבה */
+  left: 0; /* הצמדת התמונה לקיר השמאלי של התיבה */
+  width: 100%; /* התמונה תתפוס 100% מהרוחב של התיבה */
+  height: 70%; /* התמונה תתפוס 100% מהגובה של התיבה */
+  object-fit: cover; /* שמירה על פרופורציות התמונה */
+
+}
+
+/* עיצוב התמונה השנייה בתוך התיבה (שמתחת לתמונה הראשונה) */
+.profile-image-bottom {
+  width: 100%; /* התמונה תתפוס 98% מהרוחב של התיבה */
+  height: 30%; /* התמונה תתפוס את שאר 30% מהגובה של התיבה */
+  object-fit: contain; /* שמירה על פרופורציות התמונה */
+  border-radius: 10px; /* פינות מעוגלות לתמונה */
+  margin-top: 420px;
+}
+
+/* פרטי FAVORITES */
+.favorites-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%; /* גודל החלק שיתפוס כל התוכן */
+  margin-top: -5px;
+  margin-left: 70px; /* מרווח קטן בין הפרטים החדשים לפרטים הקודמים */
+}
+
+/* שמירה על הכותרת ואי שינוי המיקום */
+.favorites-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+/* אפקט hover לכותרת FAVORITES */
+.favorites-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* קו מתחת לכותרת FAVORITES */
+.favorites-title + .profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב */
+  width: calc(23% - 20px); /* הגבלת רוחב הקו כך שיתאם לרוחב הכותרת */
+  margin: -4px 0 -2px 0; /* הרווח למעלה ולמטה מתואם */
+  margin-left: 0px; /* הרווח משמאל כדי להתאים את הקו לכותרת */
+}
+
+.profile-details .detail-item {
+  margin-bottom: 10px;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+/* עיצוב עבור מסכים קטנים (כמו מוביילים) */
+@media (max-width: 768px) {
+  /* קונטיינר */
+  .profile-container {
+    flex-direction: column; /* לשים את האלמנטים בסדר אנכי */
+    align-items: center; /* למרכז את האלמנטים */
+    margin-left: 0;
+    gap: 20px;
+    width: 100%; /* זה חשוב אם יש מרווחים */
+  }
+
+  /* תיבת המידע עם התמונות */
+  .profile-box {
+    width: 90%; /* תיבה תופסת 90% מהרוחב */
+    height: auto; /* הגובה יתאם לתוכן */
+    position: relative;
+	margin-left: 25px;
+  }
+
+  /* כותרת ה-MOSES MICHAEL */
+  .profile-title {
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור אמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת */
+  .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 100%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי המידע - כותרות */
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* למרכז את כל המידע */
+    text-align: center;
+    width: 100%; /* המידע יתפוס את כל רוחב המסך */
+  }
+
+  /* כל פריט בפרטי המידע */
+  .profile-details .detail-item {
+    margin-bottom: 15px;
+    width: 100%; /* זה חשוב אם יש יותר מידי מרווחים */
+    text-align: center; /* מרכז את כל התוכן */
+  }
+
+  .profile-details .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px; /* קטנה יותר במובייל */
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .profile-details .detail-text {
+    font-size: 16px; /* קטנה יותר במובייל */
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  /* כותרת FAVORITES */
+  .favorites-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור לאמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת FAVORITES */
+  .favorites-title + .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 40%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי FAVORITES */
+  .favorites-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* יישור לאמצע */
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* פרטי FAVORITES - כל פריט */
+  .favorites-info .detail-item {
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center; /* יישור לאמצע */
+  }
+
+  .favorites-info .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px;
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .favorites-info .detail-text {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+}
+
+/* התאמה למובייל במצב אופקי */
+@media (max-width: 768px) and (orientation: landscape) {
+  .profile-container {
+    flex-direction: row; /* התצוגה נשארת אופקית */
+    gap: 20px;
+  }
+
+  /* התאמות גובה התמונה */
+	.profile-image, .profile-image-bottom {
+    width: 100%; /* תמונות תופסות 100% רוחב */
+    height: auto; /* גובה מותאם */
+  }
+}
+
+.gear-heading {
+  font-size: 2em;
+  text-align: center;
+  color: #fff; /* Change the color as needed */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.guitar-images {
+  display: flex;
+  justify-content: center; /* למרכז את התמונות */
+  gap: 10px; /* רווח בין התמונות */
+  margin-top: 20px;
+}
+
+.gear-image {
+  width: 45%; /* הגודל של כל תמונה, תוכל להתאים בהתאם */
+  height: auto;
+  border-radius: 8px; /* אם אתה רוצה פינות מעוגלות לתמונות */
+}
+
+.gear-images {
+  display: flex;
+  justify-content: center; /* למרכז את התמונות */
+  gap: 10px; /* רווח בין התמונות */
+  margin-top: 20px;
+}
+
+.gear2-image {
+  width: 35%; /* הגודל של כל תמונה, תוכל להתאים בהתאם */
+  height: auto;
+  border-radius: 8px; /* אם אתה רוצה פינות מעוגלות לתמונות */
+}
+
+/* עיצוב למובייל (מסכים קטנים) */
+@media (max-width: 768px) {
+
+  /* התצוגה עבור קונטיינר ה-GEAR */
+  .gear-images {
+    flex-direction: column; /* תמונות אחת על השנייה */
+    align-items: center; /* למרכז את התמונות */
+    gap: 10px; /* רווח קטן בין התמונות */
+  }
+
+  /* תמונות בתוך ה-GEAR */
+  .gear-image {
+    width: 90%; /* תמונות בגודל שמתאים למסך קטן */
+    height: auto; /* שמירה על פרופורציות */
+  }
+
+  /* כותרת ה-GEAR */
+  .gear-heading {
+    font-size: 1.5em;
+    text-align: center;
+    color: #fff; /* צבע לבן או מה שמתאים לך */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+/* עיצוב עבור מסכים רחבים יותר (למחשב שולחני) */
+@media (min-width: 769px) {
+
+  /* תצוגה בשורה אחת עבור התמונות */
+  .gear-images {
+    display: flex;
+    justify-content: center; /* למרכז את התמונות */
+    gap: 20px; /* רווח גדול יותר בין התמונות */
+  }
+
+  /* התמונות ב-GEAR יהיו ברוחב קטן יותר במסכים רחבים */
+  .gear-image {
+    width: 45%; /* התמונה תתפוס 45% מהרוחב */
+    height: auto; /* שמירה על פרופורציות */
+  }
+
+  /* כותרת ה-GEAR */
+  .gear-heading {
+    font-size: 2em;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+/* רק בעמוד של MOSES */
+.lior-page header {
+  position: sticky;
+  z-index: 1;
+}
+
+/* מרווח נוסף עבור גוף העמוד ב-MOSES */
+.lior-page body {
+  margin-top: 50px; /* שיפוי למרווח נוסף */
+}
+
+/* קונטיינר הכולל את התיבה והכותרת */
+.profile-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 60px;
+  gap: 30px;
+  margin-left: 250px; /* מרווח קטן שמאלה */
+}
+
+/* הקופסה האנכית */
+.profile-box {
+  width: 750px;
+  height: 600px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  position: relative;
+}
+
+/* אם רוצים, אפשר להוסיף אפקט של hover */
+.profile-box:hover { 
+  opacity: 0.8; /* דוגמה לאפקט ריחוף, שינוי שקיפות התמונה */
+  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
+}
+
+/* קו מתחת לכותרת */
+.profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב אפל */
+  width: 100%; /* גודל הקו */
+  margin: 5px auto; /* ממורכז עם רווח מעל ומתחת */
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+/* כותרת */
+.profile-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  align-self: flex-start;
+  white-space: nowrap;
+  padding-bottom: 5px;
+  margin-top: -5px; /* הרם את הכותרת מעט למעלה */
+}
+
+/* אפקט hover לכותרת MOSES MICHAEL */
+.profile-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* פרטי מידע */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px; /* הרם את הטקסט שמתחת לכותרת */
+  text-align: left;
+  width: 80%;
+}
+
+/* כל פריט בתוך המידע */
+.profile-details .detail-item {
+  margin-bottom: 10px; /* מרווח בין פריט לפריט */
+}
+
+/* רק עבור ה-"Band Position" */
+.profile-details .detail-item .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* טקסט של כל פריט, מונע פיצול לשורות */
+.profile-details .detail-item .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* רק עבור "Band Position" */
+.profile-details .detail-item:nth-child(5) .detail-text {
+  white-space: nowrap; /* מונע פיצול לשורות */
+}
+
+/* כותרת של כל פריט */
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold; /* הדגשה של הכותרת */
+}
+
+/* טקסט של כל פריט */
+.profile-details .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* עיצוב התמונה הראשונה בתוך התיבה */
+.profile-image {
+  position: absolute; /* מיקום מוחלט בתוך התיבה */
+  top: 0; /* הצמדת התמונה לחלק העליון של התיבה */
+  left: 0; /* הצמדת התמונה לקיר השמאלי של התיבה */
+  width: 100%; /* התמונה תתפוס 100% מהרוחב של התיבה */
+  height: 70%; /* התמונה תתפוס 100% מהגובה של התיבה */
+  object-fit: cover; /* שמירה על פרופורציות התמונה */
+
+}
+
+/* עיצוב התמונה השנייה בתוך התיבה (שמתחת לתמונה הראשונה) */
+.profile-image-bottom {
+  width: 100%; /* התמונה תתפוס 98% מהרוחב של התיבה */
+  height: 30%; /* התמונה תתפוס את שאר 30% מהגובה של התיבה */
+  object-fit: contain; /* שמירה על פרופורציות התמונה */
+  border-radius: 10px; /* פינות מעוגלות לתמונה */
+  margin-top: 420px;
+}
+
+/* פרטי FAVORITES */
+.favorites-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%; /* גודל החלק שיתפוס כל התוכן */
+  margin-top: -5px;
+  margin-left: 70px; /* מרווח קטן בין הפרטים החדשים לפרטים הקודמים */
+}
+
+/* שמירה על הכותרת ואי שינוי המיקום */
+.favorites-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+/* אפקט hover לכותרת FAVORITES */
+.favorites-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* קו מתחת לכותרת FAVORITES */
+.favorites-title + .profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב */
+  width: calc(23% - 20px); /* הגבלת רוחב הקו כך שיתאם לרוחב הכותרת */
+  margin: -4px 0 -2px 0; /* הרווח למעלה ולמטה מתואם */
+  margin-left: 0px; /* הרווח משמאל כדי להתאים את הקו לכותרת */
+}
+
+.profile-details .detail-item {
+  margin-bottom: 10px;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+/* עיצוב עבור מסכים קטנים (כמו מוביילים) */
+@media (max-width: 768px) {
+  /* קונטיינר */
+  .profile-container {
+    flex-direction: column; /* לשים את האלמנטים בסדר אנכי */
+    align-items: center; /* למרכז את האלמנטים */
+    margin-left: 0;
+    gap: 20px;
+    width: 100%; /* זה חשוב אם יש מרווחים */
+  }
+
+  /* תיבת המידע עם התמונות */
+  .profile-box {
+    width: 90%; /* תיבה תופסת 90% מהרוחב */
+    height: auto; /* הגובה יתאם לתוכן */
+    position: relative;
+	margin-left: 25px;
+  }
+
+  /* כותרת ה-MOSES MICHAEL */
+  .profile-title {
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור אמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת */
+  .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 100%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי המידע - כותרות */
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* למרכז את כל המידע */
+    text-align: center;
+    width: 100%; /* המידע יתפוס את כל רוחב המסך */
+  }
+
+  /* כל פריט בפרטי המידע */
+  .profile-details .detail-item {
+    margin-bottom: 15px;
+    width: 100%; /* זה חשוב אם יש יותר מידי מרווחים */
+    text-align: center; /* מרכז את כל התוכן */
+  }
+
+  .profile-details .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px; /* קטנה יותר במובייל */
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .profile-details .detail-text {
+    font-size: 16px; /* קטנה יותר במובייל */
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  /* כותרת FAVORITES */
+  .favorites-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור לאמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת FAVORITES */
+  .favorites-title + .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 40%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי FAVORITES */
+  .favorites-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* יישור לאמצע */
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* פרטי FAVORITES - כל פריט */
+  .favorites-info .detail-item {
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center; /* יישור לאמצע */
+  }
+
+  .favorites-info .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px;
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .favorites-info .detail-text {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+}
+
 
 
 
@@ -1835,6 +2905,9 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   margin-top: 20px;     /* ריווח מעל הפסקה */
   margin-bottom: 30px;  /* ריווח מתחת לפסקה */
 }
+
+
+
 
 
 /* הגדרת הפופ-אפ */

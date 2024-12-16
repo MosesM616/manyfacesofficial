@@ -28,34 +28,64 @@
 
 <body class="ben-page" style="background-image: url('assets/images/favicon1.png'); background-size: contain; background-position: center center; height: 100vh;">
   <!-- Top Bar -->
-  <header class="top-bar">
-    <div class="logo">
-      <a href="index.html">
-        <img src="assets/images/manylogo.png" alt="Logo">
-      </a>
-    </div>
+<header class="top-bar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/images/manylogo.png" alt="Logo">
+    </a>
+  </div>
 
-    <nav class="navbar">
-      <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="ourmusic.html">Our Music</a></li>
-        <li><a href="media.html">Videos</a></li>
-        <li><a href="tour.html">Tour</a></li>
-        <li><a href="contact.html">Mailing List</a></li>
-      </ul>
-      <ul class="mobile-menu">
-        <li class="close-menu" onclick="toggleMenu()">X</li>
-        <li class="home"><a href="index.html">Home</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="ourmusic.html">Our Music</a></li>
-        <li><a href="media.html">Videos</a></li>
-        <li><a href="tour.html">Tour</a></li>
-        <li><a href="contact.html">Mailing List</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav class="navbar">
+    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-toggle">The Band</a>
+        <div class="dropdown-content">
+          <a href="aboutus.html">About Us</a>
+          <a href="lior.html">Lior</a>
+          <a href="ben.html">Ben</a>
+          <a href="moses.html">Moses</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-toggle">Media</a>
+        <div class="dropdown-content">
+          <a href="ourmusic.html">Our Music</a>
+          <a href="media.html">Videos</a>
+        </div>
+      </li>
+      <li><a href="tour.html">Tour</a></li>
+      <li><a href="contact.html">Mailing List</a></li>
+    </ul>
+
+    <!-- תפריט מובייל -->
+    <ul class="mobile-menu">
+      <li class="close-menu" onclick="toggleMenu()">X</li>
+      <li class="home"><a href="index.html">Home</a></li>
+      <li class="theband">
+        <a href="javascript:void(0)" onclick="toggleSubMenu('theband')">The Band</a>
+        <ul class="dropdown">
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="lior.html">Lior</a></li>
+          <li><a href="ben.html">Ben</a></li>
+          <li><a href="moses.html">Moses</a></li>
+        </ul>
+      </li>
+      <li class="media">
+        <a href="javascript:void(0)" onclick="toggleSubMenu('media')">Media</a>
+        <ul class="dropdown">
+          <li><a href="ourmusic.html">Our Music</a></li>
+          <li><a href="media.html">Videos</a></li>
+        </ul>
+      </li>
+      <li><a href="tour.html">Tour</a></li>
+      <li><a href="contact.html">Mailing List</a></li>
+    </ul>
+  </nav>
+</header>
+
+
 
 <div class="profile-container">
   <!-- תיבה עם התמונות -->
@@ -198,6 +228,8 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="main.js"></script>
   <script async defer src="https://www.instagram.com/embed.js"></script>
+  
+  
 </body>
 
 </html>

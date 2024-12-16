@@ -2493,6 +2493,16 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   }
 }
 
+/* עיצוב עבור מסכים קטנים (כמו מוביילים) */
+@media (max-width: 768px) {
+  .profile-image-bottom {
+    position: relative; /* הגדרת מיקום יחסי */
+    top: -25px; /* הזזת התמונה 30px למעלה */
+  }
+}
+
+
+
 .gear-heading {
   font-size: 2em;
   text-align: center;

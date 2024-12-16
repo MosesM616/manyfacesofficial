@@ -11,16 +11,53 @@ document.addEventListener('click', function(event) {
   var hamburgerMenu = document.querySelector('.hamburger-menu');
   var closeMenuButton = document.querySelector('.close-menu');
 
-  // אם הלחיצה היא לא על התפריט, כפתור ההמבורגר או כפתור ה-X, סגור את התפריט
-  if (!menu.contains(event.target) && !hamburgerMenu.contains(event.target) && !closeMenuButton.contains(event.target) && navbar.classList.contains('active')) {
+  // אם התפריט פתוח, והקליק היה מחוץ לתפריט, נסגור אותו
+  if (navbar.classList.contains('active') && 
+      !menu.contains(event.target) && 
+      !hamburgerMenu.contains(event.target) && 
+      !closeMenuButton.contains(event.target) && 
+      !event.target.closest('.navbar')) {
     navbar.classList.remove('active');
   }
 });
 
+// פונקציה לפתיחת וסגירת תפריט "The Band" ו-"Media" במובייל
+document.querySelectorAll('.mobile-menu .theband > a, .mobile-menu .media > a').forEach(function(menuItem) {
+  menuItem.addEventListener('click', function(event) {
+    var parent = this.parentElement;
+    var dropdownContent = parent.querySelector('.dropdown');
+    
+    // אם המיני תפריט פתוח, נסגור אותו. אם סגור, נפתח אותו.
+    var isOpen = dropdownContent.style.display === "block";
+    closeAllMobileDropdowns(); // סוגר את כל המיני-תפריטים לפני פתיחת הנוכחי
 
+    // אם המיני תפריט לא היה פתוח, נפתח אותו
+    if (!isOpen) {
+      dropdownContent.style.display = "block";
+    }
 
+    event.stopPropagation(); // מונע מהקליק להפעיל את סגירת התפריט הראשי
+  });
+});
 
+// פונקציה לסגור את כל המיני-תפריטים במובייל
+function closeAllMobileDropdowns() {
+  document.querySelectorAll('.mobile-menu .dropdown').forEach(function(dropdownContent) {
+    dropdownContent.style.display = "none";
+  });
+}
 
+// פונקציה לסגור את כל המיני-תפריטים בלחיצה מחוץ להם
+document.addEventListener('click', function(event) {
+  var dropdowns = document.querySelectorAll('.mobile-menu .dropdown');
+  
+  // עבור כל מיני תפריט, אם הקליק היה מחוץ לו, נסגור אותו
+  dropdowns.forEach(function(dropdownContent) {
+    if (!dropdownContent.contains(event.target) && !event.target.closest('.theband') && !event.target.closest('.media')) {
+      dropdownContent.style.display = "none";
+    }
+  });
+});
 
 // קוד JavaScript להחלפת התמונה ב-Modal על פי הקישור
 document.querySelectorAll('a[data-bs-toggle="modal"]').forEach(function(anchor) {
@@ -33,6 +70,7 @@ document.querySelectorAll('a[data-bs-toggle="modal"]').forEach(function(anchor) 
   });
 });
 
+// זום על התמונה במודל
 document.querySelectorAll('a[data-bs-toggle="modal"]').forEach(function(anchor) {
   anchor.addEventListener('click', function() {
     var imageUrl = this.getAttribute('data-bs-image');
@@ -56,7 +94,6 @@ document.querySelectorAll('a[data-bs-toggle="modal"]').forEach(function(anchor) 
   });
 });
 
-
 // משתנה לבדיקת אם הפופ-אפ כבר הוצג
 let popupOpened = localStorage.getItem('popupOpened') === 'true';  // בודק אם הפופ-אפ הוצג בעבר
 
@@ -76,6 +113,4 @@ function closePopup() {
   // שומר ב-localStorage שהפופ-אפ נסגר כדי למנוע ממנו להיפתח שוב
   localStorage.setItem('popupOpened', 'true');
 }
-
-
 

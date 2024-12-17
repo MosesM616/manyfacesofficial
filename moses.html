@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="stylesheet" href="indexstyle.css">
+  <title>Many Faces | Official Site</title>
+
+  <!-- Icon -->
+  <link href="assets/images/favicon.png" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body class="moses-page" style="background-image: url('assets/images/favicon1.png'); background-size: contain; background-position: center center; height: 100vh;">
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/manylogo.png" alt="Logo">
+      </a>
+    </div>
+
+     <nav class="navbar">
+    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-toggle">The Band</a>
+        <div class="dropdown-content">
+          <a href="aboutus.html">About Us</a>
+          <a href="lior.html">Lior</a>
+          <a href="ben.html">Ben</a>
+          <a href="moses.html">Moses</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-toggle">Media</a>
+        <div class="dropdown-content">
+          <a href="ourmusic.html">Our Music</a>
+          <a href="media.html">Videos</a>
+        </div>
+      </li>
+      <li><a href="tour.html">Tour</a></li>
+      <li><a href="contact.html">Mailing List</a></li>
+    </ul>
+
+    <!-- תפריט מובייל -->
+    <ul class="mobile-menu">
+      <li class="close-menu" onclick="toggleMenu()">X</li>
+      <li class="home"><a href="index.html">Home</a></li>
+      <li class="theband">
+        <a href="javascript:void(0)" onclick="toggleSubMenu('theband')">The Band</a>
+        <ul class="dropdown">
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="lior.html">Lior</a></li>
+          <li><a href="ben.html">Ben</a></li>
+          <li><a href="moses.html">Moses</a></li>
+        </ul>
+      </li>
+      <li class="media">
+        <a href="javascript:void(0)" onclick="toggleSubMenu('media')">Media</a>
+        <ul class="dropdown">
+          <li><a href="ourmusic.html">Our Music</a></li>
+          <li><a href="media.html">Videos</a></li>
+        </ul>
+      </li>
+      <li><a href="tour.html">Tour</a></li>
+      <li><a href="contact.html">Mailing List</a></li>
+    </ul>
+  </nav>
+  
+  </header>
+
+<div class="profile-container">
+  <!-- תיבה עם התמונות -->
+  <div class="profile-box">
+    <img src="assets/images/mosesgtr2.png" alt="Moses" class="profile-image">
+    <img src="assets/images/gearlogos.png" alt="Additional Image" class="profile-image-bottom2">
+  </div>
+
+  <!-- כותרת ופרטים -->
+  <div class="profile-info">
+    <h1 class="profile-title"><b>MOSES MICHAEL</b></h1>
+    <div class="profile-title-line"></div> <!-- קו מתחת לכותרת -->
+
+    <!-- פרטי מידע -->
+    <div class="profile-details">
+      <div class="detail-item">
+        <p class="detail-title">DOB:</p>
+        <p class="detail-text">December 18</p>
+      </div>
+      <div class="detail-item">
+        <p class="detail-title">Birthplace:</p>
+        <p class="detail-text">Haifa, Israel</p>
+      </div>
+      <div class="detail-item">
+        <p class="detail-title">Status:</p>
+        <p class="detail-text">Married</p>
+      </div>
+      <div class="detail-item">
+        <p class="detail-title">In The Band Since:</p>
+        <p class="detail-text">2019</p>
+      </div>
+      <div class="detail-item band-position">
+        <p class="detail-title">Band Position:</p>
+        <p class="detail-text">Guitar, Back Vocals, Engineering</p>
+      </div>
+      <div class="detail-item">
+        <p class="detail-title">First Band:</p>
+        <p class="detail-text">Captain Obvious</p>
+      </div>
+      <div class="detail-item">
+        <p class="detail-title">Tuning:</p>
+        <p class="detail-text">B F# B E G# C#</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- פרטים נוספים - FAVORITES -->
+  <div class="favorites-info">
+    <h2 class="favorites-title"><b>FAVORITES</b></h2>
+    <div class="profile-title-line"></div> <!-- קו מתחת לכותרת FAVORITES -->
+
+    <!-- פרטי FAVORITES -->
+    <div class="profile-details">
+      <div class="detail-item">
+        <p class="detail-title">Fav Band:</p>
+        <p class="detail-text">Black Sabbath, Behemoth</p>
+      </div>
+      <div class="detail-item">
+        <p class="detail-title">Fav Album:</p>
+        <p class="detail-text">Behemoth - Evangelion
+		<br> At The Gates - Slaughter of the Soul</p>
+      </div>
+      <div class="detail-item">
+        <p class="detail-title">Fav Book:</p>
+        <p class="detail-text">Human, All Too Human by Friedrich Nietche
+		<br> The Creative Act: A Way Of Being by Rick Robin</p>
+      </div>
+      <div class="detail-item">
+        <p class="detail-title">Historic Figure:</p>
+        <p class="detail-text">Ronnie James Dio, Spartacus, Robert Johnson</p>
+      </div>
+      <div class="detail-item">
+        <p class="detail-title">Fav Movie:</p>
+        <p class="detail-text">Inglorious Bastards
+		<br> Avengers: Infinity War</p>
+      </div>
+      <div class="detail-item">
+        <p class="detail-title">Fav Many Faces Song:</p>
+        <p class="detail-text">As much as I love Infinity, Renard is my go to</p>
+      </div>
+	  </div>
+    </div>
+  </div>
+</div>
+
+		<hr class="separator">
+
+		<h2 class="gear-heading"><b>GEAR</b></h2>
+		
+				<!-- תמונות ב-Gear -->
+		<div class="guitar-images">
+		  <img src="assets/images/sch.png" alt="Gear Image 1" class="gear-image">
+		</div>
+
+		<div class="guitar-images">
+		<img src="assets/images/prs.png" alt="Gear Image 2" class="gear-image">
+		</div>
+
+		<h2 class="gear-heading"><b>OTHER GEAR</b></h2>
+		<div class="gear-images">
+		<img src="assets/images/pod.png" alt="Gear Image 3" class="gear2-image">
+		<img src="assets/images/mbox.png" alt="Gear Image 3" class="gear2-image">
+		</div>
+
+
+ <!-- Footer -->
+  <footer class="footer">
+  
+   <div class="footer-images">
+  <a href="lior.html">
+    <img src="assets/images/avatars/lior1.png" alt="Lior" class="footer-small-image"></a>
+	<a href="ben.html">
+    <img src="assets/images/avatars/ben1.png" alt="Ben" class="footer-small-image"></a>
+	<a href="moses.html">
+    <img src="assets/images/avatars/moses1.png" alt="Moses" class="footer-small-image"></a>
+  </div>
+  
+    <div class="footer-streaming">
+      <a href="https://www.youtube.com/channel/UCoWTUmXdcoXozGcb0Ia0MPw" target="_blank">
+        <i class="bi bi-youtube platform-logo"></i>
+      </a>
+      <a href="https://open.spotify.com/artist/0OEh9jXVd882Y56SoNlasa?si=JYZrlchyRPeIwh6iks4PHw" target="_blank">
+        <i class="bi bi-spotify platform-logo"></i>
+      </a>
+      <a href="https://music.apple.com/us/album/infinity-single/1755423877" target="_blank">
+        <i class="bi bi-apple platform-logo"></i>
+      </a>
+      <a href="https://www.facebook.com/5many1faces9/" target="_blank">
+        <i class="bi bi-facebook platform-logo"></i>
+      </a>
+      <a href="https://www.instagram.com/manyfacesband/?next=%2F" target="_blank">
+        <i class="bi bi-instagram platform-logo"></i>
+      </a>
+      <a href="https://x.com/ManyFacesBand" target="_blank">
+        <i class="bi bi-twitter-x platform-logo"></i>
+      </a>
+      <a href="https://www.threads.net/web/?waterfall_id=49e50249-b786-47d1-a91c-4bfa5c5cb460&login_success=1" target="_blank">
+        <i class="bi bi-threads platform-logo"></i>
+      </a>
+    </div>
+    <div class="footer-contact">
+      <p><strong>Booking:</strong> +972-549778662 | <strong>Recording Studio:</strong> 
+      <a href="https://www.instagram.com/loud_devils_studios/" target="_blank" class="footer-link">Loud Devils Studio</a></p>
+    </div>
+    <div class="footer-rights">
+      <p><strong>All Rights Reserved to Many Faces</strong></p>
+    </div>
+  </footer>
+  
+      <!-- חץ הגלילה למעלה -->
+  <div id="scrollToTop" class="scroll-to-top">
+    &#8679; <!-- החץ -->
+  </div>
+  
+   <!-- בסוף ה-HTML, לפני </body> -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const scrollToTopButton = document.getElementById("scrollToTop");
+
+    // אם אלמנט החץ לא קיים בדף, פשוט לא נטפל בו
+    if (!scrollToTopButton) return;
+
+    // מאזין לגלילת העמוד
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) { 
+            scrollToTopButton.classList.add("show"); // הצג את החץ
+        } else {
+            scrollToTopButton.classList.remove("show"); // הסתר את החץ
+        }
+    });
+
+    // אירוע לחיצה על החץ
+    scrollToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0, // גלילה לראש העמוד
+            behavior: "smooth" // מעבר חלק
+        });
+    });
+  });
+</script>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script> 
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="main.js"></script>
+  <script async defer src="https://www.instagram.com/embed.js"></script>
+</body>
+
+</html>

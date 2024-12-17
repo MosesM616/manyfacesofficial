@@ -1,0 +1,3201 @@
+body, .logo, .navbar a, .footer p, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Metal', serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white; /* צבע לבן כמו שאר הטקסט באתר */
+}
+
+/* עיצוב הכותרות (h1, h2, h3) */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; /* נוודא שאין ריווח מיותר */
+  padding: 0; /* נוודא שאין padding מיותר */
+  color: white; /* צבע לבן כמו שאר הטקסט */
+}
+
+/* רקע שחור לכל העמוד */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+}
+
+body {
+  background-image: url('assets/images/favicon1.png'); /* הנתיב לתמונה */  
+  background-size: contain; /* כדי שהתמונה תתפוס את כל הרוחב והגובה */
+  background-position: center center; /* מיקום התמונה במרכז */
+  background-attachment: fixed; /* שימור התמונה במיקום גם כשהדף גולל */
+  background-repeat: no-repeat; /* למנוע חזרה על התמונה */
+}
+
+
+/* Design the Top Bar */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    border-bottom: 2px solid #f0f0f0;
+    flex-direction: row-reverse;
+}
+
+/* Logo Design */
+.logo a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    transition: height 0.3s ease;
+}
+
+/* Regular Menu (Desktop) */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    position: relative;
+    top: 10px;
+}
+
+/* Menu Link Design */
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    font-weight: normal;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #624607;
+}
+
+/* Dropdown Menu (Desktop) */
+.navbar .dropdown {
+    position: relative;
+}
+
+.navbar .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.navbar .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    display: block;
+}
+
+.navbar .dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 30px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 15px;
+    right: 10px;
+    z-index: 1000;
+}
+
+/* Hamburger Menu Lines */
+.hamburger-menu div {
+    width: 80px;
+    height: 12px;
+    background-color: white;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Hamburger Menu after Click */
+.hamburger-menu.open div:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.open div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.open div:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile Menu (Hamburger Menu) */
+.navbar .mobile-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 40px;
+}
+
+/* Uniform Style for Menu Items */
+.navbar .mobile-menu li {
+    text-align: center;
+    margin: 0;
+    display: block;
+}
+
+/* Center-align Menu Links for THE BAND and MEDIA */
+.navbar .mobile-menu .theband > a,
+.navbar .mobile-menu .media > a {
+    display: flex;
+    justify-content: center;  /* Aligns the menu text to the center */
+    align-items: center;
+    width: 100%;               /* Ensures the link takes up full width */
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;           /* Adds vertical padding */
+    transition: color 0.3s ease;
+}
+
+.navbar .mobile-menu .theband > a:hover,
+.navbar .mobile-menu .media > a:hover {
+    color: #f0f0f0;
+}
+
+/* Styling the Arrows */
+.navbar .mobile-menu li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+}
+
+/* Initially show a right arrow (▼) */
+.navbar .mobile-menu .theband > a::after,
+.navbar .mobile-menu .media > a::after {
+    content: '▼'; /* Arrow pointing right */
+    font-size: 20px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Active Menu when Opened */
+.navbar.active .mobile-menu {
+    display: flex;
+}
+
+/* Close Button for Mobile Menu */
+.navbar .close-menu {
+    display: none;
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    font-size: 10px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+    background-color: #333;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border: 2px solid white;
+    padding-top: 7px;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .close-menu:hover {
+    color: #f0f0f0;
+    background-color: #444;
+    transform: scale(1.1);
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .top-bar {
+        justify-content: center;
+        flex-direction: row;
+        padding: 10px 15px;
+        height: 70px;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+
+    .navbar.active .mobile-menu {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .navbar.active .close-menu {
+        display: block;
+    }
+
+    /* Hide Dropdown Menus (Submenus) */
+    .mobile-menu .dropdown {
+        display: none;
+    }
+
+    /* Center-align the links in THE BAND and MEDIA dropdown */
+    .navbar .mobile-menu .theband > a,
+    .navbar .mobile-menu .media > a {
+        text-align: center; /* Center-align the link text */
+        width: 100%; /* Take full width */
+        display: block; /* Ensures block display for centering */
+        padding: 15px 0; /* Adjust padding for better spacing */
+    }
+
+    /* Ensure dropdown links inside the "THE BAND" and "MEDIA" menus are centered */
+    .navbar .mobile-menu .theband .dropdown-content,
+    .navbar .mobile-menu .media .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;  /* This centers the links inside the dropdown */
+        width: 100%;
+        text-align: center;   /* Ensure the dropdown items are centered */
+    }
+
+    /* Add specific styles to center the inner menu items (like ABOUTUS, LIOR, etc.) */
+    .navbar .mobile-menu .theband .dropdown-content li,
+    .navbar .mobile-menu .media .dropdown-content li {
+        text-align: center; /* Center align individual menu items inside the dropdown */
+        width: 100%; /* Make the item take full width */
+    }
+
+    /* Styling the Arrows */
+    .navbar .mobile-menu li a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 25px;
+    }
+
+    /* Initially show a right arrow (▼) */
+    .navbar .mobile-menu .theband > a::after,
+    .navbar .mobile-menu .media > a::after {
+        content: '▼'; /* Arrow pointing down */
+        font-size: 20px;
+        margin-left: 10px;
+        transition: transform 0.3s ease;
+    }
+}
+
+
+/* עדכון תפריט מובייל בלבד */
+@media (max-width: 768px) {
+    /* יישור טקסט של הפריטים ב-dropdown */
+    .mobile-menu li a {
+        text-align: center; /* יישור למרכז עבור כל הקישורים */
+		align-content: center;
+		align-items: center;
+		justify-content: center;
+        display: block; /* מבטיח יישור תקין בכל הקישורים */
+    }
+
+    /* טיפול בפריטי dropdown בתוך המובייל */
+    .mobile-menu .dropdown li a {
+        padding: 10px; /* הוספת מרווח מסביב לטקסט */
+        text-align: center; /* יישור מרכזי לפריטים בתוך dropdown */
+		align-content: center;
+		align-items: center;
+		justify-content: center;
+		margin-top: -30px;
+		margin-bottom: -30px;
+    }
+
+    /* מניעת חפיפה בעיצוב הפתיחה של תפריט */
+    .mobile-menu .dropdown {
+        padding: 0; /* מחיקת padding פנימי מיותר */
+        margin: 0; /* ניקוי מרווחים למניעת סטיות */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* עיצוב הפוטר */
+.footer {
+  background-color: rgba(0, 0, 0, 0.1); /* צבע אפור עם שקיפות */
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  width: 100% !important; /* וודא שהפוטר יתפוס את כל הרוחב */
+  box-sizing: border-box; /* לדאוג שה-paddings לא יפגעו ברוחב */
+  position: relative; /* מוודא שאין הגבלת רוחב */
+  margin-top: auto; /* הפוטר תמיד בתחתית */
+  left: 0; /* וודא שהפוטר מתחיל מהקיר השמאלי */
+  right: 0; /* וודא שהפוטר נגמר בקיר הימני */
+}
+
+/* הוספת תמונות מעל האייקונים */
+.footer-images {
+  position: relative; /* מאפשר לשלוט במיקום */
+  margin-bottom: 20px; /* מקרב את התמונות לאייקונים */
+}
+
+.footer-small-image {
+  width: 80px; /* גודל התמונות */
+  height: auto;
+  display: inline-block;
+  margin: 0 5px; /* רווח קטן בין התמונות */
+  transform: translateY(15px); /* מיישר את התמונות שיירדו מעט */
+
+}
+
+/* אפקט hover לתמונות הקטנות ב-footer */
+.footer-small-image:hover {
+  opacity: 0.6; /* שינוי שקיפות התמונה */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* אנימציה חלקה */
+}
+
+
+/* עיצוב הטקסט של זכויות יוצרים */
+.footer-rights p {
+  font-size: 14px; /* פונט קטן יותר, אחיד בכל העמודים */
+  font-weight: normal; /* הפונט יהיה רגיל ולא בולד */
+  margin-bottom: 10px; /* מרווח קטן יותר */
+}
+
+/* עיצוב האייקונים של שירותי סטרימינג */
+.footer-streaming {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* המרווח בין האייקונים */
+  margin-bottom: 10px; /* מרווח קטן יותר */
+}
+
+.footer-streaming .platform-logo {
+  font-size: 20px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.footer-streaming .platform-logo:hover {
+  transform: scale(1.1);
+  color: #f0f0f0;
+}
+
+/* Optional: Glow effect */
+.footer-streaming .platform-logo:active {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* עיצוב פרטי ההתקשרות */
+.footer-contact p {
+  font-size: 16px; /* פונט אחיד עם השאר */
+  margin-top: 10px; /* מרווח קטן יותר */
+}
+
+/* עיצוב הקישור לאולפן */
+.footer-link {
+  color: #f0f0f0; /* צבע קישור בהיר */
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: #624607; /* צבע קישור בהhover */
+}
+
+
+/* וודא שהפונט יהיה אחיד בכל העמודים */
+.footer-contact p {
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* לוודא שאין מרווחים נוספים בפוטר */
+.footer-rights p {
+  margin-bottom: 10px !important;
+}
+
+
+/* רק בעמוד ABOUT US, מיישר את פרטי ההתקשרות וזכויות היוצרים */
+body.about-us-page .footer-contact, 
+body.about-us-page .footer-rights {
+  display: flex; /* הופך את האלמנטים לפלקס */
+  justify-content: center; /* מיישר את התוכן לאמצע */
+  align-items: center; /* מוודא שהטקסט מיושר אנכית למרכז */
+  width: 100%; /* מבטיח שהחלקים תופסים 100% מרוחב הפוטר */
+  margin: 0 auto; /* מבטל מרווחים מיותרים */
+  text-align: center; /* מיישר את הטקסט למרכז */
+  font-size: 14px !important;
+}
+
+/* גם המרוויחים בתוך הפוטר */
+body.about-us-page .footer-contact p, 
+body.about-us-page .footer-rights p {
+  margin: 0; /* מבטל את המרווחים המקוריים */
+  width: auto; /* מוודא שהפסקאות לא תופסות יותר מדי מקום */
+  font-size: 14px !important;
+}
+
+
+
+
+.content{
+	margin-top: -50px;
+}
+
+/* Container for the image */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 160px); /* Adjust this depending on your top bar height */
+  top: 60px; /* Make sure the image is placed below the top bar */
+  overflow: hidden; /* Prevents the image from going out of the container bounds */
+  z-index: -1;
+  border-radius: 10px;
+  margin-top: -59px;
+  margin-bottom: 15px;
+}
+
+/* Image styles */
+.video-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Ensure the image fits within the container without stretching */
+  object-position: center center; /* Center the image */
+  max-width: 100%; /* Make sure the image doesn't exceed container size */
+  max-height: 100%; /* Make sure the image doesn't exceed container height */
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .video-container {
+    height: 50vh; /* Adjust height for mobile screens */
+    top: 100px; /* Adjust top margin for mobile */
+	margin-top: -100px;
+  }
+  
+  /* For smaller devices, adjust the image size further */
+  .video-container img {
+    object-position: top center; /* Optionally adjust the focal point of the image for mobile */
+  }
+}
+
+/* Media Query for Small Mobile Screens */
+@media (max-width: 480px) {
+  .video-container {
+    height: 40vh; /* Further reduce height on very small screens */
+  }
+  
+  .video-container img {
+    object-position: top center; /* Adjust image to focus more on the top area */
+  }
+}
+
+
+.infbanner {
+  display: flex;
+  justify-content: center;  /* מיישר אופקית */
+  align-items: center;      /* מיישר אנכית */
+  width: 100%;              /* המיכל יתפוס את כל הרוחב */
+  height: 250px;            /* הגובה שאתה רוצה */
+}
+
+.infbanner img {
+  width: 100%;             /* התמונה תתפשט לרוחב המיכל */
+  height: 60%;            /* התמונה תתפשט לגובה המיכל */
+  object-fit: cover;       /* התמונה תמלא את המיכל עם פרופורציות */
+  object-position: center; /* מיקום התמונה בתוך המיכל, במידה ויתבצע חיתוך */
+}
+
+/* Latest release paragraph */
+.latestrelease p {
+  font-size: 1.4em; /* Increase font size for readability */
+  color: white;
+  line-height: 1.8; /* Increase line-height for better readability */
+  margin-bottom: 40px; /* Add margin at the bottom */
+  text-align: center; /* Center the text */
+  max-width: 1400px; /* Set a max width to prevent it from becoming too wide on large screens */
+  margin-left: auto; /* Center the text block */
+  margin-right: auto; /* Center the text block */
+  margin-top: -10px; /* Add space from the previous section */
+}
+
+.infbanner2 {
+  display: flex;
+  justify-content: center;  /* מיישר אופקית */
+  align-items: center;      /* מיישר אנכית */
+  width: 100%;              /* המיכל יתפוס את כל הרוחב */
+  height: 250px;            /* הגובה שאתה רוצה */
+  margin-top: -20px;
+}
+
+.infbanner2 img {
+  width: 100%;             /* התמונה תתפשט לרוחב המיכל */
+  height: 60%;            /* התמונה תתפשט לגובה המיכל */
+  object-fit: cover;       /* התמונה תמלא את המיכל עם פרופורציות */
+  object-position: center; /* מיקום התמונה בתוך המיכל, במידה ויתבצע חיתוך */
+}
+
+/* מדיה קווירי עבור מסכים קטנים (עד 768px) */
+@media (max-width: 768px) {
+  /* עבור הבאנר הראשון */
+  .infbanner {
+    height: 200px; /* הקטנת הגובה בבאנר עבור מסכים קטנים */
+  }
+
+  .infbanner img {
+    height: 50%; /* התאמת גובה התמונה לבאנר הקטן יותר */
+  }
+
+  /* עבור הבאנר השני */
+  .infbanner2 {
+    height: 200px; /* הקטנת הגובה בבאנר השני */
+  }
+
+  .infbanner2 img {
+    height: 50%; /* התאמת גובה התמונה לבאנר הקטן יותר */
+  }
+
+  /* עבור הפסקה של Latest release */
+  .latestrelease p {
+    font-size: 1.2em; /* הקטנת גודל הפונט במובייל */
+    margin-bottom: 30px; /* הפחתת מרווח התחתון */
+    max-width: 90%; /* התאמת הרוחב לפסקה כדי שתהיה נוחה לקריאה במסכים קטנים */
+  }
+}
+
+/* מדיה קווירי עבור מסכים ממש קטנים (עד 480px) */
+@media (max-width: 480px) {
+  /* עבור הבאנר הראשון */
+  .infbanner {
+    height: 180px; /* גובה מתואם יותר לבאנר במובייל קטן */
+  }
+
+  .infbanner img {
+    height: 50%; /* התאמת גובה התמונה לבאנר הקטן ביותר */
+  }
+
+  /* עבור הבאנר השני */
+  .infbanner2 {
+    height: 180px; /* גובה מתואם יותר לבאנר במובייל קטן */
+  }
+
+  .infbanner2 img {
+    height: 50%; /* התאמת גובה התמונה לבאנר הקטן ביותר */
+  }
+
+  /* עבור הפסקה של Latest release */
+  .latestrelease p {
+    font-size: 1em; /* הקטנת גודל הפונט עוד יותר */
+    margin-bottom: 20px; /* הפחתת מרווח התחתון */
+    max-width: 95%; /* הפחתת הרוחב המרבי */
+  }
+}
+
+
+/* Mobile View for Latest Release Text */
+@media (max-width: 768px) {
+  .latestrelease p {
+    font-size: 1.2em; /* Reduce font size for mobile */
+    margin-left: 20px; /* Add some margin to prevent the text from touching the sides */
+    margin-right: 20px; /* Same here to ensure good spacing */
+    max-width: 100%; /* Allow the text to take full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .latestrelease p {
+    font-size: 1.1em; /* Further reduce font size for very small screens */
+    margin-left: 10px; /* Reduce left margin */
+    margin-right: 10px; /* Reduce right margin */
+  }
+}
+
+
+/* עיצוב עבור הקלאס renard-download */
+.renard-download {
+  text-align: center; /* מיישר את הטקסט במרכז */
+  margin: 40px 0; /* מרווח עליון ותחתון */
+  margin-top: -30px;
+}
+
+.renard-download h2 {
+  font-size: 28px; /* גודל כותרת */
+  margin-bottom: 20px; /* ריווח מתחת לכותרת */
+  color: white;
+}
+
+.renard-download p {
+  font-size: 18px; /* גודל טקסט לפארגרף */
+  line-height: 1.6; /* ריווח שורות */
+  margin-bottom: 30px; /* ריווח תחתון */
+  color: white;
+  max-width: 800px; /* גודל מקסימלי לפארגרף */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* כפתור הורדה */
+.renard-download .button {
+  padding: 10px 30px; /* ריווח פנימי לכפתור */
+  background-color: black; /* צבע רקע חום כהה לכפתור */
+  color: white; /* צבע טקסט לבן */
+  text-decoration: none; /* מסיר את הקו תחתון */
+  font-size: 18px; /* גודל פונט */
+  font-weight: bold; /* כובד לפונט */
+  border-radius: 5px; /* פינות מעוגלות */
+  border: 1px solid white; /* בורדר לבן */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* צללה עדינה */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* אפקטי מעבר */
+  display: inline-flex; /* הצגת הטקסט והאייקון בשורה אחת */
+  align-items: center; /* מיישר את האייקון והטקסט במרכז */
+}
+
+/* אפקטים בעת hover על כפתור ההורדה */
+.renard-download .button:hover {
+  background-color: #7f572d; /* שינוי צבע בעת hover */
+  transform: scale(1.05); /* הגדלה קלה בעת hover */
+}
+
+/* אפקט בעת לחיצה על כפתור ההורדה */
+.renard-download .button:active {
+  transform: scale(0.98); /* הקטנה בעת לחיצה */
+}
+
+/* עיצוב האייקון בתוך כפתור ההורדה */
+.renard-download .button i {
+  margin-right: 8px; /* רווח קטן בין האייקון לטקסט */
+  font-size: 20px; /* גודל האייקון */
+}
+
+/* Mobile View for Latest Release Text */
+@media (max-width: 768px) {
+  .renard-download p {
+    font-size: 1.2em; /* Reduce font size for mobile */
+    margin-left: 20px; /* Add some margin to prevent the text from touching the sides */
+    margin-right: 20px; /* Same here to ensure good spacing */
+    max-width: 100%; /* Allow the text to take full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .renard-download p {
+    font-size: 1.1em; /* Further reduce font size for very small screens */
+    margin-left: 10px; /* Reduce left margin */
+    margin-right: 10px; /* Reduce right margin */
+  }
+}
+
+/* Mobile View for Latest Release Text */
+@media (max-width: 768px) {
+  .renard-download .button {
+    font-size: 1.2em; /* Reduce font size for mobile */
+    margin-left: 20px; /* Add some margin to prevent the text from touching the sides */
+    margin-right: 20px; /* Same here to ensure good spacing */
+    max-width: 100%; /* Allow the text to take full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .renard-download .button {
+    font-size: 1.1em; /* Further reduce font size for very small screens */
+    margin-left: 10px; /* Reduce left margin */
+    margin-right: 10px; /* Reduce right margin */
+  }
+}
+
+/* עיצוב של קו מפריד */
+.separator {
+  border: 0; /* מסיר את הקו המחדל */
+  height: 2px; /* גובה הקו */
+  background-color: #6a4e23; /* צבע הקו */
+  margin: 20px 0; /* רווחים סביב הקו */
+}
+
+/* Mobile View for Latest Release Text */
+@media (max-width: 768px) {
+  .separator {
+    font-size: 1.2em; /* Reduce font size for mobile */
+    margin-left: 20px; /* Add some margin to prevent the text from touching the sides */
+    margin-right: 20px; /* Same here to ensure good spacing */
+    max-width: 100%; /* Allow the text to take full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .separator {
+    font-size: 1.1em; /* Further reduce font size for very small screens */
+    margin-left: 10px; /* Reduce left margin */
+    margin-right: 10px; /* Reduce right margin */
+  }
+}
+
+
+/* כותרת FOLLOW US */
+.follow-us-title {
+  text-align: center; /* יישור הכותרת למרכז */
+  font-size: 2em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: white; /* שינוי הצבע ללבן */
+  font-weight: bold;
+}
+
+/* קונטיינר התמונה */
+.insta-image {
+  display: flex;              /* Flexbox למרכז את התמונה */
+  justify-content: center;    /* מיישר את התמונה במרכז */
+  align-items: center;        /* מיישר את התמונה גם במרכז אנכית */
+  width: 100%;                /* רוחב מלא */
+  height: auto;               /* גובה אוטומטי לשמירה על פרופורציות */
+  padding-top: 50px;          /* רווח מעל התמונה */
+  margin: 0 auto;             /* ממרכז את המיכל */
+  pointer-events: none;       /* מבטל לחיצה על הקונטיינר */
+}
+
+/* התמונה עצמה – עיצוב */
+.insta-image img {
+  max-width: 100%;            /* התמונה תתפוס מקסימום רוחב המיכל */
+  height: auto;               /* שמירה על פרופורציות התמונה */
+  display: block;             /* מונע רווחים מתחת לתמונה */
+  margin-left: auto;          /* ממרכז את התמונה */
+  margin-right: auto;         /* ממרכז את התמונה */
+  pointer-events: auto;       /* מאפשר לחיצה על התמונה */
+}
+
+/* הסגנון עבור הקונטיינר של התמונה */
+.insta-image {
+  text-align: center; /* ממקם את התמונה במרכז */
+  display: inline-block; /* תומך בהצגת התמונה בצורה בולטת */
+  width: 100%;
+}
+
+.insta-image a {
+  display: inline-block; /* גורם לקישור להיות בגודל של התמונה בלבד */
+  width: auto;
+  height: auto;
+}
+
+.insta-image a img {
+  width: 100%; /* מתאם את התמונה לגודל שלה */
+  max-width: 400px; /* מכניס את התמונה במגבלה של רוחב מקסימלי (אם צריך) */
+  height: auto; /* שומר על פרופורציות התמונה */
+  display: block; /* הוספת display:block כדי להבטיח שהתמונה לא תכיל מרווחים מיותרים */
+  margin: 0 auto; /* מרכז את התמונה במרכז */
+  pointer-events: all;  /* מאפשר לחיצה על התמונה */
+}
+
+/* אם רוצים, אפשר להוסיף אפקט של hover */
+.insta-image a:hover img {
+  opacity: 0.8; /* דוגמה לאפקט ריחוף, שינוי שקיפות התמונה */
+  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
+}
+
+.insta-image img {
+  border-radius: 8px; /* הוספת קווים מעוגלים אם רוצים */
+}
+
+
+/* Media Query עבור מסכים קטנים (מובייל) */
+@media (max-width: 768px) {
+  /* וודא שהתמונה תישאר בתוך גבולות המסך */
+  .insta-image img {
+    max-width: 90%;             /* צמצום רוחב התמונה במובייל */
+    margin-left: auto;          /* ממרכז את התמונה */
+    margin-right: auto;         /* ממרכז את התמונה */
+  }
+}
+
+
+
+/* קונטיינר הסרטונים */
+.hp-media-video-container {
+  display: flex;                    /* Flexbox להצגת סרטונים בשורה אחת */
+  justify-content: center;           /* ממורכז אופקית בתוך הקונטיינר */
+  align-items: center;              /* ממורכז אנכית */
+  gap: 20px;                         /* רווח בין הסרטונים */
+  width: 100%;                       /* הקונטיינר תופס את כל הרוחב */
+  box-sizing: border-box;            /* תיאום הרוחב כך שהוא לא יפגע במידות */
+}
+
+/* סגנון לכל iframe */
+.hp-media-video-container iframe {
+  width: 760px;                     /* רוחב הסרטונים */
+  height: 515px;                    /* גובה הסרטונים */
+  border-radius: 8px;               /* פינות מעוגלות */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* אפקט בזמן hover */
+  flex-shrink: 0;                   /* מונע מהסרטונים להתכווץ */
+}
+
+/* אפקט hover */
+.hp-media-video-container iframe:hover {
+  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
+}
+
+/* במקרה של מסך קטן (מובייל) */
+@media (max-width: 768px) {
+  .hp-media-video-container {
+    flex-direction: column;          /* מציג את הסרטונים אחד מעל השני במובייל */
+    align-items: center;             /* ממורכזים */
+    gap: 10px;                       /* רווח קטן יותר בין הסרטונים */
+  }
+
+  .hp-media-video-container iframe {
+    width: 100%;                     /* הסרטונים יתפשטו לרוחב מלא במובייל */
+    height: auto;                    /* גובה אוטומטי */
+  }
+}
+
+
+
+
+
+
+
+.content {
+	justify-content: center;
+}
+
+.content h1 {
+  font-size: 3em;
+  color: white;
+  margin-bottom: 40px;
+  text-align: center; /* למרכז את הכותרת */
+}
+
+
+/* Icon styling for streaming services */
+.inficons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+
+.inficons .platform-logo {
+  font-size: 40px;
+  color: white;  /* default color */
+  transition: transform 0.3s ease, color 0.3s ease;  /* Add color transition */
+}
+
+.inficons .platform-logo:hover {
+  transform: scale(1.1);  /* Scale the icon on hover */
+  color: #624607 !important;  /* Change color on hover, use !important if necessary */
+}
+
+/* Optional: Glow effect */
+.inficons .platform-logo:active {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.Video-Paragraph {
+	font-size: 1.4em; /* Increase font size for readability */
+  color: white;
+  line-height: 1.8; /* Increase line-height for better readability */
+  margin-bottom: 40px; /* Add margin at the bottom */
+  text-align: center; /* Center the text */
+  max-width: 1400px; /* Set a max width to prevent it from becoming too wide on large screens */
+  margin-left: auto; /* Center the text block */
+  margin-right: auto; /* Center the text block */
+  margin-top: 30px; /* Add space from the previous section */
+}
+
+.youtubevideo Video{
+margin-top: -20px; /* Add space from the previous section */
+border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
+  border-radius: 8px;	
+}
+
+  /* מדיה קווירי: התאמת עיצוב למסכים קטנים */
+  @media (max-width: 768px) {
+    .Video-Paragraph h1 {
+      font-size: 1.5rem; /* גודל כותרת קטן יותר במובייל */
+    }
+    .Video-Paragraph p {
+      font-size: 0.9rem; /* טקסט קטן יותר במובייל */
+    }
+    .youtubevideo video {
+      width: 100%; /* וידאו יתפוס את כל רוחב המסך במובייל */
+      max-width: 100%; /* ללא מגבלה על הרוחב במובייל */
+    }
+  }
+
+  /* מדיה קווירי: התאמה למסכים קטנים מאוד (טאבלטים) */
+  @media (max-width: 480px) {
+    .Video-Paragraph h1 {
+      font-size: 1.2rem;
+    }
+    .Video-Paragraph p {
+      font-size: 0.8rem;
+    }
+  }
+  
+  
+  
+
+/* Styling specific to About Us page */
+#about-us-page {
+  padding: 0 40px; /* Side padding */
+  min-height: 100vh; /* Ensure the content stretches over the entire screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ensures content starts at the top */
+  align-items: center; /* Centers content horizontally */
+  color: white; /* White text color */
+  padding-top: 150px; /* Space between HEADER and content */
+  margin-top: 0; /* No extra margin */
+  text-align: center; /* Center the text */
+}	
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+  #about-us-page {
+    padding-top: 80px; /* Reduce padding for smaller screens */
+  }
+}
+
+/* The Band Section */
+.the-band {
+  text-align: center;
+  max-width: 1000px;
+  margin-bottom: 50px;
+}
+
+.the-band h1 {
+  font-size: 3em;
+  color: white;
+  margin-bottom: 40px;
+  text-align: center; /* Center the header */
+}
+
+/* Band Members Section */
+.band-members {
+  display: flex;
+  justify-content: space-evenly; /* Distribute members evenly */
+  gap: 80px; /* Smaller gap between members */
+  flex-wrap: wrap; /* Allow wrap on smaller screens */
+}
+
+.member {
+  position: relative; /* Allows text to be positioned on top of the image */
+  text-align: center;
+  width: 270px; /* Width of the image */
+  height: 270px; /* Height of the image, square shape */
+}
+
+.member-photo {
+  width: 100%; /* Make image take full width of the container */
+  height: 100%; /* Make image take full height of the container */
+  border-radius: 50%; /* Circle shape */
+  object-fit: cover; /* Ensures the image fits without distortion */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */ 
+  opacity: 70%;
+}
+
+/* Hover effect for the photos */
+.member-photo:hover {
+  box-shadow: 0 0 15px 5px rgba(106, 88, 28, 0.8); /* Dark golden glow */
+}
+
+/* Mobile View for Band Members */
+@media (max-width: 768px) {
+  .band-members {
+    justify-content: center; /* Center the items in smaller screens */
+    gap: 30px; /* Reduce gap between items */
+  }
+
+  .member {
+    width: 200px; /* Make the members smaller on mobile */
+    height: 200px; /* Make the images square */
+  }
+
+  .member-photo {
+    border-radius: 50%; /* Maintain circular shape */
+    object-fit: cover; /* Ensure the image fills the circle without distortion */
+  }
+
+  .the-band h1 {
+    font-size: 1.8em;
+  }
+
+  .the-band p {
+    font-size: 1.0em;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .band-members {
+    gap: 20px; /* Further reduce the gap on very small screens */
+  }
+
+  .member {
+    width: 150px; /* Further reduce the size on very small screens */
+    height: 150px; /* Make the images smaller */
+  }
+
+  .the-band h1 {
+    font-size: 1.5em;
+  }
+
+  .the-band p {
+    font-size: 0.9em;
+  }
+}
+
+
+
+/* OUR STORY Section */
+.our-story {
+  text-align: center; /* Align the text in the center */
+  max-width: 1600px; /* Set a max-width for larger screens */
+  margin-top: 40px; /* Add space from the previous section */
+  padding: 0 40px; /* Add padding on the sides for better spacing */
+  margin-left: auto; /* Center the section */
+  margin-right: auto; /* Center the section */
+  
+}
+
+/* Style for the header (h1) */
+.our-story h1 {
+  font-size: 2em;
+  color: white;
+  margin-bottom: 40px;
+  text-align: center; /* Center the header */
+}
+
+/* Style for paragraph text */
+.our-story p {
+  font-size: 1.4em; /* Set the base font size for readability */
+  color: white;
+  line-height: 1.8; /* Increase line-height for better readability */
+  margin-bottom: 40px; /* Add margin at the bottom */
+  text-align: center; /* Center the text */
+  max-width: 1400px; /* Set a max-width to prevent it from becoming too wide on large screens */
+  margin-left: auto; /* Center the text block */
+  margin-right: auto; /* Center the text block */
+  margin-top: 30px; /* Add space from the previous section */
+}
+
+/* Media Queries for Mobile & Smaller Screens */
+
+/* For tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .our-story h1 {
+    font-size: 2.0em; /* Smaller header size */
+  }
+
+  .our-story p {
+    font-size: 1.2em; /* Smaller font size for the paragraph */
+    line-height: 1.6; /* Adjust line height for better readability */
+    margin-bottom: 30px; /* Reduce bottom margin */
+  }
+
+  .our-story {
+    padding: 0 20px; /* Reduce padding on smaller screens */
+  }
+}
+
+/* For small mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .our-story h1 {
+    font-size: 1.6em; /* Even smaller header size for very small screens */
+    margin-bottom: 20px; /* Reduce margin below the header */
+  }
+
+  .our-story p {
+    font-size: 1.0em; /* Even smaller font size for the paragraph */
+    line-height: 1.4; /* Adjust line-height for readability */
+    margin-bottom: 20px; /* Reduce bottom margin further */
+  }
+
+  .our-story {
+    padding: 0 10px; /* Reduce padding further for very small screens */
+  }
+}
+
+
+
+
+/* Genre Section */
+.genre {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  text-align: center;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+}
+
+.genre-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.genre-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.genre-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.genre-content h1, .genre-content h2, .genre-content p {
+  text-shadow: none;
+}
+
+.genre-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.genre-content h2 {
+  font-size: 2.0em;
+  margin-bottom: 10px;
+}
+
+.genre-content p {
+  font-size: 1.4em;
+  line-height: 1.8;
+  margin-bottom: 70px;
+  margin-top: 30px;
+}
+
+/* Adjustments for mobile */
+@media (max-width: 768px) {
+  .genre-content h1 {
+    font-size: 1.8em;
+  }
+
+  .genre-content h2 {
+    font-size: 1.4em;
+  }
+
+  .genre-content p {
+    font-size: 1.0em;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .genre-content h1 {
+    font-size: 1.5em;
+  }
+
+  .genre-content h2 {
+    font-size: 1.2em;
+  }
+
+  .genre-content p {
+    font-size: 0.9em;
+  }
+}
+
+
+
+
+/* Krifignos Section */
+.krifignos {
+  margin-top: 0px;
+  position: relative;
+  width: 100%;
+}
+
+/* Top banner (KRIFIGNOS) */
+.krifbanner {
+  position: relative;
+  width: 100%;
+  height: 150px; /* גובה אחיד עם הבאנר התחתון */
+  background-image: url('assets/images/krifbanner.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.krifbanner h1 {
+  position: absolute;
+  font-size: 4em;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  margin: 0;
+}
+
+/* Krifignos Content Section */
+.krifignos-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* תוודא שהתמונה והטקסט יושבים אחד על השני */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 400px; /* נותן מינימום גובה לסקשן */
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* תמנע מהטקסט לצאת מגבולות התמונה */
+  position: relative; /* חשוב למיקום התמונה והטקסט */
+}
+
+/* Krifignos Image */
+.krifignos-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* תמונה מאחורי הטקסט */
+  opacity: 0.7; /* opacity קל לתמונה */
+  object-fit: contain; /* שומר על התמונה בגודלה המקורי וממקד אותה */
+}
+
+/* Krifignos Text */
+.krifignos-text {
+  position: relative;
+  z-index: 1; /* טקסט מעל התמונה */
+  width: 100%;
+  max-width: 800px; /* גודל מקסימלי לטקסט */
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 20px;
+  background-color: transparent; /* הסרנו את הרקע השחור מאחורי הטקסט */
+  border-radius: 10px;
+  box-sizing: border-box; /* לוודא שה-padding לא יוצא מגבולות התמונה */
+  overflow: hidden;
+}
+
+/* Banner for section ending */
+.section-banner {
+  width: 100%;
+  height: 150px; /* הגובה של הבאנר התחתון */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-banner img {
+  width: 100%;
+  height: 100%; /* מתיחה לרוחב וגובה 100% */
+  object-fit: cover; /* שמירה על פרופורציות */
+  object-position: center;
+}
+
+/* Mobile View for Krifignos */
+@media (max-width: 768px) {
+  .krifbanner {
+    height: 100px;
+  }
+
+  .krifbanner h1 {
+    font-size: 2.5em;
+  }
+
+  .krifignos-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .krifignos-text, .krifignos-image {
+    width: 100%; /* וודא שכל אלמנט יתפוס 100% רוחב */
+  }
+
+  .krifignos-text {
+    font-size: 1.1em;
+  }
+
+  .section-banner {
+    height: 100px; /* מצמצם את הגובה של הבאנר התחתון במובייל */
+  }
+
+  /* תיקון לתמונה בבאנר העליון */
+  .krifbanner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+@media (max-width: 480px) {
+  .krifbanner h1 {
+    font-size: 2em;
+  }
+
+  .krifignos-text {
+    font-size: 1.0em;
+  }
+}
+
+
+
+.loud-devils-studio {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loud-devils-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.loud-devils-text {
+  width: 50%;
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.loud-devils-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.studio-logo {
+  width: 70%;
+  max-width: 600px;
+  height: 300px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Mobile View for Loud Devils */
+@media (max-width: 768px) {
+  .loud-devils-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .loud-devils-text, .loud-devils-image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .loud-devils-text {
+    font-size: 1.0em;
+  }
+}
+
+
+
+.main-title h1{
+	text-align: center; /* מרכז את הכותרת */
+  font-size: 2em; /* גודל גופן גדול יותר */
+  margin-top: 120px; /* רווחים עליונים כדי למנוע חפיפות עם ה-HEADER */
+  margin-bottom: 40px; /* רווח תחתון בין הכותרת לתוכן */
+}
+
+.music-player {
+  text-align: center; /* מרכז את התוכן בתוך ה-div */
+}
+
+.music-player iframe {
+  display: inline-block; /* הופך את ה-iframe לאובייקט פנימי בתוך ה-div */
+}
+
+/* קונטיינר הסרטונים */
+.media-video-container {
+  display: flex;                    /* Flexbox להצגת סרטונים בשורה אחת */
+  justify-content: center;           /* ממורכז אופקית בתוך הקונטיינר */
+  align-items: center;              /* ממורכז אנכית */
+  gap: 20px;                         /* רווח בין הסרטונים */
+  width: 100%;                       /* הקונטיינר תופס את כל הרוחב */
+  box-sizing: border-box;            /* תיאום הרוחב כך שהוא לא יפגע במידות */
+}
+
+/* Mobile View for Main Title */
+@media (max-width: 768px) {
+  .main-title h1 {
+    font-size: 2.5em; /* Adjust the title size for mobile */
+    margin-top: 20px; /* קטנתי את הרווח עליון ל-60px למובייל */
+    margin-bottom: 20px; /* Adjust bottom margin */
+  }
+}
+
+/* Very Small Screen Sizes (480px or smaller) */
+@media (max-width: 480px) {
+  .main-title h1 {
+    font-size: 2em; /* Further reduce the font size on very small screens */
+    margin-top: 40px; /* Adjust margin-top for smaller screens */
+    margin-bottom: 15px; /* Adjust bottom margin */
+  }
+}
+  .main-title h1 {
+    font-size: 2em; /* Further reduce the font size on very small screens */
+    margin-top: 20px; /* Adjust margin-top for smaller screens */
+    margin-bottom: 15px; /* Adjust bottom margin */
+  }
+}
+
+
+
+/* סגנון לכל iframe */
+.media-video-container iframe {
+  width: 100%;                        /* רוחב מלא כדי להסתגל לכל גודל מסך */
+  height: 315px;                      /* גובה קבוע (במקרה של מסכים גדולים יותר) */
+  border: 0.5px solid #624607;        /* גבול דק בצבע חום כהה */
+  border-radius: 8px;                 /* פינות מעוגרות */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* אפקט בזמן hover */
+  flex-shrink: 0;                     /* מונע מהסרטונים להתכווץ */
+  display: block;                     /* חשוב כדי שה-iframe לא יתפוס את כל הרוחב */
+  max-width: 560px;                   /* מקסימום רוחב של 560px (ברירת מחדל) */
+  margin-bottom: 20px;                /* רווח בין הסרטונים */
+}
+
+/* אפקט hover */
+.media-video-container iframe:hover {
+  transform: scale(1.05);             /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);  /* הוספת צל זהוב */
+}
+
+/* במקרה של מסך קטן (מובייל) */
+@media (max-width: 768px) {
+  .media-video-container {
+    flex-direction: column;           /* מציג את הסרטונים אחד מעל השני במובייל */
+    align-items: center;              /* ממורכזים */
+    gap: 10px;                        /* רווח קטן יותר בין הסרטונים */
+  }
+
+  /* הגדרת הרוחב של הסרטונים למובייל */
+  .media-video-container iframe {
+    width: 90%;                       /* הסרטונים יתפשטו לרוחב 90% במובייל */
+    max-width: 480px;                 /* לא יחרגו מהרוחב של 480px */
+    height: auto;                     /* גובה אוטומטי לשמירה על פרופורציות */
+  }
+}
+
+/* במקרה של מסך קטן מאוד (טלפונים קטנים מאוד) */
+@media (max-width: 480px) {
+  .media-video-container iframe {
+    width: 85%;                       /* הסרטונים יתפשטו לרוחב 85% במסכים קטנים מאוד */
+    max-width: 400px;                 /* לא יחרגו מהרוחב של 400px */
+    height: auto;                     /* גובה אוטומטי */
+  }
+}
+
+/* במקרה של מסך בגודל בינוני (למשל טאבלטים בגודל בינוני) */
+@media (max-width: 1024px) {
+  .media-video-container iframe {
+    width: 85%;                       /* הסרטונים יתפשטו לרוחב 85% במסכים בגודל בינוני */
+    max-width: 480px;                 /* לא יחרגו מהרוחב של 480px */
+    height: auto;                     /* גובה אוטומטי */
+  }
+}
+
+
+
+
+/* Style for the music player container */
+.music-player {
+  text-align: center; /* Centers the iframe */
+}
+
+/* Styling for the streaming platform icons container */
+.infinity-streaming {
+  display: flex; /* Aligns the icons horizontally */
+  justify-content: center; /* Centers the icons */
+  gap: 30px; /* Adds space between the icons */
+  margin-top: 20px; /* Adds space above the icons */
+}
+
+/* Style for each platform icon */
+.platform-logo {
+  font-size: 35px; /* Increase the size of the icons */
+  color: white; /* Default icon color */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect for icons */
+.platform-logo:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon on hover */
+  color: #624607 !important; /* Change color on hover */
+}
+
+/* Optional: Glow effect for active state */
+.platform-logo:active {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Adds a glow effect when clicked */
+}
+
+/* You can adjust the icon size using the class names if needed */
+.bi-youtube,
+.bi-spotify,
+.bi-apple {
+  font-size: 35px; /* Specific size for each icon if you want to tweak individually */
+}
+
+
+
+.music-player {
+  display: flex;
+  flex-direction: column; /* יוצר סידור אנכי של ה-iframe והאייקון */
+  align-items: center; /* מיישר את התוכן במרכז */
+  justify-content: center; /* מיישר את התוכן במרכז */
+}
+
+.download-button {
+  margin-top: 10px; /* רווח קטן בין ה-iframe לבין הכפתור */
+  color: #cccccc;
+  font-size: 30px; /* גודל האייקון */
+  text-decoration: none; /* מוודא שאין קו תחתון */
+  cursor: pointer;
+}
+
+.download-button:hover {
+  color: #ff5500; /* שינוי צבע כאשר העכבר נמצא מעל האייקון */
+}
+
+
+
+/* עיצוב הכללי של עמוד ה-Tour */
+.tour {
+  text-align: center;
+  max-width: 1000px;
+  margin-bottom: 50px;
+}
+
+/* עיצוב הכותרת הראשית */
+.tour h1 {
+  font-size: 2em;
+  color: white;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* עיצוב הפסקה */
+.tour p {
+  font-size: 1.4em;
+  color: white;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  text-align: center;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+}
+
+/* עיצוב הקונטיינר של הטבלה */
+.tour-container {
+  text-align: center;
+  padding: 20px;
+  background-color: black;
+  border-radius: 10px;
+  margin-top: -100px;
+}
+
+/* כותרת הטבלה */
+.tour-container h2 {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* עיצוב הקונטיינר של הטבלה */
+.tour-table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* גלילה אופקית אם הטבלה גדולה */
+  display: flex;
+  justify-content: center; /* ממקם את הטבלה במרכז */
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* עיצוב הטבלה */
+.tour-table {
+  width: 100vw; /* בטוח שהטבלה תתפוס 100% מהמרחב */
+  max-width: 1200px; /* גודל מרבי */
+  border-collapse: collapse;
+  border: 2px solid white; /* שמירת המסגרת של הטבלה */
+  margin-left: auto;
+  margin-right: auto;
+  transform: none; /* ביטול מיקום */
+  position: relative;
+}
+
+/* עיצוב כותרות הטבלה */
+.tour-table th {
+  background-color: #624607;
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* עיצוב תאי הטבלה */
+.tour-table td {
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+/* עיצוב שורות שחורות */
+.tour-table .black-row {
+  background-color: #000;
+  color: white;
+}
+
+/* עיצוב שורות מוזהבות */
+.tour-table .gold-row {
+  background-color: #624607;
+  color: black;
+}
+
+/* אחידות על כל אלמנט בתפריט */
+.tour-table td, .tour-table th {
+  text-align: center;
+}
+
+/* מדיה קווריז עבור מסכים קטנים */
+
+/* מסכים עד 768px */
+@media (max-width: 768px) {
+  /* רק במובייל, נזיז את הכותרת */
+  .tour h1 {
+    font-size: 2.5em; /* הקטנת גודל הכותרת */
+    margin-top: 50px;  /* הגדלת המרווח בין ה-HEADER לכותרת */
+    margin-bottom: 30px;
+  }
+
+  /* שאר התוכן */
+  .tour p {
+    font-size: 1.2em;
+    max-width: 100%;
+  }
+
+  .tour-table-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .tour-table {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tour-table th,
+  .tour-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+/* מסכים עד 480px */
+@media (max-width: 480px) {
+  /* שינוי מרווחים נוספים במובייל קטן */
+  .tour h1 {
+    font-size: 2em;
+    margin-top: 60px; /* הגדלת המרווח במובייל קטן יותר */
+    margin-bottom: 20px;
+  }
+
+  .tour p {
+    font-size: 1em;
+    margin-top: 10px;
+  }
+
+  .tour-table-wrapper {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .tour-table th,
+  .tour-table td {
+    padding: 6px;
+    font-size: 12px;
+  }
+}
+
+
+
+
+/* CSS ספציפי לעמוד Mailing List */
+#mailing-list-page {
+  text-align: center;
+  padding: 50px 0;
+}
+
+#mailing-list-page h1,
+#mailing-list-page h3 {
+  font-family: 'Metal', sans-serif;
+  margin-bottom: 20px;
+}
+
+#mailing-list-form {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #624607; /* מסגרת דקה בצבע דארק גולד */
+  margin-top: -40px;
+}
+
+#mailing-list-form .form-group {
+  margin-bottom: 20px;
+}
+
+#mailing-list-form input {
+  width: 100%;
+  padding: 12px;
+  border: 0.5px solid #624607; /* גבול דק בצבע דארק גולד */
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #333; /* רקע כהה לשדות הקלט */
+  color: white; /* צבע טקסט לבן */
+}
+
+#mailing-list-form input:focus {
+  outline: none;
+  border-color: #d1b29a; /* שינוי צבע הגבול כשהשדה מקבל פוקוס */
+}
+
+#mailing-list-form .subscribe-btn {
+  background-color: #624607; /* צבע רקע של דארק גולד לכפתור */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#mailing-list-form .subscribe-btn:hover {
+  background-color: #403511; /* גוון כהה יותר של דארק גולד */
+}
+
+
+
+
+/* רק בעמוד של MOSES */
+.moses-page header {
+  position: sticky;
+  z-index: 1;
+}
+
+/* מרווח נוסף עבור גוף העמוד ב-MOSES */
+.moses-page body {
+  margin-top: 50px; /* שיפוי למרווח נוסף */
+}
+
+/* קונטיינר הכולל את התיבה והכותרת */
+.profile-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 60px;
+  gap: 30px;
+  margin-left: 250px; /* מרווח קטן שמאלה */
+}
+
+/* הקופסה האנכית */
+.profile-box {
+  width: 750px;
+  height: 600px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  position: relative;
+}
+
+/* אם רוצים, אפשר להוסיף אפקט של hover */
+.profile-box:hover { 
+  opacity: 0.8; /* דוגמה לאפקט ריחוף, שינוי שקיפות התמונה */
+  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
+}
+
+/* קו מתחת לכותרת */
+.profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב אפל */
+  width: 100%; /* גודל הקו */
+  margin: 5px auto; /* ממורכז עם רווח מעל ומתחת */
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+/* כותרת */
+.profile-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  align-self: flex-start;
+  white-space: nowrap;
+  padding-bottom: 5px;
+  margin-top: -5px; /* הרם את הכותרת מעט למעלה */
+}
+
+/* אפקט hover לכותרת MOSES MICHAEL */
+.profile-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* פרטי מידע */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px; /* הרם את הטקסט שמתחת לכותרת */
+  text-align: left;
+  width: 80%;
+}
+
+/* כל פריט בתוך המידע */
+.profile-details .detail-item {
+  margin-bottom: 10px; /* מרווח בין פריט לפריט */
+}
+
+/* רק עבור ה-"Band Position" */
+.profile-details .detail-item .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* טקסט של כל פריט, מונע פיצול לשורות */
+.profile-details .detail-item .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* רק עבור "Band Position" */
+.profile-details .detail-item:nth-child(5) .detail-text {
+  white-space: nowrap; /* מונע פיצול לשורות */
+}
+
+/* כותרת של כל פריט */
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold; /* הדגשה של הכותרת */
+}
+
+/* טקסט של כל פריט */
+.profile-details .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* עיצוב התמונה הראשונה בתוך התיבה */
+.profile-image {
+  position: absolute; /* מיקום מוחלט בתוך התיבה */
+  top: 0; /* הצמדת התמונה לחלק העליון של התיבה */
+  left: 0; /* הצמדת התמונה לקיר השמאלי של התיבה */
+  width: 100%; /* התמונה תתפוס 100% מהרוחב של התיבה */
+  height: 70%; /* התמונה תתפוס 100% מהגובה של התיבה */
+  object-fit: cover; /* שמירה על פרופורציות התמונה */
+
+}
+
+/* עיצוב התמונה השנייה בתוך התיבה (שמתחת לתמונה הראשונה) */
+.profile-image-bottom2 {
+  width: 100%; /* התמונה תתפוס 98% מהרוחב של התיבה */
+  height: 30%; /* התמונה תתפוס את שאר 30% מהגובה של התיבה */
+  object-fit: contain; /* שמירה על פרופורציות התמונה */
+  border-radius: 10px; /* פינות מעוגלות לתמונה */
+  margin-top: 450px;
+}
+
+/* פרטי FAVORITES */
+.favorites-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%; /* גודל החלק שיתפוס כל התוכן */
+  margin-top: -5px;
+  margin-left: 70px; /* מרווח קטן בין הפרטים החדשים לפרטים הקודמים */
+}
+
+/* שמירה על הכותרת ואי שינוי המיקום */
+.favorites-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+/* אפקט hover לכותרת FAVORITES */
+.favorites-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* קו מתחת לכותרת FAVORITES */
+.favorites-title + .profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב */
+  width: calc(23% - 20px); /* הגבלת רוחב הקו כך שיתאם לרוחב הכותרת */
+  margin: -4px 0 -2px 0; /* הרווח למעלה ולמטה מתואם */
+  margin-left: 0px; /* הרווח משמאל כדי להתאים את הקו לכותרת */
+}
+
+.profile-details .detail-item {
+  margin-bottom: 10px;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+/* עיצוב עבור מסכים קטנים (כמו מוביילים) */
+@media (max-width: 768px) {
+  /* קונטיינר */
+  .profile-container {
+    flex-direction: column; /* לשים את האלמנטים בסדר אנכי */
+    align-items: center; /* למרכז את האלמנטים */
+    margin-left: 0;
+    gap: 20px;
+    width: 100%; /* זה חשוב אם יש מרווחים */
+  }
+
+  /* תיבת המידע עם התמונות */
+  .profile-box {
+    width: 90%; /* תיבה תופסת 90% מהרוחב */
+    height: auto; /* הגובה יתאם לתוכן */
+    position: relative;
+	margin-left: 25px;
+  }
+
+  /* כותרת ה-MOSES MICHAEL */
+  .profile-title {
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור אמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת */
+  .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 100%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי המידע - כותרות */
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* למרכז את כל המידע */
+    text-align: center;
+    width: 100%; /* המידע יתפוס את כל רוחב המסך */
+  }
+
+  /* כל פריט בפרטי המידע */
+  .profile-details .detail-item {
+    margin-bottom: 15px;
+    width: 100%; /* זה חשוב אם יש יותר מידי מרווחים */
+    text-align: center; /* מרכז את כל התוכן */
+  }
+
+  .profile-details .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px; /* קטנה יותר במובייל */
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .profile-details .detail-text {
+    font-size: 16px; /* קטנה יותר במובייל */
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  /* כותרת FAVORITES */
+  .favorites-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור לאמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת FAVORITES */
+  .favorites-title + .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 40%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי FAVORITES */
+  .favorites-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* יישור לאמצע */
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* פרטי FAVORITES - כל פריט */
+  .favorites-info .detail-item {
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center; /* יישור לאמצע */
+  }
+
+  .favorites-info .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px;
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .favorites-info .detail-text {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+}
+
+/* התאמה למובייל במצב אופקי */
+@media (max-width: 768px) and (orientation: landscape) {
+  .profile-container {
+    flex-direction: row; /* התצוגה נשארת אופקית */
+    gap: 20px;
+  }
+
+  /* התאמות גובה התמונה */
+  .profile-image, .profile-image-bottom2 {
+    width: 100%; /* תמונות תופסות 100% רוחב */
+    height: auto; /* גובה מותאם */
+  }
+}
+
+/* עיצוב עבור מסכים קטנים (כמו מוביילים) */
+@media (max-width: 768px) {
+  .profile-image-bottom2 {
+    position: relative; /* הגדרת מיקום יחסי */
+    top: -10px; /* הזזת התמונה 30px למעלה */
+  }
+}
+
+.gear-heading {
+  font-size: 2em;
+  text-align: center;
+  color: #fff; /* Change the color as needed */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.guitar-images {
+  display: flex;
+  justify-content: center; /* למרכז את התמונות */
+  gap: 10px; /* רווח בין התמונות */
+  margin-top: 20px;
+}
+
+.gear-image {
+  width: 45%; /* הגודל של כל תמונה, תוכל להתאים בהתאם */
+  height: auto;
+  border-radius: 8px; /* אם אתה רוצה פינות מעוגלות לתמונות */
+  border: 1px solid #fff; /* מסגרת לבנה דקה */
+  padding: 5px; /* רווח פנימי קטן סביב התמונה */
+}
+
+.gear-images {
+  display: flex;
+  justify-content: center; /* למרכז את התמונות */
+  gap: 10px; /* רווח בין התמונות */
+  margin-top: 20px;
+}
+
+.gear2-image {
+  width: 35%; /* הגודל של כל תמונה, תוכל להתאים בהתאם */
+  height: auto;
+  border-radius: 8px; /* אם אתה רוצה פינות מעוגלות לתמונות */
+    border: 1px solid #fff; /* מסגרת לבנה דקה */
+  padding: 5px; /* רווח פנימי קטן סביב התמונה */
+}
+
+/* עיצוב למובייל (מסכים קטנים) */
+@media (max-width: 768px) {
+
+  /* התצוגה עבור קונטיינר ה-GEAR */
+  .gear-images {
+    flex-direction: column; /* תמונות אחת על השנייה */
+    align-items: center; /* למרכז את התמונות */
+    gap: 10px; /* רווח קטן בין התמונות */
+  }
+
+  /* תמונות בתוך ה-GEAR */
+  .gear-image {
+    width: 90%; /* תמונות בגודל שמתאים למסך קטן */
+    height: auto; /* שמירה על פרופורציות */
+  }
+
+  /* כותרת ה-GEAR */
+  .gear-heading {
+    font-size: 1.5em;
+    text-align: center;
+    color: #fff; /* צבע לבן או מה שמתאים לך */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+/* עיצוב עבור מסכים רחבים יותר (למחשב שולחני) */
+@media (min-width: 769px) {
+
+  /* תצוגה בשורה אחת עבור התמונות */
+  .gear-images {
+    display: flex;
+    justify-content: center; /* למרכז את התמונות */
+    gap: 20px; /* רווח גדול יותר בין התמונות */
+  }
+
+  /* התמונות ב-GEAR יהיו ברוחב קטן יותר במסכים רחבים */
+  .gear-image {
+    width: 45%; /* התמונה תתפוס 45% מהרוחב */
+    height: auto; /* שמירה על פרופורציות */
+  }
+
+  /* כותרת ה-GEAR */
+  .gear-heading {
+    font-size: 2em;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+/* רק בעמוד של MOSES */
+.ben-page header {
+  position: sticky;
+  z-index: 1;
+}
+
+/* מרווח נוסף עבור גוף העמוד ב-MOSES */
+.ben-page body {
+  margin-top: 50px; /* שיפוי למרווח נוסף */
+}
+
+/* קונטיינר הכולל את התיבה והכותרת */
+.profile-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 60px;
+  gap: 30px;
+  margin-left: 250px; /* מרווח קטן שמאלה */
+}
+
+/* הקופסה האנכית */
+.profile-box {
+  width: 750px;
+  height: 600px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  position: relative;
+}
+
+/* אם רוצים, אפשר להוסיף אפקט של hover */
+.profile-box:hover { 
+  opacity: 0.8; /* דוגמה לאפקט ריחוף, שינוי שקיפות התמונה */
+  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
+}
+
+/* קו מתחת לכותרת */
+.profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב אפל */
+  width: 100%; /* גודל הקו */
+  margin: 5px auto; /* ממורכז עם רווח מעל ומתחת */
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+/* כותרת */
+.profile-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  align-self: flex-start;
+  white-space: nowrap;
+  padding-bottom: 5px;
+  margin-top: -5px; /* הרם את הכותרת מעט למעלה */
+}
+
+/* אפקט hover לכותרת MOSES MICHAEL */
+.profile-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* פרטי מידע */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px; /* הרם את הטקסט שמתחת לכותרת */
+  text-align: left;
+  width: 80%;
+}
+
+/* כל פריט בתוך המידע */
+.profile-details .detail-item {
+  margin-bottom: 10px; /* מרווח בין פריט לפריט */
+}
+
+/* רק עבור ה-"Band Position" */
+.profile-details .detail-item .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* טקסט של כל פריט, מונע פיצול לשורות */
+.profile-details .detail-item .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* רק עבור "Band Position" */
+.profile-details .detail-item:nth-child(5) .detail-text {
+  white-space: nowrap; /* מונע פיצול לשורות */
+}
+
+/* כותרת של כל פריט */
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold; /* הדגשה של הכותרת */
+}
+
+/* טקסט של כל פריט */
+.profile-details .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* עיצוב התמונה הראשונה בתוך התיבה */
+.profile-image {
+  position: absolute; /* מיקום מוחלט בתוך התיבה */
+  top: 0; /* הצמדת התמונה לחלק העליון של התיבה */
+  left: 0; /* הצמדת התמונה לקיר השמאלי של התיבה */
+  width: 100%; /* התמונה תתפוס 100% מהרוחב של התיבה */
+  height: 70%; /* התמונה תתפוס 100% מהגובה של התיבה */
+  object-fit: cover; /* שמירה על פרופורציות התמונה */
+
+}
+
+/* עיצוב התמונה השנייה בתוך התיבה (שמתחת לתמונה הראשונה) */
+.profile-image-bottom {
+  width: 100%; /* התמונה תתפוס 98% מהרוחב של התיבה */
+  height: 30%; /* התמונה תתפוס את שאר 30% מהגובה של התיבה */
+  object-fit: contain; /* שמירה על פרופורציות התמונה */
+  border-radius: 10px; /* פינות מעוגלות לתמונה */
+  margin-top: 420px;
+}
+
+/* פרטי FAVORITES */
+.favorites-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%; /* גודל החלק שיתפוס כל התוכן */
+  margin-top: -5px;
+  margin-left: 70px; /* מרווח קטן בין הפרטים החדשים לפרטים הקודמים */
+}
+
+/* שמירה על הכותרת ואי שינוי המיקום */
+.favorites-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+/* אפקט hover לכותרת FAVORITES */
+.favorites-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* קו מתחת לכותרת FAVORITES */
+.favorites-title + .profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב */
+  width: calc(23% - 20px); /* הגבלת רוחב הקו כך שיתאם לרוחב הכותרת */
+  margin: -4px 0 -2px 0; /* הרווח למעלה ולמטה מתואם */
+  margin-left: 0px; /* הרווח משמאל כדי להתאים את הקו לכותרת */
+}
+
+.profile-details .detail-item {
+  margin-bottom: 10px;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+/* עיצוב עבור מסכים קטנים (כמו מוביילים) */
+@media (max-width: 768px) {
+  /* קונטיינר */
+  .profile-container {
+    flex-direction: column; /* לשים את האלמנטים בסדר אנכי */
+    align-items: center; /* למרכז את האלמנטים */
+    margin-left: 0;
+    gap: 20px;
+    width: 100%; /* זה חשוב אם יש מרווחים */
+  }
+
+  /* תיבת המידע עם התמונות */
+  .profile-box {
+    width: 90%; /* תיבה תופסת 90% מהרוחב */
+    height: auto; /* הגובה יתאם לתוכן */
+    position: relative;
+	margin-left: 25px;
+  }
+
+  /* כותרת ה-MOSES MICHAEL */
+  .profile-title {
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור אמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת */
+  .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 100%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי המידע - כותרות */
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* למרכז את כל המידע */
+    text-align: center;
+    width: 100%; /* המידע יתפוס את כל רוחב המסך */
+  }
+
+  /* כל פריט בפרטי המידע */
+  .profile-details .detail-item {
+    margin-bottom: 15px;
+    width: 100%; /* זה חשוב אם יש יותר מידי מרווחים */
+    text-align: center; /* מרכז את כל התוכן */
+  }
+
+  .profile-details .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px; /* קטנה יותר במובייל */
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .profile-details .detail-text {
+    font-size: 16px; /* קטנה יותר במובייל */
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  /* כותרת FAVORITES */
+  .favorites-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור לאמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת FAVORITES */
+  .favorites-title + .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 40%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי FAVORITES */
+  .favorites-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* יישור לאמצע */
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* פרטי FAVORITES - כל פריט */
+  .favorites-info .detail-item {
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center; /* יישור לאמצע */
+  }
+
+  .favorites-info .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px;
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .favorites-info .detail-text {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+}
+
+/* התאמה למובייל במצב אופקי */
+@media (max-width: 768px) and (orientation: landscape) {
+  .profile-container {
+    flex-direction: row; /* התצוגה נשארת אופקית */
+    gap: 20px;
+  }
+
+  /* התאמות גובה התמונה */
+	.profile-image, .profile-image-bottom {
+    width: 100%; /* תמונות תופסות 100% רוחב */
+    height: auto; /* גובה מותאם */
+  }
+}
+
+/* עיצוב עבור מסכים קטנים (כמו מוביילים) */
+@media (max-width: 768px) {
+  .profile-image-bottom {
+    position: relative; /* הגדרת מיקום יחסי */
+    top: -25px; /* הזזת התמונה 30px למעלה */
+  }
+}
+
+.gear-heading {
+  font-size: 2em;
+  text-align: center;
+  color: #fff; /* Change the color as needed */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.guitar-images {
+  display: flex;
+  justify-content: center; /* למרכז את התמונות */
+  gap: 10px; /* רווח בין התמונות */
+  margin-top: 20px;
+}
+
+.gear-image {
+  width: 45%; /* הגודל של כל תמונה, תוכל להתאים בהתאם */
+  height: auto;
+  border-radius: 8px; /* אם אתה רוצה פינות מעוגלות לתמונות */
+}
+
+.gear-images {
+  display: flex;
+  justify-content: center; /* למרכז את התמונות */
+  gap: 10px; /* רווח בין התמונות */
+  margin-top: 20px;
+}
+
+.gear2-image {
+  width: 35%; /* הגודל של כל תמונה, תוכל להתאים בהתאם */
+  height: auto;
+  border-radius: 8px; /* אם אתה רוצה פינות מעוגלות לתמונות */
+}
+
+/* עיצוב למובייל (מסכים קטנים) */
+@media (max-width: 768px) {
+
+  /* התצוגה עבור קונטיינר ה-GEAR */
+  .gear-images {
+    flex-direction: column; /* תמונות אחת על השנייה */
+    align-items: center; /* למרכז את התמונות */
+    gap: 10px; /* רווח קטן בין התמונות */
+  }
+
+  /* תמונות בתוך ה-GEAR */
+  .gear-image {
+    width: 90%; /* תמונות בגודל שמתאים למסך קטן */
+    height: auto; /* שמירה על פרופורציות */
+  }
+
+  /* כותרת ה-GEAR */
+  .gear-heading {
+    font-size: 1.5em;
+    text-align: center;
+    color: #fff; /* צבע לבן או מה שמתאים לך */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+/* עיצוב עבור מסכים רחבים יותר (למחשב שולחני) */
+@media (min-width: 769px) {
+
+  /* תצוגה בשורה אחת עבור התמונות */
+  .gear-images {
+    display: flex;
+    justify-content: center; /* למרכז את התמונות */
+    gap: 20px; /* רווח גדול יותר בין התמונות */
+  }
+
+  /* התמונות ב-GEAR יהיו ברוחב קטן יותר במסכים רחבים */
+  .gear-image {
+    width: 45%; /* התמונה תתפוס 45% מהרוחב */
+    height: auto; /* שמירה על פרופורציות */
+  }
+
+  /* כותרת ה-GEAR */
+  .gear-heading {
+    font-size: 2em;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+/* רק בעמוד של MOSES */
+.lior-page header {
+  position: sticky;
+  z-index: 1;
+}
+
+/* מרווח נוסף עבור גוף העמוד ב-MOSES */
+.lior-page body {
+  margin-top: 50px; /* שיפוי למרווח נוסף */
+}
+
+/* קונטיינר הכולל את התיבה והכותרת */
+.profile-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 60px;
+  gap: 30px;
+  margin-left: 250px; /* מרווח קטן שמאלה */
+}
+
+/* הקופסה האנכית */
+.profile-box {
+  width: 750px;
+  height: 600px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  position: relative;
+}
+
+/* אם רוצים, אפשר להוסיף אפקט של hover */
+.profile-box:hover { 
+  opacity: 0.8; /* דוגמה לאפקט ריחוף, שינוי שקיפות התמונה */
+  transform: scale(1.05) !important;           /* הגדלה של הסרטון קלות */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8) !important;  /* הוספת צל זהוב */
+}
+
+/* קו מתחת לכותרת */
+.profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב אפל */
+  width: 100%; /* גודל הקו */
+  margin: 5px auto; /* ממורכז עם רווח מעל ומתחת */
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+/* כותרת */
+.profile-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  align-self: flex-start;
+  white-space: nowrap;
+  padding-bottom: 5px;
+  margin-top: -5px; /* הרם את הכותרת מעט למעלה */
+}
+
+/* אפקט hover לכותרת MOSES MICHAEL */
+.profile-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* פרטי מידע */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px; /* הרם את הטקסט שמתחת לכותרת */
+  text-align: left;
+  width: 80%;
+}
+
+/* כל פריט בתוך המידע */
+.profile-details .detail-item {
+  margin-bottom: 10px; /* מרווח בין פריט לפריט */
+}
+
+/* רק עבור ה-"Band Position" */
+.profile-details .detail-item .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* טקסט של כל פריט, מונע פיצול לשורות */
+.profile-details .detail-item .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* רק עבור "Band Position" */
+.profile-details .detail-item:nth-child(5) .detail-text {
+  white-space: nowrap; /* מונע פיצול לשורות */
+}
+
+/* כותרת של כל פריט */
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23; /* צבע זהב אפל */
+  margin-bottom: 5px;
+  font-weight: bold; /* הדגשה של הכותרת */
+}
+
+/* טקסט של כל פריט */
+.profile-details .detail-text {
+  font-size: 18px;
+  color: #fff; /* צבע טקסט לבן */
+  margin-bottom: 10px; /* מרווח בין הפרטים */
+}
+
+/* עיצוב התמונה הראשונה בתוך התיבה */
+.profile-image {
+  position: absolute; /* מיקום מוחלט בתוך התיבה */
+  top: 0; /* הצמדת התמונה לחלק העליון של התיבה */
+  left: 0; /* הצמדת התמונה לקיר השמאלי של התיבה */
+  width: 100%; /* התמונה תתפוס 100% מהרוחב של התיבה */
+  height: 70%; /* התמונה תתפוס 100% מהגובה של התיבה */
+  object-fit: cover; /* שמירה על פרופורציות התמונה */
+
+}
+
+/* עיצוב התמונה השנייה בתוך התיבה (שמתחת לתמונה הראשונה) */
+.profile-image-bottom {
+  width: 100%; /* התמונה תתפוס 98% מהרוחב של התיבה */
+  height: 30%; /* התמונה תתפוס את שאר 30% מהגובה של התיבה */
+  object-fit: contain; /* שמירה על פרופורציות התמונה */
+  border-radius: 10px; /* פינות מעוגלות לתמונה */
+  margin-top: 420px;
+}
+
+/* פרטי FAVORITES */
+.favorites-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%; /* גודל החלק שיתפוס כל התוכן */
+  margin-top: -5px;
+  margin-left: 70px; /* מרווח קטן בין הפרטים החדשים לפרטים הקודמים */
+}
+
+/* שמירה על הכותרת ואי שינוי המיקום */
+.favorites-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+/* אפקט hover לכותרת FAVORITES */
+.favorites-title:hover {
+  color: #6a4e23; /* צבע זהב */
+}
+
+/* קו מתחת לכותרת FAVORITES */
+.favorites-title + .profile-title-line {
+  border-top: 2px solid #6a4e23; /* קו זהב */
+  width: calc(23% - 20px); /* הגבלת רוחב הקו כך שיתאם לרוחב הכותרת */
+  margin: -4px 0 -2px 0; /* הרווח למעלה ולמטה מתואם */
+  margin-left: 0px; /* הרווח משמאל כדי להתאים את הקו לכותרת */
+}
+
+.profile-details .detail-item {
+  margin-bottom: 10px;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+.profile-details .detail-title {
+  font-family: 'Metal', sans-serif;
+  font-size: 20px;
+  color: #6a4e23;
+  font-weight: bold;
+}
+
+/* עיצוב עבור מסכים קטנים (כמו מוביילים) */
+@media (max-width: 768px) {
+  /* קונטיינר */
+  .profile-container {
+    flex-direction: column; /* לשים את האלמנטים בסדר אנכי */
+    align-items: center; /* למרכז את האלמנטים */
+    margin-left: 0;
+    gap: 20px;
+    width: 100%; /* זה חשוב אם יש מרווחים */
+  }
+
+  /* תיבת המידע עם התמונות */
+  .profile-box {
+    width: 90%; /* תיבה תופסת 90% מהרוחב */
+    height: auto; /* הגובה יתאם לתוכן */
+    position: relative;
+	margin-left: 25px;
+  }
+
+  /* כותרת ה-MOSES MICHAEL */
+  .profile-title {
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור אמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת */
+  .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 100%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי המידע - כותרות */
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* למרכז את כל המידע */
+    text-align: center;
+    width: 100%; /* המידע יתפוס את כל רוחב המסך */
+  }
+
+  /* כל פריט בפרטי המידע */
+  .profile-details .detail-item {
+    margin-bottom: 15px;
+    width: 100%; /* זה חשוב אם יש יותר מידי מרווחים */
+    text-align: center; /* מרכז את כל התוכן */
+  }
+
+  .profile-details .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px; /* קטנה יותר במובייל */
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .profile-details .detail-text {
+    font-size: 16px; /* קטנה יותר במובייל */
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  /* כותרת FAVORITES */
+  .favorites-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+    text-align: center; /* יישור לאמצע */
+    padding-bottom: 15px;
+  }
+
+  /* קו מתחת לכותרת FAVORITES */
+  .favorites-title + .profile-title-line {
+    border-top: 2px solid #6a4e23;
+    width: 40%; /* הקו יהיה יחסית קטן וימורכז */
+    margin: 5px auto;
+  }
+
+  /* פרטי FAVORITES */
+  .favorites-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* יישור לאמצע */
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* פרטי FAVORITES - כל פריט */
+  .favorites-info .detail-item {
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center; /* יישור לאמצע */
+  }
+
+  .favorites-info .detail-title {
+    font-family: 'Metal', sans-serif;
+    font-size: 18px;
+    color: #6a4e23;
+    font-weight: bold;
+  }
+
+  .favorites-info .detail-text {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+}
+
+
+
+/* הגדרת הפופ-אפ */
+.popup {
+  display: none; /* נסתר בברירת מחדל */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* רקע כהה ושקוף */
+  z-index: 1000; /* מוודא שהפופ-אפ יישאר מעל שאר התוכן */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* מוודא שהפופ-אפ לא יגרום לגלילה */
+  transition: all 0.3s ease; /* תנועת טרנזישן חלקה */
+}
+
+/* תוכן הפופ-אפ */
+.popup-content {
+  position: relative;
+  background-color: black; /* רקע שחור לפופ-אפ */
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%; /* גודל של 90% מהמסך */
+  max-width: 900px; /* מקסימום רוחב */
+  display: flex; /* הצגת התוכן בשורה */
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #624607; /* מסגרת מוזהבת דקה */
+  box-sizing: border-box; /* כולל את הריפוד בגבולות הפופ-אפ */
+  transition: all 0.3s ease; /* שינוי מהיר בגודל הפופ-אפ */
+}
+
+/* כפתור ה-X לסגירת הפופ-אפ */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* שינוי צבע של כפתור ה-X בעת hover */
+.close-btn:hover {
+  color: red;
+}
+
+/* עיצוב אזור התמונה */
+.popup-image {
+  flex: 0 0 40%; /* התמונה תתפוס 40% מהרוחב */
+  max-width: 40%; /* מגדירים רוחב מקסימלי */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* עיצוב התמונה עצמה */
+.popup-image img {
+  width: 100%; /* התמונה תתפשט לרוחב המיכל */
+  height: auto; /* שמירה על פרופורציות התמונה */
+  object-fit: cover;
+  border-radius: 10px; /* רדיוס קטן לפינה */
+}
+
+/* עיצוב טופס ההרשמה */
+.popup-form {
+  color: white; /* צבע טקסט לבן */
+  max-width: 50%; /* מקסימום רוחב של הטופס */
+  width: 100%;
+}
+
+.popup-form h2 {
+  font-size: 24px; /* גודל כותרת */
+  margin-bottom: 10px;
+}
+
+.popup-form p {
+  margin-bottom: 20px;
+}
+
+/* עיצוב שדות הקלט */
+.popup-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.popup-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #624607; /* צבע רקע כפתור */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* שינוי צבע כפתור בעת hover */
+.popup-form button:hover {
+  background-color: #f0f0f0; /* צבע רקע בהעברת עכבר */
+  color: black;
+}
+
+/* התאמות למסכים קטנים (רוחב פחות מ-768px) */
+@media (max-width: 768px) {
+  .popup-content {
+    flex-direction: column; /* לשים את התמונה והטופס תחת אחד את השני */
+    justify-content: center; /* מרכז את התוכן אנכית */
+    padding: 15px; /* הפחתת רווחים */
+    max-width: 90%; /* הפופ-אפ יתפוס עד 90% מהמסך */
+  }
+
+  .popup-image {
+    flex: 0 0 100%; /* התמונה תתפוס 100% מהמרחב */
+    max-width: 100%; /* אין הגבלה לרוחב */
+    margin-bottom: 20px; /* רווח בין התמונה לטופס */
+  }
+
+  .popup-form {
+    max-width: 100%; /* הטופס יתפוס את כל הרוחב */
+    width: 100%; /* הרוחב של הטופס הוא 100% */
+  }
+
+  .popup-form h2 {
+    font-size: 20px; /* קטן את גודל הכותרת */
+  }
+
+  .popup-form input, .popup-form button {
+    font-size: 14px; /* קטן את גודל הפונט בשדות */
+  }
+}
+
+/* התאמות למסכים קטנים מאוד (טלפונים בגרסה אנכית) */
+@media (max-width: 480px) {
+  .popup-content {
+    padding: 10px; /* הפחתת הרווחים בצדדים */
+  }
+
+  .popup-image img {
+    width: 80%; /* התמונה לא תתפוס את כל הרוחב */
+  }
+
+  .popup-form {
+    padding: 10px; /* רווח פנימי עבור הטופס */
+  }
+
+  .popup-form h2 {
+    font-size: 18px; /* קטן את גודל הכותרת */
+  }
+
+  .popup-form input, .popup-form button {
+    font-size: 12px; /* קטן את גודל הפונט בשדות */
+    padding: 8px; /* הקטנת padding */
+  }
+}
+
+/* התאמות למסכים אופקיים (מובייל במצב אופקי) */
+@media (orientation: landscape) {
+  .popup-content {
+    width: 90%; /* הפופ-אפ יתפוס 90% מהמסך */
+    max-width: 800px; /* הגבלת רוחב מקסימלי */
+    padding: 20px;
+  }
+
+  .popup-image {
+    flex: 0 0 50%; /* התמונה תתפוס 50% מהרוחב */
+    max-width: 50%;
+  }
+
+  .popup-form {
+    max-width: 50%;
+    width: 100%; /* הטופס יתפוס עד 50% מהמסך */
+  }
+}
+
+
+/* עיצוב עבור כפתור החץ */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px; /* מיקום בתחתית המסך */
+  left: 50%; /* מיקום באמצע האופקי של המסך */
+  transform: translateX(-50%); /* מביא את הכפתור לאמצע מדויק */
+  background-color: rgba(0, 0, 0, 0.7); /* צבע רקע חצי שקוף */
+  color: white; /* צבע טקסט לבן */
+  border: none; /* מסיר גבול */
+  font-size: 30px; /* גודל הגופן */
+  padding: 10px 15px; /* ריפוד פנימי */
+  cursor: pointer; /* מחוון עכבר מותאם */
+  display: none; /* ברירת מחדל החץ לא מוצג */
+  border-radius: 50%; /* מעגל את פינות הכפתור */
+}
+
+/* כאשר החץ מוצג */
+.scroll-to-top.show {
+  display: block;
+}
+
+.scroll-to-top:hover {
+  background-color: rgba(0, 0, 0, 0.9); /* שינוי צבע הרקע בזמן ריחוף */
+}
+

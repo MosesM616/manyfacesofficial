@@ -1289,6 +1289,13 @@ border: 0.5px solid #624607;      /* גבול דק בצבע חום כהה */
   overflow: hidden;
 }
 
+.krifbanner img {
+  width: 100%;
+  height: 100%; /* מתיחה לרוחב וגובה 100% */
+  object-fit: cover; /* שמירה על פרופורציות */
+  object-position: center;
+}
+
 .krifbanner h1 {
   position: absolute;
   font-size: 4em;
